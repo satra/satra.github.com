@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[the little corner]]></title>
+  <title><![CDATA[satrajit.ghosh]]></title>
   <link href="http://satra.cogitatum.org/atom.xml" rel="self"/>
   <link href="http://satra.cogitatum.org/"/>
-  <updated>2012-12-28T17:30:06-05:00</updated>
+  <updated>2012-12-28T17:43:01-05:00</updated>
   <id>http://satra.cogitatum.org/</id>
   <author>
     <name><![CDATA[Satrajit Ghosh]]></name>
