@@ -9,8 +9,9 @@
   <meta name="author" content="Satrajit Ghosh">
 
   
-  <meta name="description" content="I am a research scientist at the McGovern Institute for Brain Research at MIT
-and a faculty member in the Speech and Hearing Biosciences and &hellip;">
+  <meta name="description" content="I am a research scientist at the
+McGovern Institute for Brain Research at MIT and a faculty member in the
+Speech and Hearing Biosciences and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,14 +84,15 @@ and a faculty member in the Speech and Hearing Biosciences and &hellip;">
       <div class="nav-collapse">
                 <ul class="nav">
           <li><a href="/">Home</a></li>
-            <li class="dropdown">
-                <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Research <b class="caret"></b></a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                    <li><a tabindex="-1" href="/research">Summary</a></li>
-                    <li><a tabindex="-1" href="/research/current-projects">Projects</a></li>
-                    <li><a tabindex="-1" href="/research/publications">Publications</a></li>
-                </ul>
-            </li>
+          <li class="dropdown">
+            <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Research <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                <li><a tabindex="-1" href="/research">Summary</a></li>
+                <li><a tabindex="-1" href="/research/current-projects">Projects</a></li>
+                <li><a tabindex="-1" href="/research/publications">Publications</a></li>
+            </ul>
+          </li>
+          <li><a href="/software">Software</a></li>
           <li><a href="/teaching">Teaching</a></li>
           <li><a href="/blog/archives">Blog</a></li>
           <li><a href="/about">About me</a></li>
@@ -118,20 +120,24 @@ and a faculty member in the Speech and Hearing Biosciences and &hellip;">
   <div class="span8">
     
     
-    <p>I am a research scientist at the McGovern Institute for Brain Research at MIT
-and a faculty member in the Speech and Hearing Biosciences and Technology
-program in the Harvard Division of Medical Sciences.</p>
+    <p>I am a research scientist at the
+<a href="http://mcgovern.mit.edu">McGovern Institute for Brain Research</a> at MIT and a faculty member in the
+<a href="http://www.hms.harvard.edu/dms/shbt">Speech and Hearing Biosciences and Technology</a> program in the
+<a href="http://www.hms.harvard.edu/dms">Harvard Division of Medical Sciences</a>.</p>
 
 <p>My research areas include neuroinformatics, applied machine learning,
 neuroimaging, software engineering and speech communication.</p>
 
 <h2>Contact</h2>
 
-<p>If you are coming to visit, this map may be useful.</p>
+<p>If you are coming to visit, this <a href="http://whereis.mit.edu/?go=46">map</a> may be
+useful.</p>
 
-<p>Satrajit Ghosh
-Off:  46-4033F, 43 Vassar St, Cambridge, MA 02139
-Tel:  +1.617.324.3544</p>
+<blockquote><p>Satrajit Ghosh [ satra at mit dot edu ]</p>
+
+<p>Off:  46-4033F, 43 Vassar St, Cambridge, MA 02139</p>
+
+<p>Tel:  +1.617.324.3544</p></blockquote>
 
     
     
@@ -155,6 +161,105 @@ Tel:  +1.617.324.3544</p>
     
     
   </div>
+  
+    
+  <aside class="span sidebar pull-right">
+    <div class="well">
+      
+        <section>
+    <style>
+        .polaroid {
+            position: relative;
+            width: 140px;
+        }
+
+        .polaroid img {
+            border: 10px solid #fff;
+            border-bottom: 25px solid #fff;
+            -webkit-box-shadow: 3px 3px 3px #777;
+            -moz-box-shadow: 3px 3px 3px #777;
+            box-shadow: 3px 3px 3px #777;
+        }
+
+        .polaroid p {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            bottom: 0px;
+            font: 400 18px/1 'Cedarville Cursive', cursive;
+            color: #888;
+        }
+    </style>
+    <div class="polaroid">
+        <p>Satra</p>
+        <img src="/assets/satra.jpg">
+    </div>
+</section>
+<section>
+  <h2>Recent Posts</h2>
+  <ul id="recent_posts">
+    
+  </ul>
+</section>
+
+<section>
+  <h2>GitHub Repos</h2>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/satra">@satra</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'satra',
+            count: 4,
+            skip_forks: false,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h2>Latest Tweets</h2>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+    <a href="http://twitter.com/satra_" class="twitter-follow-button" data-show-count="false">Follow @satra_</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h2>
+    <a href="https://plus.google.com/105261369456480898587?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h2>
+</section>
+
+
+
+      
+    </div>
+  </aside>
+
+
   
 </div>
 
