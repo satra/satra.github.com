@@ -2,6 +2,21 @@
 layout: default
 ---
 
+<div id="myCarousel" class="carousel slide span6">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="active item">…</div>
+        <div class="item">…</div>
+        <div class="item">…</div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+<br>
+{% if site.sidebar_posn == "left" %}
+  {% include sidebar.html %}
+{% endif %}
 <div class="blog-index">
   {% assign index = true %}
   {% for post in paginator.posts %}
@@ -20,10 +35,7 @@ layout: default
     {% endif %}
   </div>
 </div>
-<aside class="sidebar">
-  {% if site.blog_index_asides.size %}
-    {% include_array blog_index_asides %}
-  {% else %}
-    {% include_array default_asides %}
-  {% endif %}
-</aside>
+{% if site.sidebar_posn != "left" %}
+  {% include sidebar.html %}
+{% endif %}
+

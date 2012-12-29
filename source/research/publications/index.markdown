@@ -1,0 +1,356 @@
+---
+layout: page
+comments: false
+sharing: true
+footer: true
+---
+
+<script>
+var details = false;
+var details = {"firstname":"Satrajit","middlename":"S","lastname":"Ghosh","email":"satra@mit.edu","website":"http:\/\/www.mit.edu\/~satra","address":"","biosketch":"My present research focuses on novel computational approaches for representing multimodal data in the context of the clinical disorders and to develop models for diagnosing and predicting treatment outcome. This is currently being applied to stuttering, ADHD, MDD and SAD. I am also involved with the development and validation of realtime-fMRI as a clinical tool in the context of new project funded by the DoD. I have developed state-of-the-art tools for region of interest analysis of neuroimaging data. As P.I. of an R03 from NIBIB I initiated the development of a Python-based, open-source, multi-institution software project aimed at improving interoperability among existing imaging analysis software packages (http:\/\/nipy.org\/nipype). My prior work has involved real-time synthesis of computer music and sound effects, controlling chaotic oscillators, computational modeling of speech acquisition and production, and real-time DSP-based speech signal processing."};
+var readonly = '1';
+var rootpath = 'http://publicationslist.org/';
+var ownpage = '1';
+var userid = 'satra';
+var mode = 'publish';
+var nothumbs = 0;
+var publistBrand = "PublicationsList.org";
+var localInstall = 0;
+<!--
+   function setStyle(str) {
+     document.getElementById("styleid").href = str;
+   }
+-->
+</script>
+
+
+<script src='http://publicationslist.org/schema.js'></script>
+
+<script>
+var publist = [
+{"refid":"1","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Cine magnetic resonance imaging with simultaneous audio to evaluate pediatric velopharyngeal insufficiency.","year":"2011","author":"Amanda L Silver, Katherine Nimkin, Jean E Ashland, Satrajit S Ghosh, Andre J W van der Kouwe, Matthew T Brigger, Christopher J Hartnick","journal":"Arch Otolaryngol Head Neck Surg","volume":"137","number":"3","pages":"258-263","month":"Mar","doi":"10.1001\/archoto.2011.11","pubmed":"21422310","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4512648195\/de0f8fc781c08412ecd257f337e1d3d63d7b4c41\/dl.pdf","urllink":"","abstract":"To develop a protocol linking cine magnetic resonance (MR) imaging to simultaneously acquired audio recordings of specific phonatory tasks to evaluate velopharyngeal insufficiency (VPI) in children.","note":"","tags":"Adolescent,Adult,Child,Female,Humans,Image Processing, Computer-Assisted,Magnetic Resonance Imaging, Cine,Male,Palate, Soft,Phonation,Reference Values,Tape Recording,Velopharyngeal Insufficiency","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1538-361X","isi":"","key":"Silver2011","howpublished":""},
+{"refid":"2","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"fMRI investigation of unexpected somatosensory feedback perturbation during speech.","year":"2011","author":"Elisa Golfinopoulos, Jason A Tourville, Jason W Bohland, Satrajit S Ghosh, Alfonso Nieto-Castanon, Frank H Guenther","journal":"Neuroimage","volume":"55","number":"3","pages":"1324-1338","month":"Apr","doi":"10.1016\/j.neuroimage.2010.12.065","pubmed":"21195191","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4449461245\/63666819e01265d6d2ddd75e064b97fc92bde1bf\/dl.pdf","urllink":"","abstract":"Somatosensory feedback plays a critical role in the coordination of articulator movements for speech production. In response to unexpected resistance to lip or jaw movements during speech, fluent speakers can use the difference between the somatosensory expectations of a speech sound and the actual somatosensory feedback to adjust the trajectories of functionally relevant but unimpeded articulators. In an effort to investigate the neural substrates underlying the somatosensory feedback control of speech, we used an event-related sparse sampling functional magnetic resonance imaging paradigm and a novel pneumatic device that unpredictably blocked subjects' jaw movements. In comparison to speech, perturbed speech, in which jaw perturbation prompted the generation of compensatory speech motor commands, demonstrated increased effects in bilateral ventral motor cortex, right-lateralized anterior supramarginal gyrus, inferior frontal gyrus pars triangularis and ventral premotor cortex, and bilateral inferior posterior cerebellum (lobule VIII). Structural equation modeling revealed a significant increased influence from left anterior supramarginal gyrus to right anterior supramarginal gyrus and from left anterior supramarginal gyrus to right ventral premotor cortex as well as a significant increased reciprocal influence between right ventral premotor cortex and right ventral motor cortex and right anterior supramarginal gyrus and right inferior frontal gyrus pars triangularis for perturbed speech relative to speech. These results suggest that bilateral anterior supramarginal gyrus, right inferior frontal gyrus pars triangularis, right ventral premotor and motor cortices are functionally coupled and influence speech motor output when somatosensory feedback is unexpectedly perturbed during speech production.","note":"","tags":"Adult,Biomechanics,Cerebellum,Cerebral Cortex,Data Interpretation, Statistical,Electric Stimulation,Feedback, Physiological,Female,Functional Laterality,Humans,Image Processing, Computer-Assisted,Jaw,Magnetic Resonance Imaging,Male,Middle Aged,Models, Statistical,Oxygen,Phonetics,Physical Stimulation,Psychomotor Performance,Speech,Young Adult","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1095-9572","isi":"","key":"Golfinopoulos2011","howpublished":""},
+{"refid":"3","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Evaluating the validity of volume-based and surface-based brain image registration for developmental cognitive neuroscience studies in children 4 to 11 years of age.","year":"2010","author":"Satrajit S Ghosh, Sita Kakunoori, Jean Augustinack, Alfonso Nieto-Castanon, Ioulia Kovelman, Nadine Gaab, Joanna A Christodoulou, Christina Triantafyllou, John D E Gabrieli, Bruce Fischl","journal":"Neuroimage","volume":"53","number":"1","pages":"85-93","month":"Oct","doi":"10.1016\/j.neuroimage.2010.05.075","pubmed":"20621657","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4527114305\/cca38234ad1e647fd57adf0a7c1d7504a3dae882\/dl.pdf","urllink":"","abstract":"Understanding the neurophysiology of human cognitive development relies on methods that enable accurate comparison of structural and functional neuroimaging data across brains from people of different ages. A fundamental question is whether the substantial brain growth and related changes in brain morphology that occur in early childhood permit valid comparisons of brain structure and function across ages. Here we investigated whether valid comparisons can be made in children from ages 4 to 11, and whether there are differences in the use of volume-based versus surface-based registration approaches for aligning structural landmarks across these ages. Regions corresponding to the calcarine sulcus, central sulcus, and Sylvian fissure in both the hemispheres were manually labeled on T1-weighted structural magnetic resonance images from 31 children ranging in age from 4.2 to 11.2years old. Quantitative measures of shape similarity and volumetric-overlap of these manually labeled regions were calculated when brains were aligned using a 12-parameter affine transform, SPM's nonlinear normalization, a diffeomorphic registration (ANTS), and FreeSurfer's surface-based registration. Registration error for normalization into a common reference framework across participants in this age range was lower than commonly used functional imaging resolutions. Surface-based registration provided significantly better alignment of cortical landmarks than volume-based registration. In addition, registering children's brains to a common space does not result in an age-associated bias between older and younger children, making it feasible to accurately compare structural properties and patterns of brain activation in children from ages 4 to 11.","note":"","tags":"Aging,Algorithms,Brain,Child, Preschool,Cognition,Female,Humans,Image Enhancement,Image Interpretation, Computer-Assisted,Imaging, Three-Dimensional,Male,Neurosciences,Reproducibility of Results,Sensitivity and Specificity,Subtraction Technique","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1095-9572","isi":"","key":"Ghosh2010","howpublished":""},
+{"refid":"4","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Evaluation of volume-based and surface-based brain image registration methods.","year":"2010","author":"Arno Klein, Satrajit S Ghosh, Brian Avants, B T T Yeo, Bruce Fischl, Babak Ardekani, James C Gee, J J Mann, Ramin V Parsey","journal":"Neuroimage","volume":"51","number":"1","pages":"214-220","month":"May","doi":"10.1016\/j.neuroimage.2010.01.091","pubmed":"20123029","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4366884125\/6a27fb3d80567e44cd35e6d935d163850e04bd53\/dl.pdf","urllink":"","abstract":"Establishing correspondences across brains for the purposes of comparison and group analysis is almost universally done by registering images to one another either directly or via a template. However, there are many registration algorithms to choose from. A recent evaluation of fully automated nonlinear deformation methods applied to brain image registration was restricted to volume-based methods. The present study is the first that directly compares some of the most accurate of these volume registration methods with surface registration methods, as well as the first study to compare registrations of whole-head and brain-only (de-skulled) images. We used permutation tests to compare the overlap or Hausdorff distance performance for more than 16,000 registrations between 80 manually labeled brain images. We compared every combination of volume-based and surface-based labels, registration, and evaluation. Our primary findings are the following: 1. de-skulling aids volume registration methods; 2. custom-made optimal average templates improve registration over direct pairwise registration; and 3. resampling volume labels on surfaces or converting surface labels to volumes introduces distortions that preclude a fair comparison between the highest ranking volume and surface registration methods using present resampling methods. From the results of this study, we recommend constructing a custom template from a limited sample drawn from the same or a similar representative population, using the same algorithm used for registering brains to the template.","note":"","tags":"Adult,Algorithms,Brain,Female,Head,Humans,Image Processing, Computer-Assisted,Imaging, Three-Dimensional,Magnetic Resonance Imaging,Male,Organ Size,Software,Young Adult","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1095-9572","isi":"","key":"Klein2010","howpublished":""},
+{"refid":"5","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"A neuroimaging study of premotor lateralization and cerebellar involvement in the production of phonemes and syllables.","year":"2008","author":"Satrajit S Ghosh, Jason A Tourville, Frank H Guenther","journal":"J Speech Lang Hear Res","volume":"51","number":"5","pages":"1183-1202","month":"Oct","doi":"10.1044\/1092-4388(2008\/07-0119)","pubmed":"18664692","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4449474285\/931d5d11879bdbb1d8bdecd4507dc993e4a34a80\/dl.pdf","urllink":"","abstract":"This study investigated the network of brain regions involved in overt production of vowels, monosyllables, and bisyllables to test hypotheses derived from the Directions Into Velocities of Articulators (DIVA) model of speech production (Guenther, Ghosh, & Tourville, 2006). The DIVA model predicts left lateralized activity in inferior frontal cortex when producing a single syllable or phoneme and increased cerebellar activity for consonant-vowel syllables compared with steady-state vowels.","note":"","tags":"Adult,Auditory Cortex,Basal Ganglia,Brain Mapping,Cerebellum,Female,Frontal Lobe,Functional Laterality,Humans,Magnetic Resonance Imaging,Male,Middle Aged,Motor Cortex,Phonetics,Somatosensory Cortex,Speech,Thalamus","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1092-4388","isi":"","key":"Ghosh2008","howpublished":""},
+{"refid":"6","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Neural modeling and imaging of the cortical interactions underlying syllable production.","year":"2006","author":"Frank H Guenther, Satrajit S Ghosh, Jason A Tourville","journal":"Brain Lang","volume":"96","number":"3","pages":"280-301","month":"Mar","doi":"10.1016\/j.bandl.2005.06.001","pubmed":"16040108","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4140896052\/ad6dad3505a13837b2cb9d6b7e63d577a8fb439e\/dl.pdf","urllink":"","abstract":"This paper describes a neural model of speech acquisition and production that accounts for a wide range of acoustic, kinematic, and neuroimaging data concerning the control of speech movements. The model is a neural network whose components correspond to regions of the cerebral cortex and cerebellum, including premotor, motor, auditory, and somatosensory cortical areas. Computer simulations of the model verify its ability to account for compensation to lip and jaw perturbations during speech. Specific anatomical locations of the model's components are estimated, and these estimates are used to simulate fMRI experiments of simple syllable production.","note":"","tags":"Brain Mapping,Cerebral Cortex,Computer Simulation,Humans,Magnetic Resonance Imaging,Models, Neurological,Nerve Net,Psychomotor Performance,Speech,Synaptic Transmission","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"0093-934X","isi":"","key":"Guenther2006","howpublished":""},
+{"refid":"7","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Representation of sound categories in auditory cortical maps.","year":"2004","author":"Frank H Guenther, Alfonso Nieto-Castanon, Satrajit S Ghosh, Jason A Tourville","journal":"J Speech Lang Hear Res","volume":"47","number":"1","pages":"46-57","month":"Feb","doi":"10.1044\/1092-4388(2004\/005)","pubmed":"15072527","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4449474265\/6c957087d7c618235c8bfb5df916dbb575475120\/dl.pdf","urllink":"","abstract":"Functional magnetic resonance imaging (fMRI) was used to investigate the representation of sound categories in human auditory cortex. Experiment 1 investigated the representation of prototypical (good) and nonprototypical (bad) examples of a vowel sound. Listening to prototypical examples of a vowel resulted in less auditory cortical activation than did listening to nonprototypical examples. Experiments 2 and 3 investigated the effects of categorization training and discrimination training with novel nonspeech sounds on auditory cortical representations. The 2 training tasks were shown to have opposite effects on the auditory cortical representation of sounds experienced during training: Discrimination training led to an increase in the amount of activation caused by the training stimuli, whereas categorization training led to decreased activation. These results indicate that the brain efficiently shifts neural resources away from regions of acoustic space where discrimination between sounds is not behaviorally important (e.g., near the center of a sound category) and toward regions where accurate discrimination is needed. The results also provide a straightforward neural account of learned aspects of perceptual distortion near sound categories: Sounds from the center of a category are more difficult to discriminate from each other than sounds near category boundaries because they are represented by fewer cells in the auditory cortical areas.","note":"","tags":"Acoustic Stimulation,Adolescent,Adult,Auditory Cortex,Auditory Threshold,Brain Mapping,Dominance, Cerebral,Female,Humans,Magnetic Resonance Imaging,Male,Middle Aged,Speech Discrimination Tests,Speech Perception","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1092-4388","isi":"","key":"Guenther2004","howpublished":""},
+{"refid":"8","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Region of interest based analysis of functional imaging data.","year":"2003","author":"Alfonso Nieto-Castanon, Satrajit S Ghosh, Jason A Tourville, Frank H Guenther","journal":"Neuroimage","volume":"19","number":"4","pages":"1303-1316","month":"Aug","doi":"10.1016\/S1053-8119(03)00188-5","pubmed":"12948689","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4140898702\/344a1dd03d94779f950beea9220b0a91f67cd57a\/dl.pdf","urllink":"","abstract":"fMRI analysis techniques are presented that test functional hypotheses at the region of interest (ROI) level. An SPM-compatible Matlab toolbox has been developed that allows the creation of subject-specific ROI masks based on anatomical markers and the testing of functional hypotheses on the regional response using multivariate time-series analysis techniques. The combined application of subject-specific ROI definition and region-level functional analysis is shown to appropriately compensate for intersubject anatomical variability, offering finer localization and increased sensitivity to task-related effects than standard techniques based on whole-brain normalization and voxel or cluster-level functional analysis, while providing a more direct link between discrete brain region hypotheses and the statistical analyses used to test them.","note":"","tags":"Artifacts,Brain Mapping,Cerebral Cortex,Humans,Image Processing, Computer-Assisted,Imaging, Three-Dimensional,Linear Models,Magnetic Resonance Imaging,Mathematical Computing,Monte Carlo Method,Multivariate Analysis,Neural Networks (Computer)","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1053-8119","isi":"","key":"Nieto-Castanon2003","howpublished":""},
+{"refid":"9","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Mindboggle: automated brain labeling with multiple atlases.","year":"2005","author":"Arno Klein, Brett Mensh, Satrajit Ghosh, Jason Tourville, Joy Hirsch","journal":"BMC Med Imaging","volume":"5","number":"","pages":"","month":"Oct","doi":"10.1186\/1471-2342-5-7","pubmed":"16202176","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4449474255\/d7abfa0a5fe0155360e7383d35a5ff4576ed4893\/dl.pdf","urllink":"","abstract":"To make inferences about brain structures or activity across multiple individuals, one first needs to determine the structural correspondences across their image data. We have recently developed Mindboggle as a fully automated, feature-matching approach to assign anatomical labels to cortical structures and activity in human brain MRI data. Label assignment is based on structural correspondences between labeled atlases and unlabeled image data, where an atlas consists of a set of labels manually assigned to a single brain image. In the present work, we study the influence of using variable numbers of individual atlases to nonlinearly label human brain image data.","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1471-2342","isi":"","key":"Klein2005","howpublished":""},
+{"refid":"10","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Computing moment-to-moment BOLD activation for real-time neurofeedback.","year":"2011","author":"Oliver Hinds, Satrajit Ghosh, Todd W Thompson, Julie J Yoo, Susan Whitfield-Gabrieli, Christina Triantafyllou, John D E Gabrieli","journal":"Neuroimage","volume":"54","number":"1","pages":"361-368","month":"Jan","doi":"10.1016\/j.neuroimage.2010.07.060","pubmed":"20682350","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4366448085\/bb88e1c9439a8ff26d789384496c2f505dba2181\/dl.%20-%202011%20-%20neuroimage%20computing%20moment-to-moment%20bold%20activation%20for%20real-time%20neurofeedback","urllink":"","abstract":"Estimating moment-to-moment changes in blood oxygenation level dependent (BOLD) activation levels from functional magnetic resonance imaging (fMRI) data has applications for learned regulation of regional activation, brain state monitoring, and brain-machine interfaces. In each of these contexts, accurate estimation of the BOLD signal in as little time as possible is desired. This is a challenging problem due to the low signal-to-noise ratio of fMRI data. Previous methods for real-time fMRI analysis have either sacrificed the ability to compute moment-to-moment activation changes by averaging several acquisitions into a single activation estimate or have sacrificed accuracy by failing to account for prominent sources of noise in the fMRI signal. Here we present a new method for computing the amount of activation present in a single fMRI acquisition that separates moment-to-moment changes in the fMRI signal intensity attributable to neural sources from those due to noise, resulting in a feedback signal more reflective of neural activation. This method computes an incremental general linear model fit to the fMRI time series, which is used to calculate the expected signal intensity at each new acquisition. The difference between the measured intensity and the expected intensity is scaled by the variance of the estimator in order to transform this residual difference into a statistic. Both synthetic and real data were used to validate this method and compare it to the only other published real-time fMRI method.","note":"","tags":"Biofeedback, Psychology,Computing Methodologies,Feedback, Physiological,Feedback, Psychological,Humans,Image Processing, Computer-Assisted,Kinetics,Magnetic Resonance Imaging,Oxygen,Reproducibility of Results,Signal Transduction","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1095-9572","isi":"","key":"Hinds2011","howpublished":""},
+{"refid":"11","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Prediction of Successful Memory Encoding from fMRI Data.","year":"2008","author":"S K Balci, M R Sabuncu, J Yoo, S S Ghosh, S Whitfield-Gabrieli, J D E Gabrieli, P Golland","journal":"Med Image Comput Comput Assist Interv","volume":"2008","number":"11","pages":"97-104","month":"Sep","doi":"10.1901\/jaba.2008.2008-97","pubmed":"20401334","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4449474275\/d7f7c9895a8a70e76691722a364794be1182e9c3\/dl.pdf","urllink":"","abstract":"In this work, we explore the use of classification algorithms in predicting mental states from functional neuroimaging data. We train a linear support vector machine classifier to characterize spatial fMRI activation patterns. We employ a general linear model based feature extraction method and use the t-test for feature selection. We evaluate our method on a memory encoding task, using participants' subjective prediction about learning as a benchmark for our classifier. We show that the classifier achieves better than random predictions and the average accuracy is close to subject's own prediction performance. In addition, we validate our tool on a simple motor task where we demonstrate an average prediction accuracy of over 90%. Our experiments demonstrate that the classifier performance depends significantly on the complexity of the experimental design and the mental process of interest.","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"","isi":"","key":"Balci2008","howpublished":""},
+{"refid":"12","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"An investigation of the relation between sibilant production and somatosensory and auditory acuity.","year":"2010","author":"Satrajit S Ghosh, Melanie L Matthies, Edwin Maas, Alexandra Hanson, Mark Tiede, Lucie M\u00e9nard, Frank H Guenther, Harlan Lane, Joseph S Perkell","journal":"J Acoust Soc Am","volume":"128","number":"5","pages":"3079-3087","month":"Nov","doi":"10.1121\/1.3493430","pubmed":"21110603","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4449461225\/693235738d8cc562c92b137e62dacaf3ac1e84c1\/dl.pdf","urllink":"","abstract":"The relation between auditory acuity, somatosensory acuity and the magnitude of produced sibilant contrast was investigated with data from 18 participants. To measure auditory acuity, stimuli from a synthetic sibilant continuum ([s]-[\u0283]) were used in a four-interval, two-alternative forced choice adaptive-staircase discrimination task. To measure somatosensory acuity, small plastic domes with grooves of different spacing were pressed against each participant's tongue tip and the participant was asked to identify one of four possible orientations of the grooves. Sibilant contrast magnitudes were estimated from productions of the words 'said,' 'shed,' 'sid,' and 'shid'. Multiple linear regression revealed a significant relation indicating that a combination of somatosensory and auditory acuity measures predicts produced acoustic contrast. When the participants were divided into high- and low-acuity groups based on their median somatosensory and auditory acuity measures, separate ANOVA analyses with sibilant contrast as the dependent variable yielded a significant main effect for each acuity group. These results provide evidence that sibilant productions have auditory as well as somatosensory goals and are consistent with prior results and the theoretical framework underlying the DIVA model of speech production.","note":"","tags":"Auditory Cortex,Feedback,Female,Humans,Linear Models,Male,Phonation,Phonetics,Proprioception,Somatosensory Cortex,Speech Perception,Speech Production Measurement,Tongue,Touch Perception,Young Adult","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1520-8524","isi":"","key":"Ghosh2010","howpublished":""},
+{"refid":"13","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Adaptive auditory feedback control of the production of formant trajectories in the Mandarin triphthong \/iau\/ and its pattern of generalization.","year":"2010","author":"Shanqing Cai, Satrajit S Ghosh, Frank H Guenther, Joseph S Perkell","journal":"J Acoust Soc Am","volume":"128","number":"4","pages":"2033-2048","month":"Oct","doi":"10.1121\/1.3479539","pubmed":"20968374","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4449474295\/1b1da271d0f7f7bd69e5c9e1a6f4dfdf0d9cf762\/dl.pdf","urllink":"","abstract":"In order to test whether auditory feedback is involved in the planning of complex articulatory gestures in time-varying phonemes, the current study examined native Mandarin speakers' responses to auditory perturbations of their auditory feedback of the trajectory of the first formant frequency during their production of the triphthong \/iau\/. On average, subjects adaptively adjusted their productions to partially compensate for the perturbations in auditory feedback. This result indicates that auditory feedback control of speech movements is not restricted to quasi-static gestures in monophthongs as found in previous studies, but also extends to time-varying gestures. To probe the internal structure of the mechanisms of auditory-motor transformations, the pattern of generalization of the adaptation learned on the triphthong \/iau\/ to other vowels with different temporal and spatial characteristics (produced only under masking noise) was tested. A broad but weak pattern of generalization was observed; the strength of the generalization diminished with increasing dissimilarity from \/iau\/. The details and implications of the pattern of generalization are examined and discussed in light of previous sensorimotor adaptation studies of both speech and limb motor control and a neurocomputational model of speech motor control.","note":"","tags":"Adaptation, Psychological,Adult,Audiometry, Speech,Auditory Pathways,Auditory Threshold,Feedback, Psychological,Female,Gestures,Humans,Male,Motor Activity,Phonetics,Signal Detection, Psychological,Sound Spectrography,Speech Acoustics,Speech Perception,Time Factors","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1520-8524","isi":"","key":"Cai2010","howpublished":""},
+{"refid":"14","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Nipype: a flexible, lightweight and extensible neuroimaging data processing framework in python.","year":"2011","author":"Krzysztof Gorgolewski, Christopher D Burns, Cindee Madison, Dav Clark, Yaroslav O Halchenko, Michael L Waskom, Satrajit S Ghosh","journal":"Front Neuroinform","volume":"5","number":"","pages":"","month":"08","doi":"10.3389\/fninf.2011.00013","pubmed":"21897815","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4449461235\/b85bf8a0689b3b6b631c5470776cbbf90b7e7993\/dl.pdf","urllink":"","abstract":"Current neuroimaging software offer users an incredible opportunity to analyze their data in different ways, with different underlying assumptions. Several sophisticated software packages (e.g., AFNI, BrainVoyager, FSL, FreeSurfer, Nipy, R, SPM) are used to process and analyze large and often diverse (highly multi-dimensional) data. However, this heterogeneous collection of specialized applications creates several issues that hinder replicable, efficient, and optimal use of neuroimaging analysis approaches: (1) No uniform access to neuroimaging analysis software and usage information; (2) No framework for comparative algorithm development and dissemination; (3) Personnel turnover in laboratories often limits methodological continuity and training new personnel takes time; (4) Neuroimaging software packages do not address computational efficiency; and (5) Methods sections in journal articles are inadequate for reproducing results. To address these issues, we present Nipype (Neuroimaging in Python: Pipelines and Interfaces; http:\/\/nipy.org\/nipype), an open-source, community-developed, software package, and scriptable library. Nipype solves the issues by providing Interfaces to existing neuroimaging software with uniform usage semantics and by facilitating interaction between these packages using Workflows. Nipype provides an environment that encourages interactive exploration of algorithms, eases the design of Workflows within and between packages, allows rapid comparative development of algorithms and reduces the learning curve necessary to use different packages. Nipype supports both local and remote execution on multi-core machines and clusters, without additional scripting. Nipype is Berkeley Software Distribution licensed, allowing anyone unrestricted usage. An open, community-driven development philosophy allows the software to quickly adapt and address the varied needs of the evolving neuroimaging community, especially in the context of increasing demand for reproducible research.","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1662-5196","isi":"","key":"Gorgolewski2011","howpublished":""},
+{"refid":"15","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Focal manipulations of formant trajectories reveal a role of auditory feedback in the online control of both within-syllable and between-syllable speech timing.","year":"2011","author":"Shanqing Cai, Satrajit S Ghosh, Frank H Guenther, Joseph S Perkell","journal":"J Neurosci","volume":"31","number":"45","pages":"16483-16490","month":"Nov","doi":"10.1523\/JNEUROSCI.3653-11.2011","pubmed":"22072698","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4511952695\/384a7318fee171f84998dde0027fa7057d8c88ec\/dl.pdf","urllink":"","abstract":"Within the human motor repertoire, speech production has a uniquely high level of spatiotemporal complexity. The production of running speech comprises the traversing of spatial positions with precisely coordinated articulator movements to produce 10-15 sounds\/s. How does the brain use auditory feedback, namely the self-perception of produced speech sounds, in the online control of spatial and temporal parameters of multisyllabic articulation? This question has important bearings on the organizational principles of sequential actions, yet its answer remains controversial due to the long latency of the auditory feedback pathway and technical challenges involved in manipulating auditory feedback in precisely controlled ways during running speech. In this study, we developed a novel technique for introducing time-varying, focal perturbations in the auditory feedback during multisyllabic, connected speech. Manipulations of spatial and temporal parameters of the formant trajectory were tested separately on two groups of subjects as they uttered \"I owe you a yo-yo.\" Under these perturbations, significant and specific changes were observed in both the spatial and temporal parameters of the produced formant trajectories. Compensations to spatial perturbations were bidirectional and opposed the perturbations. Furthermore, under perturbations that manipulated the timing of auditory feedback trajectory (slow-down or speed-up), significant adjustments in syllable timing were observed in the subjects' productions. These results highlight the systematic roles of auditory feedback in the online control of a highly over-learned action as connected speech articulation and provide a first look at the properties of this type of sensorimotor interaction in sequential movements.","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1529-2401","isi":"","key":"Cai2011","howpublished":""},
+{"refid":"16","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"The influence of auditory acuity on acoustic variability and the use of motor equivalence during adaptation to a perturbation.","year":"2011","author":"Jana Brunner, Satrajit Ghosh, Philip Hoole, Melanie Matthies, Mark Tiede, Joseph Perkell","journal":"J Speech Lang Hear Res","volume":"54","number":"3","pages":"727-739","month":"Jun","doi":"10.1044\/1092-4388(2010\/09-0256)","pubmed":"20966388","pdflink":"http:\/\/www.mendeley.com\/download\/public\/1121631\/4449461265\/4164c4e0cf249ccbc950dac70720b9d95103bc51\/dl.pdf","urllink":"","abstract":"The aim of this study was to relate speakers' auditory acuity for the sibilant contrast, their use of motor equivalent trading relationships in producing the sibilant \/\u222b\/, and their produced acoustic distance between the sibilants \/s\/ and \/\u222b\/. Specifically, the study tested the hypotheses that during adaptation to a perturbation of vocal-tract shape, high-acuity speakers use motor equivalence strategies to a greater extent than do low-acuity speakers in order to reach their smaller phonemic goal regions, and that high-acuity speakers produce greater acoustic distance between 2 sibilant phonemes than do low-acuity speakers.","note":"","tags":"Acoustic Stimulation,Adaptation, Physiological,Adult,Female,Hearing,Humans,Lip,Male,Middle Aged,Palate,Phonetics,Speech,Speech Discrimination Tests,Speech Intelligibility,Tongue","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1558-9102","isi":"","key":"Brunner2011","howpublished":""},
+{"refid":"17","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Data sharing in neuroimaging research.","year":"2012","author":"Jean-Baptiste Poline, Janis L Breeze, Satrajit Ghosh, Krzysztof Gorgolewski, Yaroslav O Halchenko, Michael Hanke, Christian Haselgrove, Karl G Helmer, David B Keator, Daniel S Marcus, Russell A Poldrack, Yannick Schwartz, John Ashburner, David N Kennedy","journal":"Front Neuroinform","volume":"6","number":"","pages":"","month":"04","doi":"10.3389\/fninf.2012.00009","pubmed":"22493576","pdflink":"http:\/\/www.frontiersin.org\/Journal\/DownloadFile.ashx?pdf=1&FileId=%2030651&articleId=%2017185&Version=%201&ContentTypeId=21&FileName=%20fninf-06-00009.pdf","urllink":"http:\/\/www.frontiersin.org\/Journal\/FullText.aspx?s=752&name=Neuroinformatics&ART_DOI=10.3389\/fninf.2012.00009","abstract":"Significant resources around the world have been invested in neuroimaging studies of brain function and disease. Easier access to this large body of work should have profound impact on research in cognitive neuroscience and psychiatry, leading to advances in the diagnosis and treatment of psychiatric and neurological disease. A trend toward increased sharing of neuroimaging data has emerged in recent years. Nevertheless, a number of barriers continue to impede momentum. Many researchers and institutions remain uncertain about how to share data or lack the tools and expertise to participate in data sharing. The use of electronic data capture (EDC) methods for neuroimaging greatly simplifies the task of data collection and has the potential to help standardize many aspects of data sharing. We review here the motivations for sharing neuroimaging data, the current data sharing landscape, and the sociological or technical barriers that still need to be addressed. The INCF Task Force on Neuroimaging Datasharing, in conjunction with several collaborative groups around the world, has started work on several tools to ease and eventually automate the practice of data sharing. It is hoped that such tools will allow researchers to easily share raw, processed, and derived neuroimaging data, with appropriate metadata and provenance records, and will improve the reproducibility of neuroimaging studies. By providing seamless integration of data sharing and analysis tools within a commodity research environment, the Task Force seeks to identify and minimize barriers to data sharing in the field of neuroimaging.","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1662-5196","isi":"","key":"Poline2012","howpublished":""},
+{"refid":"20","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Learning from open source software projects to improve scientific review","year":"2012","author":"Satrajit S Ghosh, Arno Klein, Brian Avants, K Jarrod Millman","journal":"Frontiers in Computational Neuroscience","volume":"6","number":"","pages":"","month":"2012","doi":"10.3389\/fncom.2012.00018","pubmed":"","pdflink":"http:\/\/www.frontiersin.org\/Journal\/DownloadFile.ashx?pdf=1&FileId=%2059390&articleId=%2011817&Version=%201&ContentTypeId=21&FileName=%20fncom-06-00018.pdf","urllink":"http:\/\/www.frontiersin.org\/Journal\/FullText.aspx?s=237&name=Computational_Neuroscience&ART_DOI=10.3389\/fncom.2012.00018","abstract":"Peer-reviewed publications are the primary mechanism for sharing scientific results. The current peer-review process is, however, fraught with many problems that undermine the pace, validity, and credibility of science.   We highlight five salient problems: (1) Reviewers are expected to have comprehensive expertise; (2) Reviewers do not have sufficient access to methods and materials to evaluate a study; (3) Reviewers are not acknowledged; (4) There is no measure of the quality of a review; and (5) Reviews take a lot of time, and once submitted cannot evolve. We propose that these problems can be resolved by making the following changes to the review process. Distributing reviews to many reviewers would allow each reviewer to focus on portions of the article that reflect the reviewer?s specialty or area of interest and place less of a burden on any one reviewer, enabling a more comprehensive and timely review. Providing reviewers materials and methods to perform comprehensive evaluation would facilitate transparency, replication of results and enable greater scrutiny by people from different fields using different nomenclature, leading to greater clarity and cross-fertilization of ideas. Acknowledging reviewers makes it possible to quantitatively assess reviewer contributions, which could be integrated with assessments for promotions and grants. Quantifying review quality could help establish the importance of reviewers and information generated during a review, and assess the importance of a submitted article. Finally, we recommend expediting post-publication reviews and allowing for the dialogue to continue and flourish in a dynamic and interactive manner. We argue that these solutions can be addressed by building upon computer programming code management systems. In this article, we provide examples of current code review systems that offer opportunities for addressing the above problems, and offer suggestions for enhancing code review systems for article review.","note":"","tags":"code review systems,distributed peer review,open source software development,post-publication peer review","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1662-5188","isi":"","key":"Ghosh2012","howpublished":"http:\/\/www.frontiersin.org\/Journal\/Abstract.aspx?s=237&name=computational_neuroscience&ART_DOI=10.3389\/fncom.2012.00018"},
+{"refid":"22","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Weak Responses to Auditory Feedback Perturbation during Articulation in Persons Who Stutter: Evidence for Abnormal Auditory-Motor Transformation.","year":"2012","author":"Shanqing Cai, Deryk S Beal, Satrajit S Ghosh, Mark K Tiede, Frank H Guenther, Joseph S Perkell","journal":"PLoS One","volume":"7","number":"7","pages":"","month":"07","doi":"10.1371\/journal.pone.0041830","pubmed":"22911857","pdflink":"http:\/\/www.plosone.org\/article\/fetchObjectAttachment.action?uri=info%3Adoi%2F10.1371%2Fjournal.pone.0041830&representation=PDF","urllink":"http:\/\/www.plosone.org\/article\/info%3Adoi%2F10.1371%2Fjournal.pone.0041830","abstract":"Previous empirical observations have led researchers to propose that auditory feedback (the auditory perception of self-produced sounds when speaking) functions abnormally in the speech motor systems of persons who stutter (PWS). Researchers have theorized that an important neural basis of stuttering is the aberrant integration of auditory information into incipient speech motor commands. Because of the circumstantial support for these hypotheses and the differences and contradictions between them, there is a need for carefully designed experiments that directly examine auditory-motor integration during speech production in PWS. In the current study, we used real-time manipulation of auditory feedback to directly investigate whether the speech motor system of PWS utilizes auditory feedback abnormally during articulation and to characterize potential deficits of this auditory-motor integration. Twenty-one PWS and 18 fluent control participants were recruited. Using a short-latency formant-perturbation system, we examined participants' compensatory responses to unanticipated perturbation of auditory feedback of the first formant frequency during the production of the monophthong [\u03b5]. The PWS showed compensatory responses that were qualitatively similar to the controls' and had close-to-normal latencies (\u223c150 ms), but the magnitudes of their responses were substantially and significantly smaller than those of the control participants (by 47% on average, p<0.05). Measurements of auditory acuity indicate that the weaker-than-normal compensatory responses in PWS were not attributable to a deficit in low-level auditory processing. These findings are consistent with the hypothesis that stuttering is associated with functional defects in the inverse models responsible for the transformation from the domain of auditory targets and auditory error information into the domain of speech motor commands.","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1932-6203","isi":"","key":"Cai2012","howpublished":""},
+{"refid":"23","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Predicting Treatment Response in Social Anxiety Disorder From Functional Magnetic Resonance Imaging.","year":"2012","author":"Oliver Doehrmann, Satrajit S Ghosh, Frida E Polli, Gretchen O Reynolds, Franziska Horn, Anisha Keshavan, Christina Triantafyllou, Zeynep M Saygin, Susan Whitfield-Gabrieli, Stefan G Hofmann, Mark Pollack, John D Gabrieli","journal":"Arch Gen Psychiatry","volume":"","number":"","pages":"1-11","month":"Sep","doi":"10.1001\/2013.jamapsychiatry.5","pubmed":"22945462","pdflink":"","urllink":"","abstract":"CONTEXT Current behavioral measures poorly predict treatment outcome in social anxiety disorder (SAD). To our knowledge, this is the first study to examine neuroimaging-based treatment prediction in SAD. OBJECTIVE To measure brain activation in patients with SAD as a biomarker to predict subsequent response to cognitive behavioral therapy (CBT). DESIGN Functional magnetic resonance imaging (fMRI) data were collected prior to CBT intervention. Changes in clinical status were regressed on brain responses and tested for selectivity for social stimuli. SETTING Patients were treated with protocol-based CBT at anxiety disorder programs at Boston University or Massachusetts General Hospital and underwent neuroimaging data collection at Massachusetts Institute of Technology. PATIENTS Thirty-nine medication-free patients meeting DSM-IV criteria for the generalized subtype of SAD. INTERVENTIONS Brain responses to angry vs neutral faces or emotional vs neutral scenes were examined with fMRI prior to initiation of CBT. MAIN OUTCOME MEASURES Whole-brain regression analyses with differential fMRI responses for angry vs neutral faces and changes in Liebowitz Social Anxiety Scale score as the treatment outcome measure. RESULTS Pretreatment responses significantly predicted subsequent treatment outcome of patients selectively for social stimuli and particularly in regions of higher-order visual cortex. Combining the brain measures with information on clinical severity accounted for more than 40% of the variance in treatment response and substantially exceeded predictions based on clinical measures at baseline. Prediction success was unaffected by testing for potential confounding factors such as depression severity at baseline. CONCLUSIONS The results suggest that brain imaging can provide biomarkers that substantially improve predictions for the success of cognitive behavioral interventions and more generally suggest that such biomarkers may offer evidence-based, personalized medicine approaches for optimally selecting among treatment options for a patient.","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1538-3636","isi":"","key":"Doehrmann2012","howpublished":""},
+{"refid":"24","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Roles of Default-Mode Network and Supplementary Motor Area in Human Vigilance Performance: Evidence from Real-Time fMRI.","year":"2012","author":"Oliver Hinds, Todd W Thompson, Satrajit Ghosh, Julie J Yoo, Susan Whitfield-Gabrieli, Christina Triantafyllou, John D E Gabrieli","journal":"J Neurophysiol","volume":"","number":"","pages":"","month":"Dec","doi":"10.1152\/jn.00533.2011","pubmed":"23236006","pdflink":"","urllink":"","abstract":"We used real-time functional magnetic resonance imaging (fMRI) to determine which regions of the human brain have a role in vigilance as measured by simple reaction time (RT) to occasional and unpredictable visual targets. We first identified brain regions where activation prior to target presentation predicted RT. Slower RT was preceded by greater activation in the default-mode network, including lateral parietal, precuneus, and medial prefrontal cortices; faster RT was preceded by greater activation in the supplementary motor area (SMA). We examined the roles of these brain regions in vigilance by triggering trials based on brain states defined by blood oxygenation level-dependent activation measured using real-time fMRI. When activation of relevant neural systems indicated either a good brain state (increased activation of SMA) or a bad brain state (increased activation of lateral parietal cortex and precuneus) for performance, a target was presented and RT was measured. RT on trials triggered by a good brain state were significantly faster than RT on trials triggered by a bad brain state. Thus, human performance was controlled by monitoring brain states that indicated high or low vigilance. These findings identify neural systems that have a role in vigilance, and provide direct evidence that the default-mode network has a role in human performance. The ability to control and enhance human behavior based on brain state may have broad implications.","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1522-1598","isi":"","key":"Hinds2012","howpublished":""}];
+
+var uptodate = '';
+var recent = false;
+for (var i = 0; i < publist.length; i++) {
+    publist[i].userid = userid;
+}
+
+// Convert a ref object to HTML.
+function refToHtml(atype, ref, expanded, userid, rootpath, toggleIdx) {
+  if (!atype) atype="article";
+  var style = plosStyle;
+  var txt = "";
+  var fields = fieldsByType[atype];
+  var first = true;
+
+  //  txt += ".";
+
+
+  // Do the common fields.
+  txt += "<div class='fulltextlinks'>\n"; // style='float:right; padding-left : 12px; width: 64px;'>";
+
+  if (ref["urllink"]) {
+	txt += " <a class='htmllink' title='View HTML version' href='"+httpPrefix(ref.urllink)+"'><img src='"+rootpath+"page-sml.png'/></a>";
+  }
+
+  if (ref["pdflink"]) {
+	txt += " <a class='pdflink' title='View PDF version' href='"+httpPrefix(ref.pdflink)+"'><img src='"+rootpath+"pdf-sml.png'/></a>";
+  }
+  var attachmenturl = "";
+
+  if (ref["attachment"]) {
+    var ext = ref.attachment.lastIndexOf(".");
+    var str = "";
+	var tp = "";
+    if (ext!=-1) { tp = ref.attachment.substr(ext+1); }
+
+	str += tp;
+	if (tp == "pdf") {
+	  str = "<img src='"+rootpath+"pdf-sml.png'/>";
+	}
+	else {
+	  str = "[" + str +"]";
+	}
+
+	txt += " <a class='pdflink' title='View local version' href='";
+
+	if (ref.attachment.substring(0,4)=="http") {
+	  attachmenturl = ref.attachment;
+	}
+	else {
+	  attachmenturl = rootpath+"data/"+userid+"/"+ref.attachment;
+	}
+	txt += attachmenturl;
+	txt += "'>"+str+"</a>";
+  }
+
+  if (ref["doi"]) {
+    var href = ref.doi;
+    if (ref.doi.substr(0,4)!="http") {
+      href = "http://dx.doi.org/"+ref.doi;
+    }
+    txt += " &nbsp;<a target='_blank' class='doilink' title='DOI: "+ref.doi+"' href='"+href+"'>DOI</a>&nbsp;";
+  }
+
+  if (ref["pubmed"]) {
+    var href = "http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&cmd=Retrieve&dopt=AbstractPlus&list_uids="+ref.pubmed;
+
+    txt += " &nbsp;<a target='_blank' class='pubmedlink' title='PubMed ID : "+ref.pubmed+"' href='"+href+"'>PMID</a>&nbsp;";
+  }
+  if (ref["repostatus"]=="accepted") {
+    txt += " &nbsp;<br/><a target='repository' class='repolink' title='View Repository Copy' " +
+      "href='"+ref.repourl+"'>Repository</a>&nbsp;";
+  }
+  txt += "</div>";
+
+
+  // Is there a thumbnail?
+  if (ref._thumb) {
+    if (typeof(nothumbs)!="undefined" && nothumbs) {} else {
+    txt += "<div class='thumbdiv'>";
+    if (ref.attachment) {
+      txt += " <a target='_blank' class='pdflink' title='View local version' href='"+attachmenturl+"'>";
+    }
+
+
+    var thumburl = ref._thumb;
+    if (thumburl.substring(0,4) != "http") {
+      // full refid can be user-123
+      var refnum = "" + ref.refid; if (refnum.indexOf("-")!==-1) { refnum = refnum.substr(refnum.lastIndexOf("-")+1); }
+
+      thumburl = rootpath+"data/"+userid+"/ref-"+refnum+"/"+ref._thumb;
+    }
+    txt += "<img width='80px' class='thumbimg' src='"+thumburl+"'/>";
+    if (ref.attachment) {
+      txt += "</a>";
+    }
+    txt += "</div>";
+    }
+  }
+
+
+  /*
+  if (toggleIdx != -1) {
+    txt += "<span class='refbody' onmousedown='refDown()' onmousemove='refDrag()' onmouseup='refUp("+toggleIdx+")'>";
+  }
+  else {
+  */
+  txt += "<span class='refbody'>";
+  //}
+  for (var j=0; j<fields.length; j++) {
+	var fn = fields[j];
+
+	if (ref[fn]) {
+	  if (!first) {
+	    txt += " ";
+	  }
+
+	  var entry = trim(ref[fn]);
+
+	  if (entry) {
+		if (fn=="author") {
+		  entry = linkifyAuthors(entry);
+		}
+		var pre = "";
+		var post = " ";
+		if (style[fn]) {
+		  if (style[fn]["pre"]) { pre = style[fn].pre; }
+		  if (style[fn]["post"]) { post = style[fn].post; }
+		}
+		// work-around for IE6 bug
+		if (fn != "author") {// && document.all && !window.XMLHttpRequest) {
+		  // Special case for IE6
+		  if (fn=="year" || fn=="month" || fn=="institution" || fn=="organization" || fn=="publisher" || fn=="series" || fn=="pages" || fn=="address" || fn=="number") { pre = " "+pre; }
+		  var ocl = " onclick='toggleRef("+toggleIdx+")'";
+		  if (fn == "title") {
+		    var words = entry.split(" ");
+		    txt +=  "<a name='x'"+ocl+" class='ax "+fn+"'>"+pre+"</a>";
+		    for (var k=0; k<words.length; k++) {
+		      txt += "<a name='x'"+ocl+" class='ax "+fn+"'>"+words[k]+"</a> ";
+		    }
+		    txt +=  "<a name='x'"+ocl+" class='ax "+fn+"'>"+post+"</a>";
+		  }
+		  else {
+		    txt += "<a name='x' class='ax "+fn+"'>"+pre+entry+post+"</a> ";
+		  }
+		}
+		else {
+		  txt += entry+" "; // "<a name='x' class='"+fn+"'>"+pre+entry+post+"</a> ";
+		}
+		//	if (document.all) { txt += "&nbsp;"; }
+		first = false;
+	  }
+	}
+  }
+
+  txt += "&nbsp; </span>"; // end of the onclick area. nbsp needed or IE mucks up display
+
+
+  if (expanded) {
+	if (ref["tags"]) {
+	  var list = splitTags(ref["tags"]);
+	  txt += " <div class='tags'>";
+	  var maxtags = 3;
+
+	  for (var k=0; k<list.length; k++) {
+		var tag = trim(list[k]);
+		var cma = ""; if (k<list.length-1) { cma = ",&nbsp;&nbsp; "; }
+
+		if (k == maxtags && list.length > maxtags) {
+		  txt += "<a class='atag layout' id='sata"+tagshowidx+"' href='javascript:showAllTags("+tagshowidx+")'><i>(all "+list.length+" tags)</i></a> <span style='display:none' class='layout' id='sats"+tagshowidx+"'>";
+		  tagshowidx ++;
+		}
+
+		// if (k!=0) { txt += ",&nbsp;&nbsp; "; }
+		txt += " <span><a class='atag layout' href='javascript:showTag(\""+tag+"\")'>"+tag+"</a>"+cma+"</span>";
+	  }
+
+	  if (list.length > maxtags) {
+		txt += "</span>";
+	  }
+	  txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>";
+	}
+
+    if (ref["abstract"]) {
+      txt += " <div class='abstract layout'>Abstract: "+ref["abstract"]+"</div>"; // *** need to htmlentities...
+    }
+
+    if (ref["note"]) {
+      txt += " <div class='note layout'>Notes: "+linkify(ref["note"])+"</div>"; // *** need to htmlentities...
+    }
+
+
+    if (ref.repostatus || ref.repocollections) {
+      txt += " <div class='note layout'>";
+      if (ref["repostatus"] == "harvested") {
+        txt += "This publication has been harvested by the repository and is being checked. ";
+      }
+      else if (ref["repostatus"] == "accepted") {
+        txt += "This publication is available from the repository: ";
+
+	if (ref["repoid"]) {
+	  txt += "<a class='repolink' target='repository' href='"+ref.repourl+"'>Repository entry: "+ref.repoid+"</a> <br/>";
+	}
+      }
+      else if (ref["repostatus"] == "rejected") {
+        txt += "This publication was not accepted by the repository: ";
+      }
+      else if (ref["repostatus"] == "error") {
+        txt += "There was a harvesting error for this item.";
+      }
+      else if (ref["repocollections"]!=""
+	       && ref["repocollections"]!="-"
+	       && ref["attachment"]!="") {
+        txt += "This publication is available for automated harvesting by the repository";
+      }
+
+
+      txt += "</div>";
+    }
+
+  }
+
+  txt += "<div style='clear:right'></div>";
+
+
+  return txt;
+}
+
+</script>
+
+
+
+
+<div class='publist' id='publistdiv'>
+<table class="table" table-condensed>
+<tr><td valign='top'><div class='yearsep'>2012</div></td>
+<td id='td-19'>
+<div id='list19' class='publication'></div>
+<div>
+<a href="http://hdl.handle.net/1721.1/69968" class="btn btn-primary">Supplementary information</a>
+</div>
+</td></tr>
+<tr><td></td><td id='td-18'><div id='list18' class='publication'></div></td></tr>
+<tr><td></td><td id='td-16'><div id='list16' class='publication'></div></td></tr>
+<tr><td></td><td id='td-20'><div id='list20' class='publication'></div></td></tr>
+<tr><td></td><td id='td-17'><div id='list17' class='publication'></div></td></tr>
+<tr><td valign='top'><div class='yearsep'>2011</div></td>
+<td id='td-13'><div id='list13' class='publication'></div></td></tr>
+<tr><td></td><td id='td-14'><div id='list14' class='publication'></div></td></tr>
+<tr><td></td><td id='td-0'><div id='list0' class='publication'></div></td></tr>
+<tr><td></td><td id='td-9'><div id='list9' class='publication'></div></td></tr>
+<tr><td></td><td id='td-15'><div id='list15' class='publication'></div></td></tr>
+<tr><td></td><td id='td-1'><div id='list1' class='publication'></div></td></tr>
+<tr><td valign='top'><div class='yearsep'>2010</div></td>
+<td id='td-2'><div id='list2' class='publication'></div>
+<div>
+<a href="http://www.mit.edu/~satra/research/pubdata/index.html" class="btn btn-primary">Supplementary information</a>
+</div></td></tr>
+<tr><td></td><td id='td-11'><div id='list11' class='publication'></div></td></tr>
+<tr><td></td><td id='td-3'><div id='list3' class='publication'></div></td></tr>
+<tr><td></td><td id='td-12'><div id='list12' class='publication'></div></td></tr>
+<tr><td valign='top'><div class='yearsep'>2008</div></td>
+<td id='td-10'><div id='list10' class='publication'></div></td></tr>
+<tr><td></td><td id='td-4'><div id='list4' class='publication'></div></td></tr>
+<tr><td valign='top'><div class='yearsep'>2006</div></td>
+<td id='td-5'><div id='list5' class='publication'></div></td></tr>
+<tr><td valign='top'><div class='yearsep'>2005</div></td>
+<td id='td-8'><div id='list8' class='publication'></div></td></tr>
+<tr><td valign='top'><div class='yearsep'>2004</div></td>
+<td id='td-6'><div id='list6' class='publication'></div></td></tr>
+<tr><td valign='top'><div class='yearsep'>2003</div></td>
+<td id='td-7'><div id='list7' class='publication'></div></td></tr>
+</table>
+</div>
+
+
+<div id='selectops' style='display:none; clear:right; float:right; padding:1em;  border: 1px solid orange; font-size:8pt;'>
+
+	<div style='padding:1em; margin-top:2em'>
+	Export selected items to:
+   <a href='javascript:exportSelected("bibtex")'>bibtex</a> |
+	<a href='javascript:exportSelected("endnote")'>endnote</a> |
+	<a href='javascript:exportSelected("ris")'>Procite (RIS)</a> |
+	<a href='javascript:exportSelected("xml")'>Mods XML</a>
+	</div>
+</div>
+
+<div id='tagslist' style='display:none;'></div>
+
+<div id='authorslist' style='display:none;'></div>
+
+
+<script>
+var userid = "satra";
+</script>
+
+<script src='http://publicationslist.org/data/satra/pubutil.js?1266234939'></script>
+<script src='http://publicationslist.org/data/satra/pubinit.js?1266234938'></script>
+
+<script>
+for (var i = 0; i < publist.length; i++) {
+    expandRef(i);
+    collapseRef(i);
+}
+</script>

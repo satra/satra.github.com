@@ -1,15 +1,29 @@
-<ul class="subscription" data-subscription="rss{% if site.subscribe_email %} email{% endif %}">
-  <li><a href="{{ site.subscribe_rss }}" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  {% if site.subscribe_email %}
-    <li><a href="{{ site.subscribe_email }}" rel="subscribe-email" title="subscribe via email">Email</a></li>
-  {% endif %}
-</ul>
-  {% if site.simple_search %}
-<form action="{{ site.simple_search }}" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  {% endif %}
-{% include custom/navigation.html %}
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container" style="width: auto;">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="nav-collapse">
+        {% include custom/navigation.html %}
+        {% if site.simple_search %}
+          <form action="{{ site.simple_search }}" method="get" class="navbar-search pull-left">
+            <fieldset role="search">
+              <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
+              <input type="text" name="q" results="0" placeholder="Search" class="search-query span2" />
+            </fieldset>
+          </form>
+        {% endif %}
+        {% if site.feedburner_url %}
+        <ul class="nav pull-right">
+          <li>
+            <a style="padding: 7px 0 0 0;" href="{{ site.feedburner_url }}"><img src="{{ site.feedburner_img_url }}&amp;fg=444444&amp;anim=0" height="26" width="88" style="border:0" alt="" /></a>            
+          </li>
+        </ul>
+        {% endif %}
+      </div><!-- /.nav-collapse -->
+    </div>
+  </div><!-- /navbar-inner -->
+</div>
