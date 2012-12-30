@@ -3,6 +3,7 @@ layout: page
 comments: false
 sharing: true
 footer: true
+sidebar: true
 ---
 
 My present research focuses on novel computational approaches for representing
@@ -25,6 +26,6 @@ timbres, computational modeling of speech acquisition and production, and
 real-time DSP-based speech signal processing.
 
 <div class="row-fluid">
-  <a href="{{root}}/research/current-projects" class="btn btn-primary btn-large">Current projects</a>
-  <a href="{{root}}/research/publications" class="btn btn-primary btn-large">Publications</a>
+  <a href="{{root}}/research/current-projects" class="btn btn-inverse btn-large">Current projects</a>
+  <a href="{{root}}/research/publications" class="btn btn-inverse btn-large">Publications</a>
 </div>

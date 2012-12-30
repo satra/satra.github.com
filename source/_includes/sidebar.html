@@ -1,5 +1,5 @@
 {% unless page.sidebar == false %}
-  <aside class="span{{ site.sidebar_width or 4 }} sidebar">
+  <div class="span{{ site.sidebar_width or 4 }} sidebar pull-right">
     <div class="well">
       {% if site.page_asides.size %}
         {% include_array page_asides %}
@@ -7,5 +7,5 @@
         {% include_array default_asides %}
       {% endif %}
     </div>
-  </aside>
+  </div>
 {% endunless %}

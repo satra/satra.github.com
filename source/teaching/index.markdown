@@ -3,16 +3,19 @@ layout: page
 comments: false
 sharing: true
 footer: true
+sidebar: true
 ---
 
-# MIT courses
+<div class="page-header">
+  <h2>MIT courses</h2>
+</div>
 
 <div class="alert alert-info">
   The links below will be useful to MIT students with proper privileges.
 </div>
 
 ## 6.541 Speech Communication
-  <a href="https://stellar.mit.edu/S/course/6/sp13/6.541" class="btn btn-primary">
+  <a href="https://stellar.mit.edu/S/course/6/sp13/6.541" class="btn btn-inverse">
   Course website</a>
 
   Speech Communication is an H-LEVEL graduate course (3-1-8) that surveys human
@@ -23,7 +26,7 @@ footer: true
   generation of speech by machine and to speech disorders.
 
 ## 6.551 Acoustics of Speech and Hearing
-  <a href="https://stellar.mit.edu/S/course/6/fa12/6.551j" class="btn btn-primary">
+  <a href="https://stellar.mit.edu/S/course/6/fa12/6.551j" class="btn btn-inverse">
   Course website</a>
 
   The Acoustics of Speech and Hearing is an H-Level graduate course (4-1-7) that
@@ -37,13 +40,16 @@ footer: true
   and analyze sounds in the ear.
 
 ## 9.S913: Principles of Functional Neuroimaging: Measurement, Design and Analysis
-  <a href="http://neurometrika.org/MITfMRI_Spring2012" class="btn btn-primary">
+  <a href="http://neurometrika.org/MITfMRI_Spring2012" class="btn btn-inverse">
   Course website</a>
 
   (Special course offered in Spring 2012)
 
 
-## [Nipype](http://nipy.org/nipype) workshops
+<div class="page-header">
+  <h2><a href="http://nipy.org/nipype">Nipype</a> workshops</h2>
+</div>
+
 
 ### University of Edinburgh, Edinburgh, Scotland, 2011
 

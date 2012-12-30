@@ -1,11 +1,15 @@
 {% if site.googleplus_user %}
 <section class="googleplus{% if site.googleplus_hidden %} googleplus-hidden{% endif %}">
-  <h2>
-    <a href="https://plus.google.com/{{ site.googleplus_user }}?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h2>
-</section>
+    <!-- Place this tag where you want the badge to render. -->
+    <div class="g-plus" data-width="149" data-href="//plus.google.com/{{ site.googleplus_user }}" data-rel="author"></div>
+
+    <!-- Place this tag after the last badge tag. -->
+    <script type="text/javascript">
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
 {% endif %}
 
