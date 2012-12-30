@@ -61,7 +61,7 @@ default_asides: [custom/asides/about.html, asides/github.html, asides/googleplus
 
 # Github repositories
 github_user: satra
-github_repo_count: 4
+github_repo_count: 5
 github_show_profile_link: true
 github_skip_forks: false
 
