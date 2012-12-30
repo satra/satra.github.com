@@ -10,10 +10,8 @@ var github = (function(){
     }
     return {
         showRepos: function(options){
-            console.log('getting');
             $.get("https://api.github.com/users/"+options.user+"/repos?sort=pushed"
                 , function(data) {
-                    console.log(data);
                     var repos = [];
                     if (!data) { return; }
                     for (var i = 0; i < data.length; i++) {
