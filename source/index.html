@@ -1,0 +1,74 @@
+---
+layout: page
+comments: false
+sharing: true
+footer: true
+sidebar: true
+---
+
+<style>
+.peopleCarouselImg div {
+  width: 700px;
+}
+.peopleCarouselImg img {
+  width: 700px;
+}
+</style>
+
+<div id="myCarousel" class="carousel slide">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="active item">
+            <img src="/assets/prediction.jpg" alt="">
+            <div class="carousel-caption">
+            <h4>Predicting treatment outcome <a class="badge" href="/research/publications#refno19">More info</a></h4>
+            <p>Left, pattern of activity in patients with better outcomes; right, patients with worse outcomes.</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="/assets/EDC.png" alt="">
+            <div class="carousel-caption">
+            <h4>Electronic data capture <a class="badge" href="/research/publications#refno16">More info</a></h4>
+            <p>Provenance and data are intricately linked and have to be captured at every stage.</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="/assets/peer_review.jpg" alt="">
+            <div class="carousel-caption">
+            <h4>Peer review in the 21st century <a class="badge" href="/research/publications#refno17">More info</a></h4>
+            <p>Peer review can be made more effective by adopting ideas from software development.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
+<div class="container span9">
+<div class="row" id="post-container">
+{% assign index = true %}
+{% for post in paginator.posts %}
+{% assign content = post.content %}
+  <article class="span3">
+    {% include article.html %}
+  </article>
+{% endfor %}
+</div>
+<div class="row">
+    <ul class="pager">
+      {% if paginator.next_page %}
+        <li>
+          <a href="{{paginator.next_page}}">&larr; Older</a>
+        </li>
+      {% endif %}
+        <a class="lead" href="/blog/archives">Blog Archives</a>
+      {% if paginator.previous_page %}
+        <li>
+          <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
+        </li>
+      {% endif %}
+    </ul>
+</div>
+</div>
+

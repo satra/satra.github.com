@@ -6,7 +6,7 @@ layout: default
   {% if page.sidebar and site.sidebar_posn == "left" %}
     {% include sidebar.html %}
   {% endif %}
-  <div class="{% if page.sidebar == false %}span12{% else %}span8{% endif %}">
+  <div class="{% if page.sidebar == false %}span12{% else %}span9{% endif %}">
     {% if page.title %}
       <div class="page-header">
         <h1>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
