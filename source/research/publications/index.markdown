@@ -306,7 +306,7 @@ function refToHtml(atype, ref, expanded, userid, rootpath, toggleIdx) {
 <tr><td valign='top'><div class='yearsep'>2010</div></td>
 <td id='td-2'><div id='list2' class='publication'></div>
 <div>
-<a href="http://www.mit.edu/~satra/research/pubdata/index.html"  target="_blank" class="badge">Supplementary information</a>
+<a href="http://hdl.handle.net/1721.1/75815"  target="_blank" class="badge">Supplementary information</a>
 </div></td></tr>
 <tr><td></td><td id='td-11'><div id='list11' class='publication'></div></td></tr>
 <tr><td></td><td id='td-3'><div id='list3' class='publication'></div></td></tr>
