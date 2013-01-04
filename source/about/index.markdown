@@ -18,6 +18,11 @@ I am a research scientist at the
 My research areas include neuroinformatics, applied machine learning,
 neuroimaging, software engineering and speech communication.
 
+I am also a member of the Neuroimaging taskforce of the  Standards for
+Datasharing program of the [International Neuroinformatics Coordinating Facilities][INCF].
+
+[INCF]: http://www.incf.org
+
 Contact
 -------
 
