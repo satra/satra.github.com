@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[satrajit.ghosh]]></title>
-  <link href="http://satra.cogitatum.org/atom.xml" rel="self"/>
+  <title><![CDATA[Category: games, | satrajit.ghosh]]></title>
+  <link href="http://satra.cogitatum.org/blog/categories/games-/atom.xml" rel="self"/>
   <link href="http://satra.cogitatum.org/"/>
   <updated>2013-01-22T22:56:59-05:00</updated>
   <id>http://satra.cogitatum.org/</id>
@@ -19,7 +19,7 @@
     <updated>2013-01-22T14:16:00-05:00</updated>
     <id>http://satra.cogitatum.org/blog/2013/01/22/collaborativeproblemsolving</id>
     <content type="html"><![CDATA[<p>A friend, Pablo Suarez, is running a competition to determine the best strategy
-for winning in game called <a href="http://www.climatecentre.org/site/paying-for-predictions">&#8220;Pay for predictions&#8221;</a>. Our goal is to openly
+for winning in game called <a href="http://www.climatecentre.org/site/paying-for-predictions">"Pay for predictions"</a>. Our goal is to openly
 and collaboratively help him, by providing some winning strategies for the game.
 So spread the word!</p>
 
@@ -29,7 +29,7 @@ So spread the word!</p>
 <p>The game intends to capture real life situations faced by the Red Cross Red
 Crescent when dealing with natural disasters (e.g., flooding, earthquakes,
 etc.,.). In keeping with the theme of collaborative problem solving as discussed
-in the book <a href="http://www.amazon.com/Reinventing-Discovery-The-Networked-Science/dp/0691148902/ref=tmm_hrd_title_0">&#8220;Reinventing discovery&#8221; by Michael Nielsen</a> and the approach
+in the book <a href="http://www.amazon.com/Reinventing-Discovery-The-Networked-Science/dp/0691148902/ref=tmm_hrd_title_0">"Reinventing discovery" by Michael Nielsen</a> and the approach
 taken to use <a href="http://www.gamesforchange.org/">games for social change</a>, the idea behind this shout-out is
 to contribute solutions to the challenge.</p>
 
@@ -37,7 +37,7 @@ to contribute solutions to the challenge.</p>
 contribute. Do read the <a href="http://www.climatecentre.org/site/paying-for-predictions">guidelines</a> of the competition. It is possible
 that there is a very simple solution, or one where a simulation can reveal the
 optimal solution or many or none. The goal here is to demonstrate, much like the
-<a href="http://polymathprojects.org/">&#8220;polymath project&#8221;</a>, that we can solve something quicker and possibly
+<a href="http://polymathprojects.org/">"polymath project"</a>, that we can solve something quicker and possibly
 better collaboratively. We understand that everybody may not have the time or
 interest, but if you know someone who does, please let that person know.</p>
 

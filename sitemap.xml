@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://satra.cogitatum.org/blog/2013/01/22/collaborativeproblemsolving/</loc>
+        <lastmod>2013-01-22T22:55:46-05:00</lastmod>
+    </url>
+    <url>
         <loc>http://satra.cogitatum.org/404.html</loc>
         <lastmod>2013-01-21T20:31:01-05:00</lastmod>
     </url>
@@ -10,11 +14,11 @@
     </url>
     <url>
         <loc>http://satra.cogitatum.org/blog/archives/</loc>
-        <lastmod>2013-01-21T20:31:01-05:00</lastmod>
+        <lastmod>2013-01-22T22:55:46-05:00</lastmod>
     </url>
     <url>
         <loc>http://satra.cogitatum.org/</loc>
-        <lastmod>2013-01-21T20:31:01-05:00</lastmod>
+        <lastmod>2013-01-22T22:55:46-05:00</lastmod>
     </url>
     <url>
         <loc>http://satra.cogitatum.org/research/current-projects/</loc>
