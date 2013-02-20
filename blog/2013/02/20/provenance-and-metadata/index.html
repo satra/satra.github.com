@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>satrajit.ghosh</title>
+  <title>Provenance and metadata - satrajit.ghosh</title>
   <meta name="author" content="Satrajit Ghosh">
 
   
@@ -19,7 +19,7 @@ data models and standards for sharing brain imaging and associated &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://satra.cogitatum.org">
+  <link rel="canonical" href="http://satra.cogitatum.org/blog/2013/02/20/provenance-and-metadata">
   <link href="/favicon.png" rel="icon">
 
     <link href="/assets/bootstrap/css/spacelab.min.css" rel="stylesheet" type="text/css">
@@ -116,59 +116,12 @@ data models and standards for sharing brain imaging and associated &hellip;">
       <div id="content">
         <div class="row">
   
-  <div class="span9">
-    
-    
-    <style>
-.peopleCarouselImg div {
-  width: 700px;
-}
-.peopleCarouselImg img {
-  width: 700px;
-}
-</style>
-
-<div id="myCarousel" class="carousel slide">
-    <!-- Carousel items -->
-    <div class="carousel-inner">
-        <div class="active item">
-            <img src="/assets/prediction.jpg" alt="">
-            <div class="carousel-caption">
-            <h4>Predicting treatment outcome <a class="badge" href="/research/publications#refno19">More info</a></h4>
-            <p>Left, pattern of activity in patients with better outcomes; right, patients with worse outcomes.</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="/assets/EDC.png" alt="">
-            <div class="carousel-caption">
-            <h4>Electronic data capture <a class="badge" href="/research/publications#refno16">More info</a></h4>
-            <p>Provenance and data are intricately linked and have to be captured at every stage.</p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="/assets/peer_review.jpg" alt="">
-            <div class="carousel-caption">
-            <h4>Peer review in the 21st century <a class="badge" href="/research/publications#refno17">More info</a></h4>
-            <p>Peer review can be made more effective by adopting ideas from software development.</p>
-            </div>
-        </div>
-    </div>
-    <!-- Carousel nav -->
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
-
-<div class="container span9">
-<div class="row" id="post-container">
-
-
-
-  <article class="span3">
+  <div class="span8">
     <div class="article-format">
     
     <header>
         
-        <h3 class="lead"><a href="/blog/2013/02/20/provenance-and-metadata/">Provenance and Metadata</a></h3>
+        <h3 class="lead">Provenance and Metadata</h3>
         
         
         <p class="meta">
@@ -210,34 +163,104 @@ data models and standards for sharing brain imaging and associated phenotypic,
 genotypic and other metadata. This post is a summary of the problem space and
 some of the efforts I have been associated with in addressing these issues.</p>
 
+<!-- more -->
+
+
+<h5>the goals</h5>
+
+<p>I think the taskforce always had in mind two goals: data sharing and standards
+for data sharing. These goals are linked, but the former very much requires the
+latter. There is the further dichotomy in this that we need a way to address
+existing data stored in a variety of databases and new data streaming in.</p>
+
+<h5>the obstacles</h5>
+
+<p>The biggest problem with data sharing is the fact that we do not really have any
+common standards - perhaps NIFTI-1 and MINC-2 serve as standards for brain
+imaging file formats, but in my view addresses somewhat of a narrow slice.
+Throughout the brain imaging world, we use terms that we have come to recognize
+as meaning something, but without a formal definition even when two people use
+the same term we don&#8217;t know if they meant the &#8220;same&#8221; thing. For example, does
+&#8220;gradient vector&#8221; mean the same thing for every person and program dealing with
+diffusion weighted imaging data?</p>
+
+<p>And this has turned out to be the biggest roadblock on our way to setting
+standards. After all, with increasing computational approaches to data sharing
+and exploration, machines more than humans need to be able to process the data
+and humans to be able to see slices of data in intuitive ways. Across software
+packages, imaging database providers, such common terminology is missing.</p>
+
+<p>In addition to not having common terminology, we do not have a standard
+mechanism for capturing provenance of data. After all, data on their own doesn&#8217;t
+implicitly tell us about sources of variance related to the processing
+components. Efforts towards this have come from the <a href="http://provenance.loni.ucla.edu/">LONI group</a>, but are
+very specific to workflow components of brain imaging and have not, till date,
+reconciled with efforts to standardize provenance across the web such as the
+<a href="http://www.w3.org/TR/prov-dm/">W3C provenance model</a>. Provenance needs to be captured at every stage
+of data generation, not just for brain image processing software.</p>
+
+<h5>the solutions</h5>
+
+<p><em>the terms</em></p>
+
+<p>Towards this we have started by defining and including terms into
+<a href="http://neurolex.org/wiki/Main_Page">NeuroLex</a> and working with the <a href="http://www.neuinfo.org/">NIF</a> folks to make the platform
+for term curation and inclusion better. Dicom terms are already
+<a href="http://neurolex.org/wiki/Category:DICOM_term">there</a>, statistic terms are being developed and other terms will
+be automatically included and curated once the input interface is refined.</p>
+
+<p><em>provenance and the domain agnostic data model</em></p>
+
+<p>We have also developed a technology agnostic data model (not an object model) on
+top of the <a href="http://www.w3.org/TR/prov-dm/">W3C-PROV model</a> called <a href="http://nidm.nidash.org/">NIDM</a> to capture not just
+entities and their attributes (as is currently done in most databases) but also
+how they were derived (provenance). By representing this model in <a href="http://www.w3.org/RDF/">RDF</a> for
+example, one can immediately leverage federated <a href="http://www.w3.org/TR/rdf-sparql-query/">SPARQL queries</a>. Domain
+specificity is included via key-value pairs and through object models
+(collections). The power of this approach is that by storing data and their
+provenance richly one has access to this information and therefore one can
+always transform or re-purpose the content (e.g., for more efficient searches on
+specific data types).</p>
+
+<p><em>the domain specific object models</em></p>
+
+<p>We can turn some objects into this model fairly easily. For example,
+<a href="http://freesurfer.net/">FreeSurfer</a> directory structures and statistics. Similar efforts are
+underway to capture info from neuropsych assessments (COINS->neurolex mapping),
+SPM.mat/FEAT.fsf,  workflow/process provenance (taking into account prior
+efforts - such as LONI/Kepler/Galaxy), XNAT/csv->PROV conversion and testing.</p>
+
+<p><em>the app framework</em></p>
+
+<p>Unfortunately a lot of the above, while absolutely necessary for establishing
+standards don&#8217;t convey to the average user a sense of progress in datasharing or
+the standards. The app framework leverages the above data model to create apps
+for data filtering/processing/visualization. Our initial apps will be built as
+IPython notebooks as they demonstrate not just the virtues of this approach, but
+are themselves executable documents that people can share and reuse.</p>
+
+<h5>the summary</h5>
+
+<p>We have finally gotten to the stage in this neuroinformatics world where a
+number of the software we use are fairly stable and the data and object models
+are getting clearer in our heads.</p>
+
+<p>What we are hoping is that a common vocabulary + an extensible format agnostic
+data representation allows us to communicate without knowing whether you do rdf,
+python, java, xml, javascript or other technologies. What we do need from the
+community is to pitch in towards the curation, app building and testing efforts.</p>
+
+<p>And we still have an important job of communicating it better to others.</p>
 </div>
     
     
     <footer>
-        <a rel="full-article" href="/blog/2013/02/20/provenance-and-metadata/">Read on &rarr;</a>
-    </footer>
-    
-    
-    
-</div>
-
-  </article>
-
-
-  <article class="span3">
-    <div class="article-format">
-    
-    <header>
-        
-        <h3 class="lead"><a href="/blog/2013/01/22/collaborativeproblemsolving/">Help Develop a Winning Strategy</a></h3>
-        
-        
         <p class="meta">
             
   
 
 <span class="byline author vcard">Posted by <span class="fn">Satrajit Ghosh</span></span>
- -
+
             
 
 
@@ -250,60 +273,60 @@ some of the efforts I have been associated with in addressing these issues.</p>
   
 
 
-<time datetime="2013-01-22T14:16:00-05:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2013</time> -
+<time datetime="2013-02-20T10:54:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2013</time>
             
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/collaborating/'>collaborating</a>, <a class='category' href='/blog/categories/games-/'>games,</a>
+    <a class='category' href='/blog/categories/neuroinformatics/'>neuroinformatics</a>, <a class='category' href='/blog/categories/provenance-/'>provenance,</a>
   
 </span>
 
 
-            
         </p>
         
-    </header>
-    
-    
-    <div class="entry-content"><p>A friend, Pablo Suarez, is running a competition to determine the best strategy
-for winning in game called <a href="http://www.climatecentre.org/site/paying-for-predictions">&#8220;Pay for predictions&#8221;</a>. Our goal is to openly
-and collaboratively help him, by providing some winning strategies for the game.
-So spread the word!</p>
-
-</div>
-    
-    
-    <footer>
-        <a rel="full-article" href="/blog/2013/01/22/collaborativeproblemsolving/">Read on &rarr;</a>
+        <a class="pull-left" href="/blog/2013/01/22/collaborativeproblemsolving/" title="Previous Post: Help develop a winning strategy">&laquo; Help develop a winning strategy</a>
+        
+        
     </footer>
     
-    
-    
 </div>
 
-  </article>
-
-</div>
-<div class="row">
-    <ul class="pager">
-      
-        <a class="lead" href="/blog/archives">Blog Archives</a>
-      
-    </ul>
-</div>
-</div>
-
-
-    
-    
-      <footer>
+    <footer>
+      <p class="meta">
         
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Satrajit Ghosh</span></span>
+
         
-          <div class="sharing">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-20T10:54:00-05:00" pubdate data-updated="true">Feb 20<span>th</span>, 2013</time>
+        
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/neuroinformatics/'>neuroinformatics</a>, <a class='category' href='/blog/categories/provenance-/'>provenance,</a>
+  
+</span>
+
+
+      </p>
+      
+        <div class="sharing">
   <br/>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://satra.cogitatum.org/index.html" data-via="satra_" data-counturl="http://satra.cogitatum.org/index.html" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://satra.cogitatum.org/blog/2013/02/20/provenance-and-metadata/" data-via="satra_" data-counturl="http://satra.cogitatum.org/blog/2013/02/20/provenance-and-metadata/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -313,12 +336,24 @@ So spread the word!</p>
   
 </div>
 
+      
+      <p class="meta">
         
-      </footer>
+          <a class="basic-alignment pull-left" href="/blog/2013/01/22/collaborativeproblemsolving/" title="Previous Post: Help develop a winning strategy">&laquo; Help develop a winning strategy</a>
+        
+        
+      </p>
+    </footer>
     
     
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
     
   </div>
+
   
     
   <div class="span3 sidebar pull-right">
@@ -379,6 +414,7 @@ So spread the word!</p>
   
 </div>
 
+
       </div>
     </div>
     <footer class="footer"><p>
@@ -388,6 +424,22 @@ So spread the word!</p>
 </p>
 </footer>
     
+
+<script type="text/javascript">
+      var disqus_shortname = 'satrajit';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://satra.cogitatum.org/blog/2013/02/20/provenance-and-metadata/';
+        var disqus_url = 'http://satra.cogitatum.org/blog/2013/02/20/provenance-and-metadata/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
