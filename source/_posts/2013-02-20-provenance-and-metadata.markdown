@@ -37,7 +37,7 @@ and humans to be able to see slices of data in intuitive ways. Across software
 packages, imaging database providers, such common terminology is missing.
 
 In addition to not having common terminology, we do not have a standard
-mechanism for capturing provenance of data. After all, data on their own doesn't
+mechanism for capturing provenance of data. After all, data on their own do not
 implicitly tell us about sources of variance related to the processing
 components. Efforts towards this have come from the [LONI group][loni], but are
 very specific to workflow components of brain imaging and have not, till date,
