@@ -4,7 +4,7 @@
   <title><![CDATA[satrajit.ghosh]]></title>
   <link href="http://satra.cogitatum.org/atom.xml" rel="self"/>
   <link href="http://satra.cogitatum.org/"/>
-  <updated>2013-02-20T11:59:13-05:00</updated>
+  <updated>2013-02-20T13:17:49-05:00</updated>
   <id>http://satra.cogitatum.org/</id>
   <author>
     <name><![CDATA[Satrajit Ghosh]]></name>
@@ -51,7 +51,7 @@ and humans to be able to see slices of data in intuitive ways. Across software
 packages, imaging database providers, such common terminology is missing.</p>
 
 <p>In addition to not having common terminology, we do not have a standard
-mechanism for capturing provenance of data. After all, data on their own doesn&#8217;t
+mechanism for capturing provenance of data. After all, data on their own do not
 implicitly tell us about sources of variance related to the processing
 components. Efforts towards this have come from the <a href="http://provenance.loni.ucla.edu/">LONI group</a>, but are
 very specific to workflow components of brain imaging and have not, till date,
