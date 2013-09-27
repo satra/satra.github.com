@@ -1,0 +1,235 @@
+---
+layout: post
+title: "Response to NIH NOT-HG-13-014"
+date: 2013-09-27 14:03
+comments: true
+categories: provenance, NIH
+---
+
+This is a response to the NIH request for information on data provenance and
+data wrangling. [NOT-HG-13-014](http://grants.nih.gov/grants/guide/notice-files/NOT-HG-13-014.html).
+
+<!-- more -->
+
+Knowledge can be represented as a collection of claims, assertions and facts
+linked through a graph of provenance. Typically the elements of the knowledge
+graph are derived from experimental observations, analyses, simulations and
+theoretical advances. However, in much of science, the information supporting
+such assertions is unavailable or provided in a form that requires significant
+human intervention. This reduces trust in these claims and greatly increases the
+burden on researchers to uncover provenance and query across data sources.
+
+The rapid proliferation of data and computation requires standards and platforms
+that will prevent users from being trapped in data silos and from bearing the
+costs of creating and maintaining software for multiple databases and multiple
+data models. It is imperative that scientists embrace the increase in data to
+promote greater reproducibility of results and more robust testing of methods.
+Tools that require minimal resources on the part of the investigator and
+simplify distribution of data or computational services are essential and
+lacking.
+
+A fundamental challenge in many biomedical fields is to integrate data across
+species, spatial scales (nanometers to inches), temporal scales (microseconds
+to years), instrumentation (e.g., electron microscopy, magnetic resonance
+imaging) and disorders (e.g., autism, schizophrenia). However, datasets contain
+ad hoc metadata and are processed with methods specific to the sub-domain,
+further limiting integration. Of immediate concern is a lack of tools for
+accessing and reusing data and computational processes and a lack of established
+standards for datasharing.
+
+This response focuses on two of the areas of the RFI: data provenance and
+data wrangling.
+
+## Data provenance
+
+Reproducibility is the cornerstone of scientific discovery and demonstrates
+the validity of results [1, 2]. However, recent high-profile articles [3,
+4] have emphasized the limited reproducibility in life sciences. The methods
+section that most scientific publications rely on to describe data
+acquisition and analysis details might provide a summary,
+but cannot capture the details necessary to reproduce all the methods,
+nor can they provide the reviewer with sufficient information for
+verification. Therefore, most publications are reviewed on the basis of
+perceived impact rather than veracity. Scientists have proposed supplementing
+publications with data, code and virtual machines. However,
+most journals do not have the capacity to distribute these without incurring
+additional costs. Scientists often resort to compressed files on personal
+websites that have no guarantee of persistence. Furthermore,
+these files are typically not described in any machine-useful format,
+thereby requiring human translation and without formal provenance
+introduces potential sources of error.
+
+Provenance needs to be captured in a standardized data model. A data model is
+an abstract conceptual formulation of information that explicitly determines
+the structure of data and allows software and people to communicate and
+interpret data precisely (source: Wikipedia). Provenance is information
+about entities, activities, and people involved in producing a piece of
+data or a thing, which can be used to form assessments about its quality,
+reliability or trustworthiness (Source: W3C Prov working group).
+
+The provenance data-model [5, PROV-DM] forms the basis for the W3C provenance
+effort, currently a W3C recommendation. PROV-DM is organized in six
+components, respectively dealing with: (1) entities and activities and the
+time at which they were created, used, or ended; (2) derivations of entities
+from entities; (3) agents bearing responsibility for entities that were
+generated and activities that happened; (4) a notion of bundle,
+a mechanism to support provenance of provenance; (5) properties to link
+entities that refer to the same thing; and (6) collections forming a
+logical structure for its members. Furthermore, the PROV-DM concept of a
+bundle captures the notion of a Research Object [6] (a shareable collection
+that integrates data and processes) while still allowing for the ongoing
+evolution of the individual constituent elements.
+
+In the neuroimaging domain, we have adopted this model as part of our efforts
+on establishing standards for data sharing [7]. The components include (1) a
+structured terminology that provides semantic context to data,
+(2) a formal data model for neuroimaging with robust tracking of data
+provenance, and (3) a provenance library with neuroimaging extensions that
+can be used for the extraction of provenance data by image analysts and
+imaging software developers. Furthermore, such information needs to be
+represented at every stage of a research process where data are being
+acquired or transformed through analysis. An example of provenance flow in
+brain imaging is shown in the following figure.
+
+<img src="assets/EDC.png" width="700">
+
+Figure 1: The life cycle of brain imaging [8].
+
+In order for this to be useful, all captured information needs to be stored
+and shared in a standard, queriable format. Applications can then repurpose
+the necessary components to interact with users.
+
+## Data wrangling
+
+Sharing data is not enough. For instance, in order to tackle the problems of
+health care, data needs to be linked through rich, machine-useful metadata.
+However, data sharing efforts in brain imaging or other branches of science
+typically involve one of two options: 1) a zipped file on the Web with a page
+describing what is in the file or 2) a database, often with a Web interface,
+specialized for distributing such data. However, using these databases
+still require humans to understand and interpret data structures and
+datatypes. This necessitates **significant effort** on the part of an
+application developer and also limits the ability to query across extensive
+resources, effectively creating silos.
+
+The technology behind solving these problems grows out of the Semantic Web
+vision of machines publishing data on the Web for other machines to consume.
+The W3C helped standardize this idea as the Resource Description Framework
+[9, RDF] in the late 1990s and have been building on it since then,
+with various components becoming standards, adopted at various scales and for
+various applications around the world. In 2006, Berners-Lee introduced a
+refinement called Linked Data [10], which has become particularly popular
+for open government data and biomedical research.
+
+A key goal of any data wrangling software solution would be to add targeted
+elements to the Linked Data technology stack. For example,
+adding "data registration" will allow systems to quickly find data made
+available by other systems, without the limitations imposed by a centralized
+search engine. It is a practical solution, based on RDF Linked Data,
+to a set of long-standing problems in the distributed database field. In any
+such solution, there are four critical areas that would need to be addressed:
+vocabulary management, query, integration with exist databases and data
+resources, and data access control.
+
+**Vocabulary management:** One of the essential elements of the Semantic Web
+vision is that vocabularies can be shared as easily as Web pages. In
+principle, the technical design supports this, since RDF vocabulary terms
+(the identifiers for classes, properties, and individual entities – the
+elements which provide structure to data) are Web addresses.    In an ideal
+world, the Web content for each term would include formal documentation,
+tutorials, user discussion, links to software, links to examples of use,
+and even links to real data sources using that term. In practice, however,
+the Web content for vocabularies often falls far short of this goal. When
+people encounter a new RDF vocabulary term, they may have to resort to Web
+searches and asking colleagues what they know about it. When people are
+creating new vocabularies, while they often have the best intentions,
+they rarely have the resources, at that moment, to create a well-designed and
+helpful site, or the motivation or fortitude to maintain it. As a result,
+there is a chilling effect, with people afraid to use even high-quality
+vocabularies for fear they will fall into disrepair.
+
+**Semantic Web Query:** For most purposes, the value of data is realized when
+it is queried and connected to other data. The Semantic Web uses a popular
+query and update language called SPARQL [11]. SPARQL engines can integrate
+disparate sources of data, perform complex pattern matches against
+integrated data, and report tabular results or perform database
+manipulations based on those results. One important feature of SPARQL is
+Service Federation [12, 13]. Keywords in the language permit a SPARQL query
+to invoke other queries, unifying multiple remote query services in one
+query. This effectively transforms a "mash-up" app into a single,
+declarative query. The SPARQL Protocol provides uniform access to all SPARQL
+services. This permits systems to work with any remote SPARQL service
+without requiring drivers for any particular implementation.
+
+**Integrating Relational Databases (R2RML):** The Semantic Web offers data
+integration at the Web scale without requiring all data to be natively stored
+in RDF. The R2RML [14] language defines a mapping of relational data into
+RDF. Existing tools (D2RQ [15], Revelytix Spyder) translate queries over
+this virtual RDF store into SQL queries which are then executed over the
+native store. Another approach is to use the Direct Mapping of Relational
+Data to RDF and use Semantic Web rules to transform the terms and structure
+into a shared ontology. The vast majority of scientific data are stored in
+relational databases, curated, validated and maintained by existing
+toolchains, with no interoperability across them.
+
+**Data Access Control:** With biomedical data there is an explicit
+requirement of access control, especially when the underlying data cannot be
+deidentified. Deidentification requirements vary significantly across
+institutions and countries and cannot always be used to protect data.
+Accidental exposure of private data can have personal and group impact with
+social and/or financial consequences. Thus it is important that a data
+sharing architecture address access control. In the Semantic Web context,
+this will require per-document, per-resource, and per-triple authentication
+and authorization and will be guided by ongoing work on accountability in
+decentralized systems [16, 17]. In many instances, the metadata could be
+curated openly with only patient data served by databases or Web servers
+requiring traditional OAuth or OpenID based access.
+
+## Conclusion
+
+Capturing science requires that information pertaining to all aspects of a
+research activity are captured and represented richly. However,
+most scientific domains, including biomedical sciences,
+only capture pieces of information that are deemed relevant. Current
+technologies exist that deliver the components necessary to capture and
+create this information-rich landscape in order to create platforms for
+knowledge exploration. In particular, using a technology agnostic data
+provenance model as the core representation and Semantic Web technologies
+that leverage such a representation, can provide solutions to both data
+provenance and data wrangling questions.
+
+## References
+
+[1] John PA Ioannidis. “Why most published research findings are false.” In: PLoS medicine 2.8 (2005), e124.
+
+[2] Ramal Moonesinghe, Muin J Khoury, and A Cecile JW Janssens. “Most published research findings are falsebut a little replication goes a long way.” In: PLoS medicine 4.2 (2007), e28.
+
+[3] C Glenn Begley and Lee M Ellis. “Drug development: Raise standards for preclinical cancer research.” In: Nature 483.7391 (2012), pp. 531–533.
+
+[4] Harold Pashler and EricJan Wagenmakers. “Editors Introduction to the Special Section on Replicability in Psychological Science: A Crisis of Confidence?” In: Perspectives on Psycho- logical Science 7.6 (2012), pp. 528–530. doi: 10.1177/1745691612465253. eprint: http: //pps.sagepub.com/content/7/6/528.full.pdf+html. url: http://pps.sagepub.com/ content/7/6/528.short.
+
+[5] Y Gil, S Miles, K Belhajjame, H Deus, D Garijo, G Klyne, P Missier, S Soiland-Reyes, and S Zednik. “PROV model primer.” In: W3C Working Draft (2012). url: http://www.w3. org/TR/2012/WD-prov-primer-20121211/.
+
+[6] Sean Bechhofer, Iain Buchan, David De Roure, Paolo Missier, John Ainsworth, Jiten Bhagat, Philip Couch, Don Cruickshank, Mark Delderfield, Ian Dunlop, Matthew Gamble, Danius Michaelides, Stuart Owen, David Newman, Shoaib Sufi, and Carole Goble. “Why linked data is not enough for scientists.” In: Future Generation Computer Systems 29.2 (2013). Special section: Recent advances in e-Science, pp. 599 –611. issn: 0167-739X. doi: 10.1016/j. future.2011.08.004. url: http://www.sciencedirect.com/science/article/pii/ S0167739X11001439.
+
+[7] DB Keator, K. Helmer, J. Steffener, JA Turner, TGM Van Erp, S. Gadde, N. Ashish, GA Burns, BN Nichols, and SS Ghosh. “Towards structured sharing of raw and derived neu- roimaging data across existing resources.” In: arXiv preprint arXiv:1209.5922 (2012).
+
+[8] Jean-Baptiste Poline, Janis L Breeze, Satrajit S Ghosh, Krzysztof Gorgolewski, Yaroslav O Halchenko, Michael Hanke, Karl G Helmer, Daniel S Marcus, Russell A Poldrack, Yannick Schwartz, John Ashburner, and David N Kennedy. “Data sharing in neuroimaging research.” In: Frontiers in Neuroinformatics 6.9 (2012). issn: 1662-5196. doi: 10.3389/fninf.2012. 00009. url: http://www.frontiersin.org/neuroinformatics/10.3389/fninf.2012. 00009/abstract.
+
+[9] Ora Lassila and Ralph R Swick. “Resource description framework (RDF) model and syntax specification.” In: (1998).
+
+[10] Tim Berners-Lee. “Design Issues: Linked Data.” In: (2006). url: http : / / www . w3 . org / DesignIssues/LinkedData.html.
+
+[11] Eric PrudHommeaux and Andy Seaborne. “SPARQL query language for RDF.” In: W3C recommendation 15 (2008).
+
+[12] Bastian Quilitz and Ulf Leser. “Querying distributed RDF data sources with SPARQL.” In: The Semantic Web: Research and Applications (2008), pp. 524–538.
+
+[13] Carlos Buil-Aranda, Marcelo Arenas, and Oscar Corcho. “Semantics and optimization of the SPARQL 1.1 federation extension.” In: The Semanic Web: Research and Applications (2011), pp. 1–15.
+
+[14] Souripriya Das, Seema Sundara, and Richard Cyganiak. “{R2RML: RDB to RDF Mapping Language}.” In: (2012).
+
+[15] Christian Bizer and Andy Seaborne. “D2RQ-treating non-RDF databases as virtual RDF graphs.” In: Proceedings of the 3rd International Semantic Web Conference (ISWC2004). 2004, p. 26.
+
+[16] Daniel J Weitzner, Harold Abelson, Tim Berners-Lee, Chris Hanson, James Hendler, Lalana Kagal, Deborah L McGuinness, Gerald Jay Sussman, and K Krasnow Waterman. “Transpar- ent accountable data mining: New strategies for privacy protection.” In: (2006).
+
+[17] Oshani Wasana Seneviratne. “Augmenting the web with accountability.” In: Proceedings of the 21st international conference companion on World Wide Web. ACM. 2012, pp. 185–190.
