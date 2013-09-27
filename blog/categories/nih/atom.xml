@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: provenance, | satrajit.ghosh]]></title>
-  <link href="http://satra.cogitatum.org/blog/categories/provenance-/atom.xml" rel="self"/>
+  <title><![CDATA[Category: NIH | satrajit.ghosh]]></title>
+  <link href="http://satra.cogitatum.org/blog/categories/nih/atom.xml" rel="self"/>
   <link href="http://satra.cogitatum.org/"/>
   <updated>2013-09-27T14:35:42-04:00</updated>
   <id>http://satra.cogitatum.org/</id>
@@ -12,28 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Knowledge through provenance]]></title>
-    <link href="http://satra.cogitatum.org/blog/2013/09/27/knowledge-through-provenance/"/>
-    <updated>2013-09-27T14:14:00-04:00</updated>
-    <id>http://satra.cogitatum.org/blog/2013/09/27/knowledge-through-provenance</id>
-    <content type="html"><![CDATA[<p>At the recent Neuroinformatics congress in Stockholm, I gave a presentation on
-representing certain types of knowledge by capturing structured provenance info
-in metadata stores. Video and slides are now available.</p>
-
-<!-- more -->
-
-
-<h2>Video</h2>
-
-<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/w1A8BvJuN3s "></iframe></div></p>
-
-<h2>Slides</h2>
-
-<p><script async class="speakerdeck-embed" data-id="8dfccc40f22301304d2956f02c133fac" src="//speakerdeck.com/assets/embed.js"></script></p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Response to NIH NOT-HG-13-014]]></title>
@@ -268,107 +246,6 @@ provenance and data wrangling questions.</p>
 <p>[16] Daniel J Weitzner, Harold Abelson, Tim Berners-Lee, Chris Hanson, James Hendler, Lalana Kagal, Deborah L McGuinness, Gerald Jay Sussman, and K Krasnow Waterman. “Transpar- ent accountable data mining: New strategies for privacy protection.” In: (2006).</p>
 
 <p>[17] Oshani Wasana Seneviratne. “Augmenting the web with accountability.” In: Proceedings of the 21st international conference companion on World Wide Web. ACM. 2012, pp. 185–190.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Provenance and metadata]]></title>
-    <link href="http://satra.cogitatum.org/blog/2013/02/20/provenance-and-metadata/"/>
-    <updated>2013-02-20T10:54:00-05:00</updated>
-    <id>http://satra.cogitatum.org/blog/2013/02/20/provenance-and-metadata</id>
-    <content type="html"><![CDATA[<p>The standards for datasharing taskforce of the INCF was tasked with establishing
-data models and standards for sharing brain imaging and associated phenotypic,
-genotypic and other metadata. This post is a summary of the problem space and
-some of the efforts I have been associated with in addressing these issues.</p>
-
-<!-- more -->
-
-
-<h5>the goals</h5>
-
-<p>I think the taskforce always had in mind two goals: data sharing and standards
-for data sharing. These goals are linked, but the former very much requires the
-latter. There is the further dichotomy in this that we need a way to address
-existing data stored in a variety of databases and new data streaming in.</p>
-
-<h5>the obstacles</h5>
-
-<p>The biggest problem with data sharing is the fact that we do not really have any
-common standards - perhaps NIFTI-1 and MINC-2 serve as standards for brain
-imaging file formats, but in my view addresses somewhat of a narrow slice.
-Throughout the brain imaging world, we use terms that we have come to recognize
-as meaning something, but without a formal definition even when two people use
-the same term we don't know if they meant the "same" thing. For example, does
-"gradient vector" mean the same thing for every person and program dealing with
-diffusion weighted imaging data?</p>
-
-<p>And this has turned out to be the biggest roadblock on our way to setting
-standards. After all, with increasing computational approaches to data sharing
-and exploration, machines more than humans need to be able to process the data
-and humans to be able to see slices of data in intuitive ways. Across software
-packages, imaging database providers, such common terminology is missing.</p>
-
-<p>In addition to not having common terminology, we do not have a standard
-mechanism for capturing provenance of data. After all, data on their own do not
-implicitly tell us about sources of variance related to the processing
-components. Efforts towards this have come from the <a href="http://provenance.loni.ucla.edu/">LONI group</a>, but are
-very specific to workflow components of brain imaging and have not, till date,
-reconciled with efforts to standardize provenance across the web such as the
-<a href="http://www.w3.org/TR/prov-dm/">W3C provenance model</a>. Provenance needs to be captured at every stage
-of data generation, not just for brain image processing software.</p>
-
-<h5>the solutions</h5>
-
-<p><em>the terms</em></p>
-
-<p>Towards this we have started by defining and including terms into
-<a href="http://neurolex.org/wiki/Main_Page">NeuroLex</a> and working with the <a href="http://www.neuinfo.org/">NIF</a> folks to make the platform
-for term curation and inclusion better. Dicom terms are already
-<a href="http://neurolex.org/wiki/Category:DICOM_term">there</a>, statistic terms are being developed and other terms will
-be automatically included and curated once the input interface is refined.</p>
-
-<p><em>provenance and the domain agnostic data model</em></p>
-
-<p>We have also developed a technology agnostic data model (not an object model) on
-top of the <a href="http://www.w3.org/TR/prov-dm/">W3C-PROV model</a> called <a href="http://nidm.nidash.org/">NIDM</a> to capture not just
-entities and their attributes (as is currently done in most databases) but also
-how they were derived (provenance). By representing this model in <a href="http://www.w3.org/RDF/">RDF</a> for
-example, one can immediately leverage federated <a href="http://www.w3.org/TR/rdf-sparql-query/">SPARQL queries</a>. Domain
-specificity is included via key-value pairs and through object models
-(collections). The power of this approach is that by storing data and their
-provenance richly one has access to this information and therefore one can
-always transform or re-purpose the content (e.g., for more efficient searches on
-specific data types).</p>
-
-<p><em>the domain specific object models</em></p>
-
-<p>We can turn some objects into this model fairly easily. For example,
-<a href="http://freesurfer.net/">FreeSurfer</a> directory structures and statistics. Similar efforts are
-underway to capture info from neuropsych assessments (COINS->neurolex mapping),
-SPM.mat/FEAT.fsf,  workflow/process provenance (taking into account prior
-efforts - such as LONI/Kepler/Galaxy), XNAT/csv->PROV conversion and testing.</p>
-
-<p><em>the app framework</em></p>
-
-<p>Unfortunately a lot of the above, while absolutely necessary for establishing
-standards don't convey to the average user a sense of progress in datasharing or
-the standards. The app framework leverages the above data model to create apps
-for data filtering/processing/visualization. Our initial apps will be built as
-IPython notebooks as they demonstrate not just the virtues of this approach, but
-are themselves executable documents that people can share and reuse.</p>
-
-<h5>the summary</h5>
-
-<p>We have finally gotten to the stage in this neuroinformatics world where a
-number of the software we use are fairly stable and the data and object models
-are getting clearer in our heads.</p>
-
-<p>What we are hoping is that a common vocabulary + an extensible format agnostic
-data representation allows us to communicate without knowing whether you do rdf,
-python, java, xml, javascript or other technologies. What we do need from the
-community is to pitch in towards the curation, app building and testing efforts.</p>
-
-<p>And we still have an important job of communicating it better to others.</p>
 ]]></content>
   </entry>
   

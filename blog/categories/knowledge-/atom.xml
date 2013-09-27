@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: knowledge, | satrajit.ghosh]]></title>
+  <link href="http://satra.cogitatum.org/blog/categories/knowledge-/atom.xml" rel="self"/>
+  <link href="http://satra.cogitatum.org/"/>
+  <updated>2013-09-27T14:35:42-04:00</updated>
+  <id>http://satra.cogitatum.org/</id>
+  <author>
+    <name><![CDATA[Satrajit Ghosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Knowledge through provenance]]></title>
+    <link href="http://satra.cogitatum.org/blog/2013/09/27/knowledge-through-provenance/"/>
+    <updated>2013-09-27T14:14:00-04:00</updated>
+    <id>http://satra.cogitatum.org/blog/2013/09/27/knowledge-through-provenance</id>
+    <content type="html"><![CDATA[<p>At the recent Neuroinformatics congress in Stockholm, I gave a presentation on
+representing certain types of knowledge by capturing structured provenance info
+in metadata stores. Video and slides are now available.</p>
+
+<!-- more -->
+
+
+<h2>Video</h2>
+
+<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/w1A8BvJuN3s "></iframe></div></p>
+
+<h2>Slides</h2>
+
+<p><script async class="speakerdeck-embed" data-id="8dfccc40f22301304d2956f02c133fac" src="//speakerdeck.com/assets/embed.js"></script></p>
+]]></content>
+  </entry>
+  
+</feed>
