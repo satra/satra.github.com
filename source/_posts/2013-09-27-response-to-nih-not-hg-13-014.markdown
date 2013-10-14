@@ -91,7 +91,7 @@ represented at every stage of a research process where data are being
 acquired or transformed through analysis. An example of provenance flow in
 brain imaging is shown in the following figure.
 
-<img src="assets/EDC.png" width="700">
+<img src="/assets/EDC.png" width="700">
 
 Figure 1: The life cycle of brain imaging [8].
 
