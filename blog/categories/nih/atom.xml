@@ -4,7 +4,7 @@
   <title><![CDATA[Category: NIH | satrajit.ghosh]]></title>
   <link href="http://satra.cogitatum.org/blog/categories/nih/atom.xml" rel="self"/>
   <link href="http://satra.cogitatum.org/"/>
-  <updated>2013-10-04T10:14:18-04:00</updated>
+  <updated>2013-10-14T15:12:37-04:00</updated>
   <id>http://satra.cogitatum.org/</id>
   <author>
     <name><![CDATA[Satrajit Ghosh]]></name>
@@ -104,7 +104,7 @@ represented at every stage of a research process where data are being
 acquired or transformed through analysis. An example of provenance flow in
 brain imaging is shown in the following figure.</p>
 
-<p><img src="assets/EDC.png" width="700"></p>
+<p><img src="http://satra.cogitatum.org/assets/EDC.png" width="700"></p>
 
 <p>Figure 1: The life cycle of brain imaging [8].</p>
 
