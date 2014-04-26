@@ -6,6 +6,8 @@ footer: true
 sidebar: true
 ---
 
+<link rel='stylesheet' href='http://publicationslist.org/edit.css'>
+
 <script>
 var details = false;
 var details = {"firstname":"Satrajit","middlename":"S","lastname":"Ghosh","email":"satra@mit.edu","website":"http:\/\/www.mit.edu\/~satra","address":"","biosketch":"My present research focuses on novel computational approaches for representing multimodal data in the context of the clinical disorders and to develop models for diagnosing and predicting treatment outcome. This is currently being applied to stuttering, ADHD, MDD and SAD. I am also involved with the development and validation of realtime-fMRI as a clinical tool in the context of new project funded by the DoD. I have developed state-of-the-art tools for region of interest analysis of neuroimaging data. As P.I. of an R03 from NIBIB I initiated the development of a Python-based, open-source, multi-institution software project aimed at improving interoperability among existing imaging analysis software packages (http:\/\/nipy.org\/nipype). My prior work has involved real-time synthesis of computer music and sound effects, controlling chaotic oscillators, computational modeling of speech acquisition and production, and real-time DSP-based speech signal processing."};
@@ -17,6 +19,8 @@ var mode = 'publish';
 var nothumbs = 0;
 var publistBrand = "PublicationsList.org";
 var localInstall = 0;
+var citationFormat = "default";
+var previewMode = '';
 <!--
    function setStyle(str) {
      document.getElementById("styleid").href = str;
@@ -24,8 +28,7 @@ var localInstall = 0;
 -->
 </script>
 
-
-<script src='http://publicationslist.org/schema.js'></script>
+<script src='http://publicationslist.org/schema.js?'></script>
 
 <script>
 var publist = [
@@ -52,285 +55,15 @@ var publist = [
 {"refid":"24","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Roles of Default-Mode Network and Supplementary Motor Area in Human Vigilance Performance: Evidence from Real-Time fMRI.","year":"2012","author":"Oliver Hinds, Todd W Thompson, Satrajit Ghosh, Julie J Yoo, Susan Whitfield-Gabrieli, Christina Triantafyllou, John D E Gabrieli","journal":"J Neurophysiol","volume":"","number":"","pages":"","month":"Dec","doi":"10.1152\/jn.00533.2011","pubmed":"23236006","pdflink":"http:\/\/www.mendeley.com\/download\/personal\/1121631\/5748234334\/ec7ee26ab353539773eb9331e90e040c111dcf6c\/dl.pdf","urllink":"","abstract":"We used real-time functional magnetic resonance imaging (fMRI) to determine which regions of the human brain have a role in vigilance as measured by simple reaction time (RT) to occasional and unpredictable visual targets. We first identified brain regions where activation prior to target presentation predicted RT. Slower RT was preceded by greater activation in the default-mode network, including lateral parietal, precuneus, and medial prefrontal cortices; faster RT was preceded by greater activation in the supplementary motor area (SMA). We examined the roles of these brain regions in vigilance by triggering trials based on brain states defined by blood oxygenation level-dependent activation measured using real-time fMRI. When activation of relevant neural systems indicated either a good brain state (increased activation of SMA) or a bad brain state (increased activation of lateral parietal cortex and precuneus) for performance, a target was presented and RT was measured. RT on trials triggered by a good brain state were significantly faster than RT on trials triggered by a bad brain state. Thus, human performance was controlled by monitoring brain states that indicated high or low vigilance. These findings identify neural systems that have a role in vigilance, and provide direct evidence that the default-mode network has a role in human performance. The ability to control and enhance human behavior based on brain state may have broad implications.","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1522-1598","isi":"","key":"Hinds2012","howpublished":""},
 {"refid":"25","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Optimized design and analysis of sparse-sampling FMRI experiments.","year":"2013","author":"Tyler K Perrachione, Satrajit S Ghosh","journal":"Front Neurosci","volume":"7","number":"","pages":"","month":"04","doi":"10.3389\/fnins.2013.00055","pubmed":"23616742","pdflink":"http:\/\/www.frontiersin.org\/Journal\/DownloadFile.ashx?pdf=1&FileId=6538&articleId=42140&Version=1&ContentTypeId=21&FileName=fnins-07-00055.pdf","urllink":"http:\/\/www.frontiersin.org\/Brain_Imaging_Methods\/10.3389\/fnins.2013.00055\/full","abstract":"Sparse-sampling is an important methodological advance in functional magnetic resonance imaging (fMRI), in which silent delays are introduced between MR volume acquisitions, allowing for the presentation of auditory stimuli without contamination by acoustic scanner noise and for overt vocal responses without motion-induced artifacts in the functional time series. As such, the sparse-sampling technique has become a mainstay of principled fMRI research into the cognitive and systems neuroscience of speech, language, hearing, and music. Despite being in use for over a decade, there has been little systematic investigation of the acquisition parameters, experimental design considerations, and statistical analysis approaches that bear on the results and interpretation of sparse-sampling fMRI experiments. In this report, we examined how design and analysis choices related to the duration of repetition time (TR) delay (an acquisition parameter), stimulation rate (an experimental design parameter), and model basis function (an analysis parameter) act independently and interactively to affect the neural activation profiles observed in fMRI. First, we conducted a series of computational simulations to explore the parameter space of sparse design and analysis with respect to these variables; second, we validated the results of these simulations in a series of sparse-sampling fMRI experiments. Overall, these experiments suggest the employment of three methodological approaches that can, in many situations, substantially improve the detection of neurophysiological response in sparse fMRI: (1) Sparse analyses should utilize a physiologically informed model that incorporates hemodynamic response convolution to reduce model error. (2) The design of sparse fMRI experiments should maintain a high rate of stimulus presentation to maximize effect size. (3) TR delays of short to intermediate length can be used between acquisitions of sparse-sampled functional image volumes to increase the number of samples and improve statistical power.","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1662-4548","isi":"","key":"Perrachione2013","howpublished":""},
 {"refid":"26","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Instrumentation bias in the use and evaluation of scientific software: recommendations for reproducible practices in the computational sciences.","year":"2013","author":"Nicholas J Tustison, Hans J Johnson, Torsten Rohlfing, Arno Klein, Satrajit S Ghosh, Luis Ibanez, Brian B Avants","journal":"Frontiers in neuroscience","volume":"7","number":"","pages":"","month":"09","doi":"10.3389\/fnins.2013.00162","pubmed":"24058331","pdflink":"http:\/\/www.frontiersin.org\/Journal\/DownloadFile.ashx?pdf=1&FileId=10531&articleId=61590&Version=1&ContentTypeId=21&FileName=fnins-07-00162.pdf","urllink":"http:\/\/www.frontiersin.org\/Brain_Imaging_Methods\/10.3389\/fnins.2013.00162\/full","abstract":"","note":"","tags":"","publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1662-4548","isi":"","key":"Tustison2013","howpublished":""},
-{"refid":"27","repocollections":"","attachment":"","_thumb":"","articletype":"inproceedings","sectionheading":"","title":"Predicting Treatment Response from Resting State fMRI Data : Comparison of Parcellation Approaches","year":"2013","author":"Satrajit S Ghosh, Anisha Keshavan, Georg Langs","booktitle":"Pattern Recognition in Neuroimaging (PRNI), 2013 International Workshop on","editor":"","pages":"225-228","organization":"","address":"","publisher":"","doi":"10.1109\/PRNI.2013.64","pubmed":"","pdflink":"http:\/\/www.mendeley.com\/download\/personal\/1121631\/6148324414\/a1ae5caafdb1517fbf6e5d4379af3b64f2c2f729\/dl.pdf","urllink":"","abstract":"Resting state fMRI reveals intrinsic network characteristics present in the brain. They are correlated with behavioral measures, and have made surprising insights in the brains\u2019 connectivity structure possible. At the core of many of those studies is the correlation of behavioral measures, and the characteristics of networks among a set of brain regions. In this paper we evaluate methods that identify functional networks in resting state fMRI in light of predicting treatment response of patients suffering from social anxiety disorder. Results illustrate differences in prediction when obtaining network labelings by population-wide-clustering, subject-specific parcellation, transferring anatomical region labels, or mapping networks from a previous large scale resting state study.","note":"","tags":"Diffusion Embedding;Graph Measures;Resting State Functional MRI;Treatment outcome","month":"","journal":"","volume":"","number":"","school":"","issn":"","isi":"","key":"ref6603596","howpublished":""}]
+{"refid":"27","repocollections":"","attachment":"","_thumb":"","articletype":"inproceedings","sectionheading":"","title":"Predicting Treatment Response from Resting State fMRI Data : Comparison of Parcellation Approaches","year":"2013","author":"Satrajit S Ghosh, Anisha Keshavan, Georg Langs","booktitle":"Pattern Recognition in Neuroimaging (PRNI), 2013 International Workshop on","editor":"","pages":"225-228","organization":"","address":"","publisher":"","doi":"10.1109\/PRNI.2013.64","pubmed":"","pdflink":"http:\/\/www.mendeley.com\/download\/personal\/1121631\/6148324414\/a1ae5caafdb1517fbf6e5d4379af3b64f2c2f729\/dl.pdf","urllink":"","abstract":"Resting state fMRI reveals intrinsic network characteristics present in the brain. They are correlated with behavioral measures, and have made surprising insights in the brains\u2019 connectivity structure possible. At the core of many of those studies is the correlation of behavioral measures, and the characteristics of networks among a set of brain regions. In this paper we evaluate methods that identify functional networks in resting state fMRI in light of predicting treatment response of patients suffering from social anxiety disorder. Results illustrate differences in prediction when obtaining network labelings by population-wide-clustering, subject-specific parcellation, transferring anatomical region labels, or mapping networks from a previous large scale resting state study.","note":"","tags":"Diffusion Embedding;Graph Measures;Resting State Functional MRI;Treatment outcome","month":"","journal":"","volume":"","number":"","school":"","issn":"","isi":"","key":"ref6603596","howpublished":""},
+{"refid":"28","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Diffusion imaging of cerebral white matter in persons who stutter: evidence for network-level anomalies.","year":"2014","author":"Shanqing Cai, Jason A Tourville, Deryk S Beal, Joseph S Perkell, Frank H Guenther, Satrajit S Ghosh","journal":"Frontiers in human neuroscience","volume":"8","number":"","pages":"","month":"02","doi":"10.3389\/fnhum.2014.00054","pubmed":"24611042","pdflink":"","urllink":"","abstract":"Deficits in brain white matter have been a main focus of recent neuroimaging studies on stuttering. However, no prior study has examined brain connectivity on the global level of the cerebral cortex in persons who stutter (PWS). In the current study, we analyzed the results from probabilistic tractography between regions comprising the cortical speech network. An anatomical parcellation scheme was used to define 28 speech production-related ROIs in each hemisphere. We used network-based statistic (NBS) and graph theory to analyze the connectivity patterns obtained from tractography. At the network-level, the probabilistic corticocortical connectivity from the PWS group were significantly weaker than that from persons with fluent speech (PFS). NBS analysis revealed significant components in the bilateral speech networks with negative correlations with stuttering severity. To facilitate comparison with previous studies, we also performed tract-based spatial statistics (TBSS) and regional fractional anisotropy (FA) averaging. Results from tractography, TBSS and regional FA averaging jointly highlight the importance of several regions in the left peri-Rolandic sensorimotor and premotor areas, most notably the left ventral premotor cortex (vPMC) and middle primary motor cortex, in the neuroanatomical basis of stuttering.","note":"","tags":"","weight":28,"publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1662-5161","isi":"","key":"Cai2014","howpublished":""},
+{"refid":"29","repocollections":"","attachment":"","_thumb":"","articletype":"article","sectionheading":"","title":"Impaired timing adjustments in response to time-varying auditory perturbation during connected speech production in persons who stutter.","year":"2014","author":"Shanqing Cai, Deryk S Beal, Satrajit S Ghosh, Frank H Guenther, Joseph S Perkell","journal":"Brain and language","volume":"129","number":"","pages":"24-29","month":"Feb","doi":"10.1016\/j.bandl.2014.01.002","pubmed":"24486601","pdflink":"","urllink":"","abstract":"Auditory feedback (AF), the speech signal received by a speaker's own auditory system, contributes to the online control of speech movements. Recent studies based on AF perturbation provided evidence for abnormalities in the integration of auditory error with ongoing articulation and phonation in persons who stutter (PWS), but stopped short of examining connected speech. This is a crucial limitation considering the importance of sequencing and timing in stuttering. In the current study, we imposed time-varying perturbations on AF while PWS and fluent participants uttered a multisyllabic sentence. Two distinct types of perturbations were used to separately probe the control of the spatial and temporal parameters of articulation. While PWS exhibited only subtle anomalies in the AF-based spatial control, their AF-based fine-tuning of articulatory timing was substantially weaker than normal, especially in early parts of the responses, indicating slowness in the auditory-motor integration for temporal control.","note":"","tags":"","weight":29,"publisher":"","booktitle":"","editor":"","address":"","school":"","issn":"1090-2155","isi":"","key":"Cai2014","howpublished":""}]
 
 var uptodate = '';
 var recent = false;
-for (var i = 0; i < publist.length; i++) {
-    publist[i].userid = userid;
-}
-
-// Convert a ref object to HTML.
-function refToHtml(atype, ref, expanded, userid, rootpath, toggleIdx) {
-  if (!atype) atype="article";
-  var style = plosStyle;
-  var txt = "";
-  var fields = fieldsByType[atype];
-  var first = true;
-
-  //  txt += ".";
-
-
-  // Do the common fields.
-  txt += "<div class='fulltextlinks'>\n"; // style='float:right; padding-left : 12px; width: 64px;'>";
-
-  if (ref["urllink"]) {
-	txt += " <a class='htmllink' title='View HTML version' href='"+httpPrefix(ref.urllink)+"'><img src='"+rootpath+"page-sml.png'/></a>";
-  }
-
-  if (ref["pdflink"]) {
-	txt += " <a class='pdflink' title='View PDF version' href='"+httpPrefix(ref.pdflink)+"'><img src='"+rootpath+"pdf-sml.png'/></a>";
-  }
-  var attachmenturl = "";
-
-  if (ref["attachment"]) {
-    var ext = ref.attachment.lastIndexOf(".");
-    var str = "";
-	var tp = "";
-    if (ext!=-1) { tp = ref.attachment.substr(ext+1); }
-
-	str += tp;
-	if (tp == "pdf") {
-	  str = "<img src='"+rootpath+"pdf-sml.png'/>";
-	}
-	else {
-	  str = "[" + str +"]";
-	}
-
-	txt += " <a class='pdflink' title='View local version' href='";
-
-	if (ref.attachment.substring(0,4)=="http") {
-	  attachmenturl = ref.attachment;
-	}
-	else {
-	  attachmenturl = rootpath+"data/"+userid+"/"+ref.attachment;
-	}
-	txt += attachmenturl;
-	txt += "'>"+str+"</a>";
-  }
-
-  if (ref["doi"]) {
-    var href = ref.doi;
-    if (ref.doi.substr(0,4)!="http") {
-      href = "http://dx.doi.org/"+ref.doi;
-    }
-    txt += " &nbsp;<a target='_blank' class='doilink' title='DOI: "+ref.doi+"' href='"+href+"'>DOI</a>&nbsp;";
-  }
-
-  if (ref["pubmed"]) {
-    var href = "http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=pubmed&cmd=Retrieve&dopt=AbstractPlus&list_uids="+ref.pubmed;
-
-    txt += " &nbsp;<a target='_blank' class='pubmedlink' title='PubMed ID : "+ref.pubmed+"' href='"+href+"'>PMID</a>&nbsp;";
-  }
-  if (ref["repostatus"]=="accepted") {
-    txt += " &nbsp;<br/><a target='repository' class='repolink' title='View Repository Copy' " +
-      "href='"+ref.repourl+"'>Repository</a>&nbsp;";
-  }
-  txt += "</div>";
-
-
-  // Is there a thumbnail?
-  if (ref._thumb) {
-    if (typeof(nothumbs)!="undefined" && nothumbs) {} else {
-    txt += "<div class='thumbdiv'>";
-    if (ref.attachment) {
-      txt += " <a target='_blank' class='pdflink' title='View local version' href='"+attachmenturl+"'>";
-    }
-
-
-    var thumburl = ref._thumb;
-    if (thumburl.substring(0,4) != "http") {
-      // full refid can be user-123
-      var refnum = "" + ref.refid; if (refnum.indexOf("-")!==-1) { refnum = refnum.substr(refnum.lastIndexOf("-")+1); }
-
-      thumburl = rootpath+"data/"+userid+"/ref-"+refnum+"/"+ref._thumb;
-    }
-    txt += "<img width='80px' class='thumbimg' src='"+thumburl+"'/>";
-    if (ref.attachment) {
-      txt += "</a>";
-    }
-    txt += "</div>";
-    }
-  }
-
-
-  /*
-  if (toggleIdx != -1) {
-    txt += "<span class='refbody' onmousedown='refDown()' onmousemove='refDrag()' onmouseup='refUp("+toggleIdx+")'>";
-  }
-  else {
-  */
-  txt += "<span class='refbody'>";
-  //}
-  for (var j=0; j<fields.length; j++) {
-	var fn = fields[j];
-
-	if (ref[fn]) {
-	  if (!first) {
-	    txt += " ";
-	  }
-
-	  var entry = trim(ref[fn]);
-
-	  if (entry) {
-		if (fn=="author") {
-		  entry = linkifyAuthors(entry);
-		}
-		var pre = "";
-		var post = " ";
-		if (style[fn]) {
-		  if (style[fn]["pre"]) { pre = style[fn].pre; }
-		  if (style[fn]["post"]) { post = style[fn].post; }
-		}
-		// work-around for IE6 bug
-		if (fn != "author") {// && document.all && !window.XMLHttpRequest) {
-		  // Special case for IE6
-		  if (fn=="year" || fn=="month" || fn=="institution" || fn=="organization" || fn=="publisher" || fn=="series" || fn=="pages" || fn=="address" || fn=="number") { pre = " "+pre; }
-		  var ocl = " onclick='toggleRef("+toggleIdx+")'";
-		  if (fn == "title") {
-		    var words = entry.split(" ");
-		    txt +=  "<a name='x'"+ocl+" class='ax "+fn+"'>"+pre+"</a>";
-		    for (var k=0; k<words.length; k++) {
-		      txt += "<a name='x'"+ocl+" class='ax "+fn+"'>"+words[k]+"</a> ";
-		    }
-		    txt +=  "<a name='x'"+ocl+" class='ax "+fn+"'>"+post+"</a>";
-		  }
-		  else {
-		    txt += "<a name='x' class='ax "+fn+"'>"+pre+entry+post+"</a> ";
-		  }
-		}
-		else {
-		  txt += entry+" "; // "<a name='x' class='"+fn+"'>"+pre+entry+post+"</a> ";
-		}
-		//	if (document.all) { txt += "&nbsp;"; }
-		first = false;
-	  }
-	}
-  }
-
-  txt += "&nbsp; </span>"; // end of the onclick area. nbsp needed or IE mucks up display
-
-
-  if (expanded) {
-	if (ref["tags"]) {
-	  var list = splitTags(ref["tags"]);
-	  txt += " <div class='tags'>";
-	  var maxtags = 3;
-
-	  for (var k=0; k<list.length; k++) {
-		var tag = trim(list[k]);
-		var cma = ""; if (k<list.length-1) { cma = ",&nbsp;&nbsp; "; }
-
-		if (k == maxtags && list.length > maxtags) {
-		  txt += "<a class='atag layout' id='sata"+tagshowidx+"' href='javascript:showAllTags("+tagshowidx+")'><i>(all "+list.length+" tags)</i></a> <span style='display:none' class='layout' id='sats"+tagshowidx+"'>";
-		  tagshowidx ++;
-		}
-
-		// if (k!=0) { txt += ",&nbsp;&nbsp; "; }
-		txt += " <span><a class='atag layout' href='javascript:showTag(\""+tag+"\")'>"+tag+"</a>"+cma+"</span>";
-	  }
-
-	  if (list.length > maxtags) {
-		txt += "</span>";
-	  }
-	  txt += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>";
-	}
-
-    if (ref["abstract"]) {
-      txt += " <div class='abstract layout'>Abstract: "+ref["abstract"]+"</div>"; // *** need to htmlentities...
-    }
-
-    if (ref["note"]) {
-      txt += " <div class='note layout'>Notes: "+linkify(ref["note"])+"</div>"; // *** need to htmlentities...
-    }
-
-
-    if (ref.repostatus || ref.repocollections) {
-      txt += " <div class='note layout'>";
-      if (ref["repostatus"] == "harvested") {
-        txt += "This publication has been harvested by the repository and is being checked. ";
-      }
-      else if (ref["repostatus"] == "accepted") {
-        txt += "This publication is available from the repository: ";
-
-	if (ref["repoid"]) {
-	  txt += "<a class='repolink' target='repository' href='"+ref.repourl+"'>Repository entry: "+ref.repoid+"</a> <br/>";
-	}
-      }
-      else if (ref["repostatus"] == "rejected") {
-        txt += "This publication was not accepted by the repository: ";
-      }
-      else if (ref["repostatus"] == "error") {
-        txt += "There was a harvesting error for this item.";
-      }
-      else if (ref["repocollections"]!=""
-	       && ref["repocollections"]!="-"
-	       && ref["attachment"]!="") {
-        txt += "This publication is available for automated harvesting by the repository";
-      }
-
-
-      txt += "</div>";
-    }
-
-  }
-
-  txt += "<div style='clear:right'></div>";
-
-
-  return txt;
-}
-
 </script>
 
-
-
-
-<div class='publist' id='publistdiv'>
-<table class="table" table-condensed>
-<tr><td valign='top'><div class='yearsep'>2013</div></td>
-<td id='td-21'><div id='list21' class='publication'></div></td></tr>
-<tr><td></td><td id='td-19'>
-<div id='list19' class='publication'></div>
-<div>
-<a href="http://hdl.handle.net/1721.1/69968" target="_blank" class="badge">Supplementary information</a>
-</div>
-</td></tr>
-<tr><td></td><td id='td-22'><div id='list22' class='publication'></div></td></tr>
-<tr><td></td><td id='td-23'><div id='list23' class='publication'></div></td></tr>
-<tr><td valign='top'><div class='yearsep'>2012</div></td>
-<td id='td-18'><div id='list18' class='publication'></div></td></tr>
-<tr><td></td><td id='td-16'><div id='list16' class='publication'></div></td></tr>
-<tr><td></td><td id='td-20'><div id='list20' class='publication'></div></td></tr>
-<tr><td></td><td id='td-17'><div id='list17' class='publication'></div></td></tr>
-<tr><td valign='top'><div class='yearsep'>2011</div></td>
-<td id='td-13'><div id='list13' class='publication'></div></td></tr>
-<tr><td></td><td id='td-14'><div id='list14' class='publication'></div></td></tr>
-<tr><td></td><td id='td-0'><div id='list0' class='publication'></div></td></tr>
-<tr><td></td><td id='td-9'><div id='list9' class='publication'></div></td></tr>
-<tr><td></td><td id='td-15'><div id='list15' class='publication'></div></td></tr>
-<tr><td></td><td id='td-1'><div id='list1' class='publication'></div></td></tr>
-<tr><td valign='top'><div class='yearsep'>2010</div></td>
-<td id='td-2'><div id='list2' class='publication'></div>
-<div>
-<a href="http://hdl.handle.net/1721.1/75815"  target="_blank" class="badge">Supplementary information</a>
-</div></td></tr>
-<tr><td></td><td id='td-11'><div id='list11' class='publication'></div></td></tr>
-<tr><td></td><td id='td-3'><div id='list3' class='publication'></div></td></tr>
-<tr><td></td><td id='td-12'><div id='list12' class='publication'></div></td></tr>
-<tr><td valign='top'><div class='yearsep'>2008</div></td>
-<td id='td-10'><div id='list10' class='publication'></div></td></tr>
-<tr><td></td><td id='td-4'><div id='list4' class='publication'></div></td></tr>
-<tr><td valign='top'><div class='yearsep'>2006</div></td>
-<td id='td-5'><div id='list5' class='publication'></div></td></tr>
-<tr><td valign='top'><div class='yearsep'>2005</div></td>
-<td id='td-8'><div id='list8' class='publication'></div></td></tr>
-<tr><td valign='top'><div class='yearsep'>2004</div></td>
-<td id='td-6'><div id='list6' class='publication'></div></td></tr>
-<tr><td valign='top'><div class='yearsep'>2003</div></td>
-<td id='td-7'><div id='list7' class='publication'></div></td></tr>
-</table>
-</div>
+<div class='publist' id='publistdiv'></div>
 
 
 <div id='selectops' style='display:none; clear:right; float:right; padding:1em;  border: 1px solid orange; font-size:8pt;'>
@@ -352,13 +85,8 @@ function refToHtml(atype, ref, expanded, userid, rootpath, toggleIdx) {
 <script>
 var userid = "satra";
 </script>
-
-<script src='http://publicationslist.org/data/satra/pubutil.js?1266234939'></script>
-<script src='http://publicationslist.org/data/satra/pubinit.js?1266234938'></script>
-
-<script>
-for (var i = 0; i < publist.length; i++) {
-    expandRef(i);
-    collapseRef(i);
-}
-</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src='http://publicationslist.org/data/satra/BROWSER.js?1384435485'></script>
+<script src='http://publicationslist.org/data/satra/DOM.js?1384435485'></script>
+<script src='http://publicationslist.org/data/satra/pubutil.js?1385488763'></script>
+<script src='http://publicationslist.org/data/satra/pubinit.js?1384435485'></script>
