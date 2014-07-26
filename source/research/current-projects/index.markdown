@@ -7,6 +7,18 @@ sidebar: true
 ---
 ## Current Projects
 
+#### Brain basis for voice-based tracking of neurological disorders
+
+PI: Satrajit Ghosh, John Gabrieli, Thomas Quatieri
+Funding source: MINT and Lincoln Lab
+Collaborators: Diego Pizzagalli
+<span class="badge">mobile tracking</span><span class="badge">cognition</span>
+<span class="badge">depression</span>
+
+The goal is to develop mobile tracking platform for depression and to explore 
+the relation between cognitive processes associated with depression and speech
+production.
+
 #### Realtime fMRI and cognitive training to speed recovery from mild traumatic brain injury - mTBI
 
 PI: John Gabrieli, Robert Van Boven
@@ -30,7 +42,7 @@ This project uses realtime fMRI to teach subjects to increase self control by
 learning to regulate brain activity in regions involved in inhibitory control.
 
 #### High-resolution structural and functional characterization of mTBI
-PI: Raul Radovitsky, John Gabrieli, Nancy Kanwisher
+PI: Raul Radovitsky, John Gabrieli, Nancy Kanwisher, Simona Socrate
 Funding Source: Department of defense
 Collaborators: Bruce Fischl, Larry Wald
 <span class="badge">mTBI</span>
@@ -51,7 +63,7 @@ data resources in neuroscience and the ability to process these data using
 cloud-computing infrastructures and that provenance of data is known.
 
 #### Graph-based multimodal representation and multivariate analysis
-PI: Arno Klein
+PI: Georg Langs, Arno Klein
 Funding Source: NIH
 <span class="badge">data mining</span>
 
