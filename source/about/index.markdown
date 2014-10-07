@@ -6,14 +6,16 @@ footer: true
 sidebar: true
 ---
 
-I am a research scientist at the
-[McGovern Institute for Brain Research][MIBR] at MIT and a faculty member in the
-[Speech and Hearing Biosciences and Technology][SHBT] program in the
+I am a research scientist at the [McGovern Institute for Brain Research][MIBR] 
+at MIT, an assistant professor in the Department of Otology and Laryngology at 
+[Harvard Medical School][HMS], and a faculty member in the 
+[Speech and Hearing Biosciences and Technology][SHBT] program in the 
 [Harvard Division of Medical Sciences][DMS].
 
 [MIBR]: http://mcgovern.mit.edu
 [SHBT]: http://www.hms.harvard.edu/dms/shbt
 [DMS]: http://www.hms.harvard.edu/dms
+[HMS]: http://www.hms.harvard.edu
 
 My research areas include neuroinformatics, applied machine learning,
 neuroimaging, software engineering and speech communication.
