@@ -6,7 +6,7 @@ footer: true
 sidebar: true
 ---
 
-I am a research scientist at the [McGovern Institute for Brain Research][MIBR] 
+I am a principal research scientist at the [McGovern Institute for Brain Research][MIBR] 
 at MIT, an assistant professor in the Department of Otology and Laryngology at 
 [Harvard Medical School][HMS], and a faculty member in the 
 [Speech and Hearing Biosciences and Technology][SHBT] program in the 
