@@ -227,6 +227,9 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     if ($location.search().timeline) {
       timeline = $location.search().timeline;
     }
+    $scope.timeline = timeline;
+    $location.search('timeline', $scope.timeline);
+
     var today = new Date().toISOString().substr(0,10);
     var uri = timeline + today + '/*';
     f.nowOrWhenFetched(uri, undefined, function(ok, body) {
