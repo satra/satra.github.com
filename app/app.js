@@ -315,8 +315,13 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
       var creator = g.any(subject, DCT('creator'));
       var content = g.any(subject, SIOC('content'));
       var author  = g.any(subject, MBLOG('author'));
+      var img  = g.any(subject, FOAF('img'));
 
-      $scope.posts.push([created.value, creator.uri, content.value, subject.uri]);
+      if (img) {
+        img = img.uri;
+      }
+
+      $scope.posts.push([created.value, creator.uri, content.value, subject.uri, img]);
 
 
     }
