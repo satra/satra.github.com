@@ -1,19 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="Timeline">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
-	<title>Faceboot - A Facebook style template for Bootstrap</title>
-	<meta name="generator" content="Bootply" />
+	<title>Solid Timeline</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/velocity/velocity.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-ui/build/angular-ui.min.js"></script>
+  <script src="bower_components/lumx/dist/lumx.min.js"></script>
+  <script src="bower_components/angular-audio/app/angular.audio.js"></script>
+
+  <script src="vendor/rdflib.min.js"></script>
+  <script src="vendor/common.js"></script>
+
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/angular-moment/angular-moment.js"></script>
+
+  <!-- App -->
+  <script src="app/app.js"></script>
+
 	<link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-	<div class="wrapper">
+	<div class="wrapper" ng-controller="Main">
 		<div class="box">
 			<div class="row row-offcanvas row-offcanvas-left">
 
@@ -110,7 +126,8 @@
 										<div class="panel-thumbnail"><img src="assets/bg_5.jpg" class="img-responsive"></div>
 										<div class="panel-body">
 											<p class="lead">Solid Timeline</p>
-											<p>45 Followers, 13 Posts</p>
+											<p>26 Followers, {{posts.length}} Posts</p>
+
 
 											<p>
 												<img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
@@ -119,48 +136,31 @@
 									</div>
 
 
-									<div class="panel panel-default">
-										<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Solid Editor &amp; Code Library</h4></div>
-										<div class="panel-body">
-											<p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">The Solid Playground</a></p>
-											<div class="clearfix"></div>
-											<hr>
-											Design, build, test, and prototype using Bootstrap in real-time from your Web browser. Bootply combines the power of hand-coded HTML, CSS and JavaScript with the benefits of responsive design using Bootstrap. Find and showcase Bootstrap-ready snippets in the 100% free Bootply.com code repository.
-										</div>
-									</div>
 
-									<div class="panel panel-default">
-										<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Stackoverflow</h4></div>
-										<div class="panel-body">
-											<img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">Keyword: Solid</a>
-											<div class="clearfix"></div>
-											<hr>
 
-											<p>If you're looking for help with Bootstrap code, the <code>twitter-bootstrap</code> tag at <a href="http://stackoverflow.com/questions/tagged/twitter-bootstrap">Stackoverflow</a> is a good place to find answers.</p>
+										<div ng-repeat="n in posts" class="panel panel-default">
 
-											<hr>
-											<form>
-												<div class="input-group">
-													<div class="input-group-btn">
-														<button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+
+											<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4><a href="{{n[3]}}" target="_blank" am-time-ago="n[0]"></a></h4></div>
+											<div class="panel-body">
+												<p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">{{n[2]}}</a></p>
+												<div class="clearfix"></div>
+												<hr>
+
+												<form>
+													<div class="input-group">
+														<div class="input-group-btn">
+															<button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+														</div>
+														<input type="text" class="form-control" placeholder="Add a comment..">
 													</div>
-													<input type="text" class="form-control" placeholder="Add a comment..">
-												</div>
-											</form>
+												</form>
 
+											</div>
 										</div>
-									</div>
 
-									<div class="panel panel-default">
-										<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Portlet Heading</h4></div>
-										<div class="panel-body">
-											<ul class="list-group">
-												<li class="list-group-item">Modals</li>
-												<li class="list-group-item">Sliders / Carousel</li>
-												<li class="list-group-item">Thumbnails</li>
-											</ul>
-										</div>
-									</div>
+
+
 
 									<div class="panel panel-default">
 										<div class="panel-thumbnail"><img src="assets/bg_4.jpg" class="img-responsive"></div>
@@ -202,12 +202,12 @@
 
 
 									<div class="panel panel-default">
-										<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Solid Examples</h4></div>
+										<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Solid Resources</h4></div>
 										<div class="panel-body">
 											<div class="list-group">
-												<a href="http://bootply.com/tagged/modal" class="list-group-item">Modal / Dialog</a>
-												<a href="http://bootply.com/tagged/datetime" class="list-group-item">Datetime Examples</a>
-												<a href="http://bootply.com/tagged/datatable" class="list-group-item">Data Grids</a>
+												<a target="_blank" href="https://solid.github.io/solid-idps/" class="list-group-item">Join Solid</a>
+												<a target="_blank" href="https://github.com/solid/solid-apps" class="list-group-item">Apps</a>
+												<a target="_blank" href="https://github.com/solid/solid-spec" class="list-group-item">Spec</a>
 											</div>
 										</div>
 									</div>
@@ -216,7 +216,7 @@
 									<div class="panel panel-default">
 										<div class="panel-heading"><h4>What Is Solid?</h4></div>
 										<div class="panel-body">
-											Solid is a framework to redecentralize the web</div>
+											<a target="_blank" href="https://github.com/solid/solid">Solid</a> is a set of protocols to redencentralize the web.
 										</div>
 
 
@@ -224,33 +224,12 @@
 									</div>
 								</div><!--/row-->
 
-								<div class="row">
-									<div class="col-sm-6">
-										<a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
-									</div>
-								</div>
 
-								<div class="row" id="footer">
-									<div class="col-sm-6">
-
-									</div>
-									<div class="col-sm-6">
-										<p>
-											<a href="#" class="pull-right">©Copyright 2015</a>
-										</p>
-									</div>
-								</div>
-
-								<hr>
-
-								<h4 class="text-center">
-									<a href="https://github.com/solid/" target="ext">Solid</a>
-								</h4>
-
-								<hr>
 
 
 							</div><!-- /col-9 -->
+
+
 						</div><!-- /padding -->
 					</div>
 					<!-- /main -->
