@@ -121,13 +121,17 @@
 									<div class="panel panel-default">
 										<div class="panel-thumbnail"><img src="assets/bg_5.jpg" class="img-responsive"></div>
 										<div class="panel-body">
+											<span ng-if="user">
 											<p class="lead"><a ng-href="{{user}}">{{user}}</a></p>
 											<p>26 Followers, {{posts.length}} Posts</p>
+		  								<p>
+	  										<img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
+  										</p>
+										  </span>
+											<span ng-if="!user">
+											<p><a ng-click="TLSlogin()">Sign In</a></p>
+										  </span>
 
-
-											<p>
-												<img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
-											</p>
 										</div>
 									</div>
 
