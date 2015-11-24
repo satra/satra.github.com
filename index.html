@@ -97,7 +97,7 @@
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
 									<ul class="dropdown-menu">
-										<li><a href="">Sign Out</a></li>
+										<li><a ng-click="TLSlogin()">Sign In</a></li>
 										<li><a href="">About</a></li>
 										<li><a href="">Settings</a></li>
 										<li><a href="">Help</a></li>
@@ -121,7 +121,7 @@
 									<div class="panel panel-default">
 										<div class="panel-thumbnail"><img src="assets/bg_5.jpg" class="img-responsive"></div>
 										<div class="panel-body">
-											<p class="lead">Melvin Carvalho</p>
+											<p class="lead"><a ng-href="{{user}}">{{user}}</a></p>
 											<p>26 Followers, {{posts.length}} Posts</p>
 
 

@@ -151,6 +151,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   */
   $scope.loginSuccess = function(user) {
     //$scope.notify('Login Successful!');
+    console.log(user);
     $scope.loggedIn = true;
     $scope.user = user;
     $scope.fetchAll();
