@@ -33,12 +33,10 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   var RDFS  = $rdf.Namespace("http://www.w3.org/2000/01/rdf-schema#");
   var SIOC  = $rdf.Namespace("http://rdfs.org/sioc/ns#");
   var SOLID = $rdf.Namespace("http://www.w3.org/ns/solid/app#");
+  var ST    = $rdf.Namespace("http://www.w3.org/ns/solid/terms#");
   var TMP   = $rdf.Namespace("urn:tmp:");
 
   var f,g;
-
-  var defaultStorageURI = 'https://melvin.databox.me/Public/timeline/stats.ttl';
-  var defaultTimelineURI = 'https://melvin.databox.me/Public/timeline/';
 
   // INIT
   /**
@@ -55,7 +53,10 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
 
     $scope.initRDF();
     $scope.initUI();
+    $scope.initQueryString();
     $scope.initLocalStorage();
+
+    $scope.fetchAll();
 
     __kb = g;
     __scope = $scope;
@@ -101,11 +102,13 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   * init from query string
   */
   $scope.initQueryString = function() {
-    $scope.storageURI = defaultStorageURI;
-    if ($location.search().storageURI) {
-      $scope.storageURI = $location.search().storageURI;
+    if ($location.search().profile) {
+      $scope.profile = $location.search().profile;
+      return;
     }
-    $scope.setStorageURI($scope.storageURI);
+    if ($location.search().timeline) {
+      $scope.timeline = $location.search().timeline;
+    }
   };
 
   /**
@@ -154,7 +157,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     console.log(user);
     $scope.loggedIn = true;
     $scope.user = user;
-    $scope.fetchAll();
+    $scope.profile = user;
     localStorage.setItem('user', JSON.stringify(user));
   };
 
@@ -171,30 +174,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   //
   //
   $scope.fetchAll = function() {
-    $scope.fetchStats();
-    $scope.fetchTimeline();
-    $scope.fetchWebid();
-  };
-
-  /**
-   * Fetch the stats
-   * @param  {String} position The URI for the position
-   */
-  $scope.fetchStats = function (position) {
-    var storageURI = defaultStorageURI;
-    if ($location.search().storageURI) {
-      storageURI = $location.search().storageURI;
-    }
-    $scope.storageURI = storageURI;
-    connectToSocket($scope.storageURI);
-
-    f.requestURI(storageURI, undefined, true, function(ok, body) {
-      var p = g.statementsMatching(undefined, TMP('stats'));
-      if (p.length) {
-        $scope.stats = p[0].object.value;
-        $scope.render();
-      }
-    });
+    $scope.fetchWebid($scope.profile);
   };
 
   /**
@@ -215,6 +195,15 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
       }
       var friends = g.statementsMatching(undefined, FOAF('knows'));
       $scope.friends = friends.length;
+
+      var timeline = g.any($rdf.sym(uri), ST('timeline'));
+
+      if (timeline) {
+        $scope.timeline = timeline.uri;
+      }
+
+      $scope.fetchTimeline();
+
     });
   };
 
@@ -228,30 +217,19 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     f.refresh($rdf.sym(uri));
   };
 
-  /**
-  * fetchSeeAlso fetches the see also
-  */
-  $scope.fetchSeeAlso = function() {
-    var seeAlso = 'https://melvincarvalho.github.io/chess/data/seeAlso.ttl';
-    if ($location.search().seeAlso) {
-      seeAlso = $location.search().seeAlso;
-    }
-    f.nowOrWhenFetched(seeAlso, undefined, function(ok, body) {
-      console.log('seeAlso fetched from : ' + seeAlso);
-    });
-
-  };
 
   /**
   * fetchTimeline fetches the see also
   */
   $scope.fetchTimeline = function() {
-    var timeline = defaultTimelineURI;
+    var timeline = $scope.timeline;
     if ($location.search().timeline) {
       timeline = $location.search().timeline;
     }
     $scope.timeline = timeline;
-    $location.search('timeline', $scope.timeline);
+    if ($scope.profile) {
+      $location.search('profile', $scope.profile);      
+    }
 
     var today = new Date().toISOString().substr(0,10);
     var uri = timeline + today + '/*';
