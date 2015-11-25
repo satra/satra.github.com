@@ -138,6 +138,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
       var user = headers(header);
       if (user && user.length > 0 && user.slice(0,scheme.length) === scheme) {
         $scope.loginSuccess(user);
+        $scope.fetchAll();
       } else {
         $scope.notify('WebID-TLS authentication failed.', 'error');
       }
@@ -228,7 +229,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     }
     $scope.timeline = timeline;
     if ($scope.profile) {
-      $location.search('profile', $scope.profile);      
+      $location.search('profile', $scope.profile);
     }
 
     var today = new Date().toISOString().substr(0,10);
