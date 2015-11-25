@@ -213,6 +213,8 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
         $scope.name = name[0].object.value;
         $scope.render();
       }
+      var friends = g.statementsMatching(undefined, FOAF('knows'));
+      $scope.friends = friends.length;
     });
   };
 
