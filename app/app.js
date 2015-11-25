@@ -208,7 +208,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     console.log(uri);
 
     f.requestURI(uri.split('#')[0], undefined, true, function(ok, body) {
-      var name = g.statementsMatching(undefined, FOAF('name'));
+      var name = g.statementsMatching($rdf.sym(uri), FOAF('name'));
       if (name.length) {
         $scope.name = name[0].object.value;
         $scope.render();
