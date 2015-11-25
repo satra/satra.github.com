@@ -242,36 +242,72 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   };
 
   /**
-   * Save the position
+   * Save the post
    */
   $scope.save = function() {
-    var position = $scope.position;
-    if (!position) {
-      LxNotificationService.error('position is empty');
+
+    var post = $scope.post;
+    if (!post) {
+      LxNotificationService.error('post is empty');
       return;
     }
-    console.log(position);
+    if ($scope.profile !== $scope.user) {
+      LxNotificationService.error('can only post to your own timeline');
+      return;
+    }
+    console.log(post);
+    var message = $scope.createPost($scope.user, post);
+    var today = new Date().toISOString().substr(0,10);
+    var uri = $scope.timeline + today + '/';
+    console.log(uri);
+    console.log(message);
 
     $http({
-      method: 'PUT',
-      url: $scope.storageURI,
+      method: 'POST',
+      url: uri,
       withCredentials: true,
       headers: {
         "Content-Type": "text/turtle"
       },
-      data: '<#this> '+ TMP('fen') +' """' + position + '""" .',
+      data: message,
     }).
     success(function(data, status, headers) {
-      LxNotificationService.success('Position saved');
-      $location.search('storageURI', $scope.storageURI);
-      $scope.renderBoard(position);
+      LxNotificationService.success('Post saved');
     }).
     error(function(data, status, headers) {
-      LxNotificationService.error('could not save position');
+      LxNotificationService.error('could not save post');
     });
 
   };
 
+
+  /**
+  * create a post in turtle
+  * @param  {string} webid       the creator
+  * @param  {string} message     the message to send
+  * @param  {string} application application that created it
+  * @param  {string} img         img for that post
+  * @return {string}             the message in turtle
+  */
+  $scope.createPost = function(webid, message, application, img) {
+    var turtle;
+    turtle = '<#this> ';
+    turtle += '    <http://purl.org/dc/terms/created> "'+ new Date().toISOString() +'"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;\n';
+    turtle += '    <http://purl.org/dc/terms/creator> <' + webid + '> ;\n';
+    turtle += '    <http://rdfs.org/sioc/ns#content> "'+ message.trim() +'" ;\n';
+    turtle += '    a <http://rdfs.org/sioc/ns#Post> ;\n';
+
+    if (application) {
+      turtle += '    <https://w3.org/ns/solid/app#application> <' + application + '> ;\n';
+    }
+
+    if (img) {
+      turtle += '    <http://xmlns.com/foaf/0.1/img> <' + img + '> ;\n';
+    }
+
+    turtle += '    <http://www.w3.org/ns/mblog#author> <'+ webid +'> .\n';
+    return turtle;
+  };
 
   // HELPER
   /**
