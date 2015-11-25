@@ -173,6 +173,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   $scope.fetchAll = function() {
     $scope.fetchStats();
     $scope.fetchTimeline();
+    $scope.fetchWebid();
   };
 
   /**
@@ -191,6 +192,25 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
       var p = g.statementsMatching(undefined, TMP('stats'));
       if (p.length) {
         $scope.stats = p[0].object.value;
+        $scope.render();
+      }
+    });
+  };
+
+  /**
+   * Fetch the webid
+   * @param  {String} position The URI for the position
+   */
+  $scope.fetchWebid = function (webid) {
+    var uri = webid || $scope.user;
+
+    if (!uri) return;
+    console.log(uri);
+
+    f.requestURI(uri.split('#')[0], undefined, true, function(ok, body) {
+      var name = g.statementsMatching(undefined, FOAF('name'));
+      if (name.length) {
+        $scope.name = name[0].object.value;
         $scope.render();
       }
     });
