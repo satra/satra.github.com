@@ -154,7 +154,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   * @param  {String} user the logged in user
   */
   $scope.loginSuccess = function(user) {
-    //$scope.notify('Login Successful!');
+    $scope.notify('Login Successful!');
     console.log(user);
     $scope.loggedIn = true;
     $scope.user = user;
@@ -272,10 +272,12 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
       data: message,
     }).
     success(function(data, status, headers) {
-      LxNotificationService.success('Post saved');
+      $scope.notify('Post saved');
+      $scope.post = null;
+      $scope.img = null;
     }).
     error(function(data, status, headers) {
-      LxNotificationService.error('could not save post');
+      $scope.notify('could not save post', 'error');
     });
 
   };
@@ -318,9 +320,9 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   $scope.notify = function(message, type) {
     console.log(message);
     if (type === 'error') {
-      LxNotificationService.error(message);
+      notie.alert(3, message, 1);
     } else {
-      LxNotificationService.success(message);
+      notie.alert(1, message, 1);
     }
   };
 
