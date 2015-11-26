@@ -256,7 +256,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
       return;
     }
     console.log(post);
-    var message = $scope.createPost($scope.user, post);
+    var message = $scope.createPost($scope.user, post, null, $scope.img);
     var today = new Date().toISOString().substr(0,10);
     var uri = $scope.timeline + today + '/';
     console.log(uri);
