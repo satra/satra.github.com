@@ -294,7 +294,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     turtle = '<#this> ';
     turtle += '    <http://purl.org/dc/terms/created> "'+ new Date().toISOString() +'"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;\n';
     turtle += '    <http://purl.org/dc/terms/creator> <' + webid + '> ;\n';
-    turtle += '    <http://rdfs.org/sioc/ns#content> "'+ message.trim() +'" ;\n';
+    turtle += '    <http://rdfs.org/sioc/ns#content> """'+ message.trim() +'""" ;\n';
     turtle += '    a <http://rdfs.org/sioc/ns#Post> ;\n';
 
     if (application) {
