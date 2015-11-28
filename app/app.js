@@ -406,6 +406,18 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     });
   };
 
+  /**
+  * older sets date one day back
+  */
+  $scope.older = function() {
+    date = new Date($scope.date);
+    var yesterday = new Date();
+    yesterday.setDate(date.getDate() - 1);
+    $scope.date = yesterday.toISOString().substring(0,10);
+    $scope.fetchAll();
+  };
+
+
 
   // SOCKETS
   //
