@@ -72,6 +72,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     $scope.loginTLSButtonText = "Login";
     $scope.audio = ngAudio.load('audio/button-3.mp3');
     $scope.ponts = [];
+    $scope.date = new Date().toISOString().substr(0,10);
   };
 
 
@@ -102,6 +103,10 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   * init from query string
   */
   $scope.initQueryString = function() {
+    if ($location.search().date) {
+      $scope.date = $location.search().date;
+    }
+    $location.search('date', $scope.date);
     if ($location.search().profile) {
       $scope.profile = $location.search().profile;
       return;
@@ -232,8 +237,8 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
       $location.search('profile', $scope.profile);
     }
 
-    var today = new Date().toISOString().substr(0,10);
-    var uri = timeline + today + '/*';
+    //var today = new Date().toISOString().substr(0,10);
+    var uri = timeline + $scope.date + '/*';
     f.nowOrWhenFetched(uri, undefined, function(ok, body) {
       console.log('timeline fetched from : ' + uri);
       $scope.render();
