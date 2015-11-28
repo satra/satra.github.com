@@ -193,7 +193,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     if (!uri) return;
     console.log(uri);
 
-    f.requestURI(uri.split('#')[0], undefined, true, function(ok, body) {
+    f.nowOrWhenFetched(uri.split('#')[0], undefined, function(ok, body) {
       var name = g.statementsMatching($rdf.sym(uri), FOAF('name'));
       if (name.length) {
         $scope.name = name[0].object.value;
@@ -239,7 +239,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
 
     //var today = new Date().toISOString().substr(0,10);
     var uri = timeline + $scope.date + '/*';
-    f.nowOrWhenFetched(uri, undefined, function(ok, body) {
+    f.requestURI(uri, undefined, true, function(ok, body) {
       console.log('timeline fetched from : ' + uri);
       $scope.render();
     });
@@ -280,6 +280,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
       $scope.notify('Post saved');
       $scope.post = null;
       $scope.img = null;
+      $scope.fetchAll();
     }).
     error(function(data, status, headers) {
       $scope.notify('could not save post', 'error');
@@ -338,17 +339,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   * Render screen
   */
   $scope.render = function() {
-    $scope.renderStats();
     $scope.renderTimeline();
-  };
-
-  /**
-   * Render the stats
-   */
-  $scope.renderStats = function () {
-    if ($scope.stats) {
-      $scope.points = $scope.stats.split('-');
-    }
   };
 
   /**
