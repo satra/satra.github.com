@@ -109,15 +109,15 @@
 										<div class="panel-thumbnail"><img src="assets/bg_5.jpg" class="img-responsive"></div>
 										<div class="panel-body">
 											<span ng-if="profile">
-											<p class="lead"><a ng-href="{{profile}}">{{name}}</a></p>
-											<p><a target="_blank" href="https://linkeddata.github.io/profile-editor/#/friends/view?webid={{profile | escape}}">{{friends}} friends</a>, <a  target="_blank" href="{{timeline}}">{{posts.length}} Posts</a></p>
-		  								<p>
-	  										<img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
-  										</p>
-										  </span>
+												<p class="lead"><a ng-href="{{profile}}">{{name}}</a></p>
+												<p><a target="_blank" href="https://linkeddata.github.io/profile-editor/#/friends/view?webid={{profile | escape}}">{{friends}} friends</a>, <a  target="_blank" href="{{timeline}}">{{posts.length}} Posts</a></p>
+												<p>
+													<img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
+												</p>
+											</span>
 											<span ng-if="!profile">
-											<p><a ng-click="TLSlogin()">Sign In</a></p>
-										  </span>
+												<p><a ng-click="TLSlogin()">Sign In</a></p>
+											</span>
 
 										</div>
 									</div>
@@ -125,29 +125,29 @@
 
 
 
-										<div ng-repeat="n in posts" class="panel panel-default">
+									<div ng-repeat="n in posts" class="panel panel-default">
 
 
-											<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4><a href="{{n[3]}}" target="_blank" am-time-ago="n[0]"></a></h4></div>
-											<div ng-if="n[4]" class="panel-thumbnail"><img ng-src="{{n[4]}}" class="img-responsive"></div>
-											<div class="panel-body">
-												<p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">{{n[2]}}</a></p>
-												<div class="clearfix"></div>
-												<hr>
+										<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4><a href="{{n[3]}}" target="_blank" am-time-ago="n[0]"></a></h4></div>
+										<div ng-if="n[4]" class="panel-thumbnail"><img ng-src="{{n[4]}}" class="img-responsive"></div>
+										<div class="panel-body">
+											<p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">{{n[2]}}</a></p>
+											<div class="clearfix"></div>
+											<hr>
 
-												<form>
-													<div class="input-group">
-														<div class="input-group-btn">
-															<button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
-														</div>
-														<input type="text" class="form-control" placeholder="Add a comment..">
+											<form>
+												<div class="input-group">
+													<div class="input-group-btn">
+														<button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
 													</div>
-												</form>
+													<input type="text" class="form-control" placeholder="Add a comment..">
+												</div>
+											</form>
 
-											</div>
 										</div>
+									</div>
 
-                    <div><a ng-click="older()">Older</a></div>
+									<div><a ng-click="older()">Older</a></div>
 
 								</div>
 
@@ -164,10 +164,10 @@
 												<textarea ng-model="post" class="form-control" placeholder="Update your status"></textarea>
 											</div>
 											<button class="btn btn-primary pull-right" ng-click="save()" type="button">Post</button>
-											  <ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>
-													<li><a href="#imageModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-camera"></i></a></li>
-													<li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li>
-												</ul>
+											<ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>
+												<li><a href="#imageModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-camera"></i></a></li>
+												<li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li>
+											</ul>
 										</form>
 									</div>
 
@@ -261,20 +261,20 @@
 	</body>
 
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/velocity/velocity.min.js"></script>
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="bower_components/angular-ui/build/angular-ui.min.js"></script>
-  <script src="bower_components/lumx/dist/lumx.min.js"></script>
-  <script src="bower_components/angular-audio/app/angular.audio.js"></script>
-  <script src="bower_components/notie/notie.js"></script>
+	<script src="bower_components/velocity/velocity.min.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-ui/build/angular-ui.min.js"></script>
+	<script src="bower_components/lumx/dist/lumx.min.js"></script>
+	<script src="bower_components/angular-audio/app/angular.audio.js"></script>
+	<script src="bower_components/notie/notie.js"></script>
 
-  <script src="vendor/rdflib.min.js"></script>
-  <script src="vendor/common.js"></script>
+	<script src="vendor/rdflib.min.js"></script>
+	<script src="vendor/common.js"></script>
 
-  <script src="bower_components/moment/moment.js"></script>
-  <script src="bower_components/angular-moment/angular-moment.js"></script>
+	<script src="bower_components/moment/moment.js"></script>
+	<script src="bower_components/angular-moment/angular-moment.js"></script>
 
-  <!-- App -->
-  <script src="app/app.js"></script>
+	<!-- App -->
+	<script src="app/app.js"></script>
 
 	</html>
