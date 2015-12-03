@@ -107,21 +107,18 @@
 								<div class="col-sm-5">
 
 
-									<div class="panel panel-default">
-										<div class="panel-thumbnail"><img src="assets/bg_5.jpg" class="img-responsive"></div>
-										<div class="panel-body">
-											<span ng-if="profile">
-												<p class="lead"><a ng-href="{{profile}}">{{name}}</a></p>
-												<p><a target="_blank" href="https://linkeddata.github.io/profile-editor/#/friends/view?webid={{profile | escape}}">{{friends}} friends</a>, <a  target="_blank" href="{{timeline}}">{{posts.length}} Posts</a></p>
-												<p>
-													<img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
-												</p>
-											</span>
-											<span ng-if="!profile">
-												<p><a ng-click="TLSlogin()">Sign In</a></p>
-											</span>
-
-										</div>
+									<div class="well">
+										<form class="form-horizontal" role="form">
+											<h4>What's New</h4>
+											<div class="form-group" style="padding:14px;">
+												<textarea ng-model="post" class="form-control" placeholder="Update your status"></textarea>
+											</div>
+											<button class="btn btn-primary pull-right" ng-click="save()" type="button">Post</button>
+											<ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>
+												<li><a href="#imageModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-camera"></i></a></li>
+												<li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li>
+											</ul>
+										</form>
 									</div>
 
 
@@ -155,6 +152,23 @@
 
 								<!-- main col right -->
 								<div class="col-sm-7">
+
+									<div class="panel panel-default">
+										<div class="panel-thumbnail"><img src="https://avatars3.githubusercontent.com/u/14262490?v=3&s=200" class="img-responsive"></div>
+										<div class="panel-body">
+											<span ng-if="profile">
+												<p class="lead"><a ng-href="{{profile}}">{{name}}</a></p>
+												<p><a target="_blank" href="https://linkeddata.github.io/profile-editor/#/friends/view?webid={{profile | escape}}">{{friends}} friends</a>, <a  target="_blank" href="{{timeline}}">{{posts.length}} Posts</a></p>
+												<p>
+													<img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
+												</p>
+											</span>
+											<span ng-if="!profile">
+												<p><a ng-click="TLSlogin()">Sign In</a></p>
+											</span>
+
+										</div>
+									</div>
 
 
 									<div class="panel panel-default">
@@ -199,19 +213,6 @@
 									</div>
 
 
-									<div class="well">
-										<form class="form-horizontal" role="form">
-											<h4>What's New</h4>
-											<div class="form-group" style="padding:14px;">
-												<textarea ng-model="post" class="form-control" placeholder="Update your status"></textarea>
-											</div>
-											<button class="btn btn-primary pull-right" ng-click="save()" type="button">Post</button>
-											<ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>
-												<li><a href="#imageModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-camera"></i></a></li>
-												<li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li>
-											</ul>
-										</form>
-									</div>
 
 
 
