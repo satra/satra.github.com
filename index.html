@@ -14,6 +14,8 @@
 
 
 	<link href="css/styles.css" rel="stylesheet">
+	<link href="bower_components/cal-heatmap/cal-heatmap.css" rel="stylesheet">
+
 </head>
 <body>
 	<div class="wrapper" ng-controller="Main">
@@ -155,6 +157,46 @@
 								<div class="col-sm-7">
 
 
+									<div class="panel panel-default">
+										<div class="panel-heading"><h4>Activity</h4></div>
+										<div class="panel-body">
+
+											<button id="example-h-PreviousDomain-selector" style="margin-bottom: 10px;" class="btn"><</button>
+											<button id="example-h-NextDomain-selector" style="margin-bottom: 10px;" class="btn">></button>
+
+												<div id="example-h">
+												</div>
+
+												<style>
+																#example-h .graph-label {
+																	font-weight: bold;
+																	font-size: 18px;
+																	fill: #fff;
+																}
+
+																#example-h .domain-background {
+																	fill: #2d3a47;
+																}
+
+																#example-h .graph-domain.m_2 .domain-background {
+																	fill: red;
+																}
+
+																#example-h .grap-rect {fill:#35252d;}
+																#example-h .q0 {fill:#35252d;}
+																#example-h .q1 {fill:#fea1eb; opacity: 0.1}
+																#example-h .q2 {fill:#fea1eb; opacity: 0.2}
+																#example-h .q3 {fill:#fea1eb; opacity: 0.4}
+																#example-h .q4 {fill:#fea1eb; opacity: 0.6}
+																#example-h .q5 {fill:#fea1eb; opacity: 0.8}
+																#example-h .q6 {fill:#fea1eb; opacity: 1}
+																#example-h .graph-rect:hover {fill: #fff; opacity: 1; stroke-width: 0;}
+
+
+															</style>
+
+										</div>
+									</div>
 
 
 									<div class="well">
@@ -170,6 +212,9 @@
 											</ul>
 										</form>
 									</div>
+
+
+
 
 
 
@@ -190,10 +235,10 @@
 										<div class="panel-body">
 											<a target="_blank" href="https://github.com/solid/solid">Solid</a> is a set of protocols to redecentralize the web.
 										</div>
-
-
-
 									</div>
+
+
+
 								</div><!--/row-->
 
 
@@ -260,6 +305,8 @@
 		<script src="js/scripts.js"></script>
 	</body>
 
+	<script src="bower_components/d3/d3.min.js"></script>
+	<script src="bower_components/cal-heatmap/cal-heatmap.min.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/velocity/velocity.min.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
@@ -273,6 +320,7 @@
 
 	<script src="bower_components/moment/moment.js"></script>
 	<script src="bower_components/angular-moment/angular-moment.js"></script>
+
 
 	<!-- App -->
 	<script src="app/app.js"></script>

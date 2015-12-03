@@ -23,6 +23,7 @@
     "angular-audio": "~1.7.0",
     "angular-moment": "~0.10.3",
     "moment": "~2.10.6",
-    "notie": "*"
+    "notie": "*",
+    "cal-heatmap": "~3.5.3"
   }
 }

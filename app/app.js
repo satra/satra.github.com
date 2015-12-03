@@ -64,8 +64,8 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
 
 
   /**
-   * Init UI
-   */
+  * Init UI
+  */
   $scope.initUI = function() {
     $scope.initialized = true;
     $scope.loggedIn = false;
@@ -73,6 +73,48 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     $scope.audio = ngAudio.load('audio/button-3.mp3');
     $scope.ponts = [];
     $scope.date = new Date().toISOString().substr(0,10);
+
+    var cal = new CalHeatMap();
+    cal.init({
+    	itemSelector: "#example-h",
+    	domain: "month",
+    	subDomain: "x_day",
+    	data: "datas-years.json",
+    	start: new Date(2015, 11, 2),
+    	cellSize: 15,
+    	cellRadius: 3,
+    	cellPadding: 5,
+    	range: 1,
+    	domainMargin: 20,
+    	animationDuration: 800,
+    	domainDynamicDimension: false,
+    	previousSelector: "#example-h-PreviousDomain-selector",
+    	nextSelector: "#example-h-NextDomain-selector",
+      tooltip: true,
+      onClick: function(date, nb) {
+
+        var yyyy = date.getFullYear().toString();
+        var mm = (date.getMonth()+1).toString(); // getMonth() is zero-based
+        var dd  = date.getDate().toString();
+        var d = yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]); // padding
+
+        $scope.notify( d );
+        $location.search('date', d);
+        $scope.date = d;
+        $scope.fetchAll();
+    	},
+    	label: {
+    		position: "left",
+    		offset: {
+    			x: 20,
+    			y: 35
+    		},
+    		width: 110
+    	},
+    	legend: [5, 10,15, 20]
+    });
+
+
   };
 
 
@@ -184,9 +226,9 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   };
 
   /**
-   * Fetch the webid
-   * @param  {String} position The URI for the position
-   */
+  * Fetch the webid
+  * @param  {String} position The URI for the position
+  */
   $scope.fetchWebid = function (webid) {
     var uri = webid || $scope.user;
 
@@ -214,9 +256,9 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   };
 
   /**
-   * Invalidate a cached URI
-   * @param  {String} uri The URI to invalidate
-   */
+  * Invalidate a cached URI
+  * @param  {String} uri The URI to invalidate
+  */
   $scope.invalidate = function(uri) {
     console.log('invalidate : ' + uri);
     f.unload(uri);
@@ -247,8 +289,8 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   };
 
   /**
-   * Save the post
-   */
+  * Save the post
+  */
   $scope.save = function() {
 
     var post = $scope.post;
@@ -343,8 +385,8 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   };
 
   /**
-   * Render the timeline
-   */
+  * Render the timeline
+  */
   $scope.renderTimeline = function () {
     var p = g.statementsMatching(null, null, SIOC('Post'));
     $scope.posts = [];
@@ -360,8 +402,9 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
         img = img.uri;
       }
 
-      $scope.posts.push([created.value, creator.uri, content.value, subject.uri, img]);
-
+      if ( created.value.substring(0,10) === $scope.date ) {
+        $scope.posts.push([created.value, creator.uri, content.value, subject.uri, img]);
+      }
 
     }
 
@@ -377,8 +420,8 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   };
 
   /**
-   * Refresh the board
-   */
+  * Refresh the board
+  */
   $scope.refresh = function() {
     $scope.fetchBoard();
     $scope.render();
@@ -414,18 +457,18 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   //
   //
   /**
-   * Get wss from URI
-   * @param  {String} uri The URI to use
-   */
+  * Get wss from URI
+  * @param  {String} uri The URI to use
+  */
   function getWss(uri) {
     return 'wss://' + uri.split('/')[2];
   }
 
   /**
-   * Connect to a web socket
-   * @param  {String}  sub Where to subscribe to
-   * @param  {boolean} quiet dont ping server
-   */
+  * Connect to a web socket
+  * @param  {String}  sub Where to subscribe to
+  * @param  {boolean} quiet dont ping server
+  */
   function connectToSocket(sub, quiet) {
     // Some servers time out after 5 minutes inactive
     var INTERVAL  = 240 * 1000;
@@ -470,9 +513,9 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   }
 
   /**
-   * Process message from socket
-   * @param  {String} uri uri that has changed
-   */
+  * Process message from socket
+  * @param  {String} uri uri that has changed
+  */
   function processSocket(uri) {
     console.log(uri);
 
@@ -495,8 +538,8 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
 });
 
 /**
- * Escape URIs filter
- */
+* Escape URIs filter
+*/
 App.filter('escape', function() {
   return window.encodeURIComponent;
 });
