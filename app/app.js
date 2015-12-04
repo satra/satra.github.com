@@ -437,6 +437,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   */
   $scope.search = function() {
     $scope.q = $scope.query;
+    $location.search('q', $scope.q);
     $scope.render();
   };
 
