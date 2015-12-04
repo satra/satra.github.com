@@ -433,6 +433,15 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   };
 
   /**
+  * Search box
+  */
+  $scope.search = function() {
+    $scope.q = $scope.query;
+    $scope.render();
+  };
+
+
+  /**
   * openDialog opens a dialog box
   * @param  {String} elem  The element to display
   */
