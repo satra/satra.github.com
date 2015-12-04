@@ -148,6 +148,9 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     if ($location.search().date) {
       $scope.date = $location.search().date;
     }
+    if ($location.search().q) {
+      $scope.q = $location.search().q;
+    }
     $location.search('date', $scope.date);
     if ($location.search().profile) {
       $scope.profile = $location.search().profile;
@@ -397,6 +400,8 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
       var content = g.any(subject, SIOC('content'));
       var author  = g.any(subject, MBLOG('author'));
       var img  = g.any(subject, FOAF('img'));
+
+    if ($scope.q && content && content.value && content.value.indexOf($scope.q) === -1) continue;
 
       if (img) {
         img = img.uri;
