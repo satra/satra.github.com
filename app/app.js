@@ -73,23 +73,30 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     $scope.audio = ngAudio.load('audio/button-3.mp3');
     $scope.ponts = [];
     $scope.date = new Date().toISOString().substr(0,10);
+    $scope.initCalendar();
 
+  };
+
+  /**
+  * Init Calendar
+  */
+  $scope.initCalendar = function() {
     var cal = new CalHeatMap();
     cal.init({
-    	itemSelector: "#example-h",
-    	domain: "month",
-    	subDomain: "x_day",
-    	data: "datas-years.json",
-    	start: new Date(2015, 11, 2),
-    	cellSize: 15,
-    	cellRadius: 3,
-    	cellPadding: 5,
-    	range: 1,
-    	domainMargin: 20,
-    	animationDuration: 800,
-    	domainDynamicDimension: false,
-    	previousSelector: "#example-h-PreviousDomain-selector",
-    	nextSelector: "#example-h-NextDomain-selector",
+      itemSelector: "#calendar",
+      domain: "month",
+      subDomain: "x_day",
+      data: "datas-years.json",
+      start: new Date(2015, 11, 2),
+      cellSize: 15,
+      cellRadius: 3,
+      cellPadding: 5,
+      range: 1,
+      domainMargin: 20,
+      animationDuration: 800,
+      domainDynamicDimension: false,
+      previousSelector: "#PreviousMonth-selector",
+      nextSelector: "#NextMonth-selector",
       tooltip: true,
       onClick: function(date, nb) {
 
@@ -102,19 +109,17 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
         $location.search('date', d);
         $scope.date = d;
         $scope.fetchAll();
-    	},
-    	label: {
-    		position: "left",
-    		offset: {
-    			x: 20,
-    			y: 35
-    		},
-    		width: 110
-    	},
-    	legend: [5, 10,15, 20]
+      },
+      label: {
+        position: "left",
+        offset: {
+          x: 20,
+          y: 35
+        },
+        width: 110
+      },
+      legend: [5, 10,15, 20]
     });
-
-
   };
 
 

@@ -169,14 +169,14 @@ h1,h2,h3 {
     text-shadow:0 0 1px rgba(0,0,0,.3);
 }
 .form-control {
-	
+
 }
 
 .panel textarea, .well textarea, textarea.form-control
 {
    resize: none;
 }
-  
+
 .badge{
    color:#3B5999;
    background-color:#fff;
@@ -185,7 +185,7 @@ h1,h2,h3 {
    background-color:#3B5999;
    color:#fff;
 }
-    
+
 .jumbotron {
   background-color:transparent;
 }
@@ -255,6 +255,31 @@ small.text-muted {
   }
 
 }
+
+
+#calendar .graph-label {
+  font-weight: bold;
+  font-size: 18px;
+  fill: #fff;
+}
+
+#calendar .domain-background {
+  fill: #2d3a47;
+}
+
+#calendar .graph-domain.m_2 .domain-background {
+  fill: red;
+}
+
+#calendar .grap-rect {fill:#35252d;}
+#calendar .q0 {fill:#35252d;}
+#calendar .q1 {fill:#fea1eb; opacity: 0.1}
+#calendar .q2 {fill:#fea1eb; opacity: 0.2}
+#calendar .q3 {fill:#fea1eb; opacity: 0.4}
+#calendar .q4 {fill:#fea1eb; opacity: 0.6}
+#calendar .q5 {fill:#fea1eb; opacity: 0.8}
+#calendar .q6 {fill:#fea1eb; opacity: 1}
+#calendar .graph-rect:hover {fill: #fff; opacity: 1; stroke-width: 0;}
 
 
 /*
