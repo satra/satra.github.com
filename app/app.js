@@ -284,7 +284,8 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
 
     //var today = new Date().toISOString().substr(0,10);
     var uri = timeline + $scope.date + '/*';
-    f.requestURI(uri, undefined, true, function(ok, body) {
+    $scope.invalidate(uri);
+    f.requestURI(uri, null, true, function(ok, body) {
       console.log('timeline fetched from : ' + uri);
       $scope.render();
     });
@@ -401,7 +402,7 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
       var author  = g.any(subject, MBLOG('author'));
       var img  = g.any(subject, FOAF('img'));
 
-    if ($scope.q && content && content.value && content.value.indexOf($scope.q) === -1) continue;
+      if ($scope.q && content && content.value && content.value.indexOf($scope.q) === -1) continue;
 
       if (img) {
         img = img.uri;
@@ -428,7 +429,6 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
   * Refresh the board
   */
   $scope.refresh = function() {
-    $scope.fetchBoard();
     $scope.render();
   };
 
