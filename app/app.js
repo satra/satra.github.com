@@ -440,6 +440,17 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
     $scope.render();
   };
 
+  /**
+  * Home
+  */
+  $scope.home = function() {
+    $scope.q = null;
+    $scope.query = null;
+    $scope.date = new Date().toISOString().substring(0,10);
+    $location.search('date', $scope.date);
+    $scope.render();
+  };
+
 
   /**
   * openDialog opens a dialog box
