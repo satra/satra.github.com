@@ -446,7 +446,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * Refresh the board
   */
   $scope.refresh = function() {
-    $scope.render();
+    $scope.notify('Refreshing!');
+    $scope.fetchAll();
   };
 
   /**
