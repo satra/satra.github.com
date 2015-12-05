@@ -225,7 +225,6 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * Logout
   */
   $scope.logout = function() {
-    $scope.name = null;
     $scope.user = null;
     localStorage.removeItem('user');
     $scope.notify('Logout Successful!');
