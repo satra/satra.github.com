@@ -308,8 +308,6 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   $scope.save = function() {
 
     var post = $scope.post;
-    console.log(post);
-    return;
 
     if (!post && !$scope.img) {
       $scope.notify('Post is empty', 'error');
