@@ -17,7 +17,7 @@ App.config(function($locationProvider) {
   .html5Mode({ enabled: true, requireBase: false });
 });
 
-App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxNotificationService, LxProgressService, LxDialogService) {
+App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngAudio, LxNotificationService, LxProgressService, LxDialogService) {
   // Namespaces
   var CHAT  = $rdf.Namespace("https://ns.rww.io/chat#");
   var CURR  = $rdf.Namespace("https://w3id.org/cc#");
@@ -413,8 +413,14 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
         img = img.uri;
       }
 
+      if (content && content.value) {
+        message = content.value;
+      } else {
+        message = null;
+      }
+
       if ( created.value.substring(0,10) === $scope.date ) {
-        $scope.posts.push([created.value, creator.uri, content.value, subject.uri, img]);
+        $scope.posts.push([created.value, creator.uri, message, subject.uri, img]);
       }
 
     }
@@ -575,3 +581,11 @@ App.controller('Main', function($scope, $http, $location, $timeout, ngAudio, LxN
 App.filter('escape', function() {
   return window.encodeURIComponent;
 });
+
+App.filter('parseUrlFilter', ['$sce', function ($sce) {
+    var urlPattern = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/gi;
+    return function (text) {
+        var target = '_blank';
+        return $sce.trustAsHtml(text.replace(urlPattern, '<a target="' + target + '" href="$&">$&</a>'));
+    };
+}]);
