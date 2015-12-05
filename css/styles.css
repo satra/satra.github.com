@@ -19,6 +19,16 @@ hr {
   border-color:#dedede;
 }
 
+.time {
+  color: #9197A3;
+  font-size: 12px;
+}
+
+.name {
+  color: #3B5998;
+  font-weight: 700;
+}
+
 .wrapper, .row {
    height: 100%;
    margin-left:0;

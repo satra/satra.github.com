@@ -127,7 +127,7 @@
 									<div ng-repeat="n in posts" class="panel panel-default">
 
 
-										<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4><a href="{{n[3]}}" target="_blank" am-time-ago="n[0]"></a></h4></div>
+										<div class="panel-heading"><a href="#" class="pull-right">View all</a> <span class="name">{{name}}</span><br><a class="time" href="{{n[3]}}" target="_blank" am-time-ago="n[0]"></a></h4></div>
 										<div ng-if="n[4]" class="panel-thumbnail"><img ng-src="{{n[4]}}" class="img-responsive"></div>
 										<div class="panel-body">
 											<p><img src="//placehold.it/150x150" class="img-circle pull-right">
