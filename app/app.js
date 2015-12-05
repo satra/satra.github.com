@@ -111,10 +111,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         $scope.fetchAll();
       },
       label: {
-        position: "left",
+        position: "botton",
         offset: {
-          x: 20,
-          y: 35
+          x: 40,
+          y: 125
         },
         width: 110
       },
