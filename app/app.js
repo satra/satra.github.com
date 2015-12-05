@@ -261,9 +261,9 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
       if (timeline) {
         $scope.timeline = timeline.uri;
+        $scope.fetchTimeline();
       }
 
-      $scope.fetchTimeline();
 
     });
   };
@@ -308,12 +308,16 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   $scope.save = function() {
 
     var post = $scope.post;
-    if (!post) {
-      LxNotificationService.error('post is empty');
+    if (!post && !$scope.img) {
+      $scope.notify('Post is empty', 'error');
       return;
     }
     if ($scope.profile !== $scope.user) {
-      LxNotificationService.error('can only post to your own timeline');
+      $scope.notify('Can only post to your own timeline', 'error');
+      return;
+    }
+    if (!$scope.timeline) {
+      $scope.notify('Please add timeline to your WebID', 'error');
       return;
     }
     console.log(post);
