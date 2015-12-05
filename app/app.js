@@ -74,6 +74,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.posts = [];
     $scope.date = new Date().toISOString().substr(0,10);
     $scope.initCalendar();
+    $scope.f = "#nutrition";
 
   };
 
@@ -155,6 +156,9 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     }
     if ($location.search().q) {
       $scope.q = $location.search().q;
+    }
+    if ($location.search().f) {
+      $scope.f = $location.search().f;
     }
     $location.search('date', $scope.date);
     if ($location.search().profile) {
@@ -409,6 +413,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
       if ($scope.q && content && content.value && content.value.indexOf($scope.q) === -1) continue;
 
+      if ($scope.f && content && content.value && content.value.indexOf($scope.f) !== -1) continue;
+
       if (img) {
         img = img.uri;
       }
@@ -461,6 +467,22 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.date = new Date().toISOString().substring(0,10);
     $location.search('date', $scope.date);
     $location.search('q', null);
+    $scope.render();
+  };
+
+  /**
+  * Featured
+  */
+  $scope.featured = function() {
+    $scope.f = "#nutrition";
+    $scope.render();
+  };
+
+  /**
+  * Stories
+  */
+  $scope.stories = function() {
+    $scope.f = null;
     $scope.render();
   };
 
