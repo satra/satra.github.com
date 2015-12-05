@@ -1,8 +1,9 @@
 /* custom template */
 html, body {
    height: 100%;
-   font-family:verdana,arial,sans-serif;
-   color:#555555;
+   font-family:helvetica,arial,sans-serif;
+   color:#141823;
+   font-weight: 400;
 }
 
 .nav {
