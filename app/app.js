@@ -455,15 +455,17 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
   /**
    * Invalidate a cached URI
-   * @param  {String} uri The URI to invalidate
+   * @param  {String}   uri The URI to invalidate
+   * @param  {Function} callback The callback
    */
-  $scope.invalidate = function(uri) {
+  $scope.invalidate = function(uri, callback) {
     console.log('invalidate : ' + uri);
     uri = uri.split('#')[0];
     f.unload(uri);
     f.refresh($rdf.sym(uri));
+    $scope.fetched[uri] = undefined;
     db.cache.delete(uri).then(function() {
-      LxNotificationService.success('Successfully deleted Cache');
+      callback();
     });
   };
 
@@ -507,7 +509,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       $scope.notify('Post saved');
       $scope.post = null;
       $scope.img = null;
-      fetchAll();
+      $scope.refresh();
     }).
     error(function(data, status, headers) {
       $scope.notify('could not save post', 'error');
@@ -718,7 +720,9 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   */
   $scope.refresh = function() {
     $scope.notify('Refreshing!');
-    fetchAll();
+    $scope.invalidate($scope.timeline + $scope.date + '/*', function() {
+      fetch($scope.timeline + $scope.date + '/*');
+    });
   };
 
   /**
