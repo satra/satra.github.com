@@ -19,6 +19,7 @@ App.config(function($locationProvider) {
 
 App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngAudio, LxNotificationService, LxProgressService, LxDialogService) {
   // Namespaces
+  var CERT  = $rdf.Namespace("http://www.w3.org/ns/auth/cert#");
   var CHAT  = $rdf.Namespace("https://ns.rww.io/chat#");
   var CURR  = $rdf.Namespace("https://w3id.org/cc#");
   var DCT   = $rdf.Namespace("http://purl.org/dc/terms/");
@@ -36,6 +37,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   var ST    = $rdf.Namespace("http://www.w3.org/ns/solid/terms#");
   var TMP   = $rdf.Namespace("urn:tmp:");
 
+
   var f,g;
 
   // INIT
@@ -51,12 +53,30 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   */
   $scope.init = function() {
 
+    $scope.queue = [];
+    $scope.knows = [];
+    $scope.preferences = [];
+    $scope.storage = [];
+    $scope.fetched = {};
+    $scope.seeAlso = [];
+    $scope.wallet = [];
+    $scope.timelines = [];
+    $scope.workspaces = [];
+    $scope.configurations = [];
+    $scope.configurationFiles = [];
+    $scope.apps = [];
+    $scope.my = {};
+    $scope.friends = [];
+    $scope.keys = [];
+
+
     $scope.initRDF();
+    $scope.initDexie();
     $scope.initUI();
     $scope.initQueryString();
     $scope.initLocalStorage();
 
-    $scope.fetchAll();
+    fetchAll();
 
     __kb = g;
     __scope = $scope;
@@ -109,7 +129,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         $scope.notify( d );
         $location.search('date', d);
         $scope.date = d;
-        $scope.fetchAll();
+        $scope.render();
       },
       label: {
         position: "botton",
@@ -146,6 +166,19 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     g = $rdf.graph();
     f = $rdf.fetcher(g, TIMEOUT);
   };
+
+  /**
+  * init Dexie knowledge base
+  */
+  $scope.initDexie = function() {
+    // start browser cache DB
+    db = new Dexie("chrome:theSession");
+    db.version(1).stores({
+      cache: 'why,quads',
+    });
+    db.open();
+  };
+
 
   /**
   * init from query string
@@ -197,7 +230,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       var user = headers(header);
       if (user && user.length > 0 && user.slice(0,scheme.length) === scheme) {
         $scope.loginSuccess(user);
-        $scope.fetchAll();
+        fetchAll();
       } else {
         $scope.notify('WebID-TLS authentication failed.', 'error');
       }
@@ -231,76 +264,208 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     localStorage.removeItem('user');
   };
 
+
+  // QUEUE functions
+  //
+  //
+  /**
+   * Update the queue
+   */
+  function updateQueue() {
+    var i, j;
+    console.log('updating queue');
+    if ($scope.user) {
+      addToQueue($scope.queue, $scope.user);
+    }
+
+    workspaces = g.statementsMatching($rdf.sym($scope.user), PIM('storage'), undefined);
+    for (i=0; i<workspaces.length; i++) {
+      addToArray($scope.storage, workspaces[i].object.uri);
+      addToQueue($scope.queue, workspaces[i].object.uri);
+    }
+
+
+    var knows = g.statementsMatching($rdf.sym($scope.user), FOAF('knows'), undefined);
+    for (i=0; i<knows.length; i++) {
+      //console.log(knows[i].object.uri);
+      addToArray($scope.knows, knows[i].object.uri);
+      addToQueue($scope.queue, knows[i].object.uri);
+      workspaces = g.statementsMatching($rdf.sym(knows[i].object.uri), PIM('storage'), undefined);
+      for (j=0; j<workspaces.length; j++) {
+        addToArray($scope.storage, workspaces[j].object.uri);
+        addToQueue($scope.queue, workspaces[j].object.uri);
+      }
+    }
+
+
+    workspaces = g.statementsMatching(undefined, PIM('workspace'), undefined);
+    for (i=0; i<workspaces.length; i++) {
+      addToArray($scope.workspaces, workspaces[i].object.uri);
+      addToArray($scope.workspaces, workspaces[i].object.uri + '*');
+      addToQueue($scope.queue, workspaces[i].object.uri);
+      addToQueue($scope.queue, workspaces[i].object.uri + '*');
+    }
+
+    var preferences = g.statementsMatching($rdf.sym($scope.user), PIM('preferencesFile'), undefined);
+    for (i=0; i<preferences.length; i++) {
+      addToArray($scope.preferences, preferences[i].object.uri);
+      addToQueue($scope.queue, preferences[i].object.uri);
+    }
+
+    var configurationFiles = g.statementsMatching(null, RDF('type'), PIM('ConfigurationFile'));
+    for (i=0; i<configurationFiles.length; i++) {
+      addToArray($scope.configurationFiles, configurationFiles[i].subject.value );
+      addToQueue($scope.queue, configurationFiles[i].subject.value);
+      var configurations = g.statementsMatching($rdf.sym(configurationFiles[i].subject.value), SOLID('configuration'), undefined);
+      for (j=0; j<configurations.length; j++) {
+        addToArray($scope.configurations, configurations[j].object.uri );
+        addToQueue($scope.queue, configurations[j].object.uri);
+      }
+    }
+
+
+
+    var wallets = g.statementsMatching($rdf.sym($scope.user), CURR('wallet'), undefined);
+    for (i=0; i<wallets.length; i++) {
+      addToArray($scope.wallet, wallets[i].object.uri);
+      addToQueue($scope.queue, wallets[i].object.uri);
+    }
+
+    var keys = g.statementsMatching($rdf.sym($scope.user), CERT('key'), undefined);
+    for (i=0; i<keys.length; i++) {
+      addToArray($scope.keys, keys[i].object.uri);
+      addToQueue($scope.queue, keys[i].object.uri);
+    }
+
+    var timelines = g.statementsMatching($rdf.sym($scope.user), ST('timeline'), undefined);
+    for (i=0; i<timelines.length; i++) {
+      addToArray($scope.timelines, timelines[i].object.uri);
+      addToArray($scope.timelines, timelines[i].object.uri + '*');
+      addToQueue($scope.queue, timelines[i].object.uri);
+      addToQueue($scope.queue, timelines[i].object.uri + '*');
+
+      var dates = g.statementsMatching($rdf.sym(timelines[i].object.uri), LDP('contains'), undefined);
+      for (j=0; j<dates.length; j++) {
+        addToQueue($scope.queue, dates[j].object.uri + '*');
+      }
+
+    }
+
+
+
+    var seeAlso = g.statementsMatching($rdf.sym($scope.user), RDFS('seeAlso'), undefined);
+    for (i=0; i<seeAlso.length; i++) {
+      //console.log('seeAlso found : ' + seeAlso[i].object.uri);
+      addToArray($scope.seeAlso, seeAlso[i].object.uri);
+      addToQueue($scope.queue, seeAlso[i].object.uri);
+    }
+
+  }
+
+
+  function cache(uri) {
+    console.log('caching ' + uri);
+    var why = uri.split('#')[0];
+    var quads = g.statementsMatching(undefined, undefined, undefined, $rdf.sym(why));
+
+    db.cache.put({"why": why, "quads": quads}). then(function(){
+      console.log('cached : ' + quads);
+    }).catch(function(error) {
+      console.error(error);
+    });
+
+
+  }
+
+
   // FETCH functions
   //
   //
-  $scope.fetchAll = function() {
-    $scope.fetchWebid($scope.profile);
-  };
+  /**
+   * Fetch all items in queue
+   */
+  function fetchAll() {
+
+    updateQueue();
+
+    //if ($scope.queue.length === 0) return;
+
+    for (var i=0; i<$scope.queue.length; i++) {
+      if($scope.queue[i]) {
+        if (!$scope.fetched[$scope.queue[i]]) {
+          $scope.fetched[$scope.queue[i]] = new Date();
+          fetch($scope.queue[i]);
+        }
+      } else {
+        console.error('queue item ' + i + ' is undefined');
+        console.log($scope.queue);
+      }
+    }
+
+  }
 
   /**
-  * Fetch the webid
-  * @param  {String} position The URI for the position
-  */
-  $scope.fetchWebid = function (webid) {
-    var uri = webid || $scope.user;
+   * Fetch a single URI
+   * @param  {String} uri The URI to fetch
+   */
+  function fetch(uri) {
+    $scope.fetched[uri] = new Date();
+    console.log('fetching : ' + uri);
 
-    if (!uri) return;
-    console.log(uri);
+    var why = uri.split('#')[0];
 
-    f.nowOrWhenFetched(uri.split('#')[0], undefined, function(ok, body) {
-      var name = g.statementsMatching($rdf.sym(uri), FOAF('name'));
-      if (name.length) {
-        $scope.name = name[0].object.value;
+    db.cache.get(why).then(function(res){
+      if (res && res.quads && res.quads.length) {
+        console.log('uncached : ');
+        console.log('fetched '+ uri +' from cache in : ' + (new Date() - $scope.fetched[uri]) );
+        console.log(res);
+        for(var i=0; i<res.quads.length; i++) {
+          var t = res.quads[i].object.uri;
+          if (t) {
+            t = $rdf.sym(res.quads[i].object.uri);
+          } else {
+            t = $rdf.term(res.quads[i].object.value);
+          }
+          //console.log(g.any( $rdf.sym(res.quads[i].subject.value), $rdf.sym(res.quads[i].predicate.value), t, $rdf.sym(res.quads[i].why.value) ));
+          if (!g.any( $rdf.sym(res.quads[i].subject.uri), $rdf.sym(res.quads[i].predicate.uri), t, $rdf.sym(res.quads[i].why.uri) )) {
+            g.add( $rdf.sym(res.quads[i].subject.uri), $rdf.sym(res.quads[i].predicate.uri), t, $rdf.sym(res.quads[i].why.uri) );
+          }
+
+        }
+        f.requested[why] = 'requested';
+        console.log('fetched '+ uri +' from cache in : ' + (new Date() - $scope.fetched[uri]) );
         $scope.render();
+        fetchAll();
+      } else {
+        var quads = g.statementsMatching(undefined, undefined, undefined, $rdf.sym(why));
+        f.nowOrWhenFetched(why, undefined, function(ok, body) {
+          cache(uri);
+          console.log('fetched '+ uri +' from rdflib in : ' + (new Date() - $scope.fetched[uri]) );
+          $scope.render();
+          fetchAll();
+        });
       }
-      var friends = g.statementsMatching(undefined, FOAF('knows'));
-      $scope.friends = friends.length;
-
-      var timeline = g.any($rdf.sym(uri), ST('timeline'));
-
-      if (timeline) {
-        $scope.timeline = timeline.uri;
-        $scope.fetchTimeline();
-      }
-
-
+    }).catch(function(error) {
+      console.error(error);
     });
-  };
+
+  }
+
 
   /**
-  * Invalidate a cached URI
-  * @param  {String} uri The URI to invalidate
-  */
+   * Invalidate a cached URI
+   * @param  {String} uri The URI to invalidate
+   */
   $scope.invalidate = function(uri) {
     console.log('invalidate : ' + uri);
+    uri = uri.split('#')[0];
     f.unload(uri);
     f.refresh($rdf.sym(uri));
-  };
-
-
-  /**
-  * fetchTimeline fetches the see also
-  */
-  $scope.fetchTimeline = function() {
-    var timeline = $scope.timeline;
-    if ($location.search().timeline) {
-      timeline = $location.search().timeline;
-    }
-    $scope.timeline = timeline;
-    if ($scope.profile) {
-      $location.search('profile', $scope.profile);
-    }
-
-    //var today = new Date().toISOString().substr(0,10);
-    var uri = timeline + $scope.date + '/*';
-    $scope.invalidate(uri);
-    f.requestURI(uri, null, true, function(ok, body) {
-      console.log('timeline fetched from : ' + uri);
-      $scope.render();
+    db.cache.delete(uri).then(function() {
+      LxNotificationService.success('Successfully deleted Cache');
     });
-
   };
+
 
   /**
   * Save the post
@@ -341,7 +506,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       $scope.notify('Post saved');
       $scope.post = null;
       $scope.img = null;
-      $scope.fetchAll();
+      fetchAll();
     }).
     error(function(data, status, headers) {
       $scope.notify('could not save post', 'error');
@@ -394,13 +559,101 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   };
 
 
+  // HELPER functions
+  //
+  //
+  /**
+   * Add an element to an array once
+   * @param {Array} array the array to add to
+   * @param {Object} el   the element to add
+   */
+  function addToArray(array, el) {
+    if (!array) return;
+    if (array.indexOf(el) === -1) {
+      array.push(el);
+    }
+  }
+
+  /**
+   * Add an element to the firends array once
+   * @param {Array} array the array to add to
+   * @param {Object} el   the element to add
+   */
+  function addToFriends(array, el) {
+		if (!array) return;
+		for (var i=0; i<array.length; i++) {
+			if (array[i].id === el.id) {
+				return;
+			}
+		}
+		array.push(el);
+	}
+
+  /**
+   * Add an element to the apps array once
+   * @param {Array} array the array to add to
+   * @param {Object} el   the element to add
+   */
+  function addToApps(array, el) {
+		if (!array) return;
+		for (var i=0; i<array.length; i++) {
+			if (array[i].id === el.id) {
+        array[i] = el;
+				return;
+			}
+		}
+		array.push(el);
+	}
+
+
+  /**
+   * Add an element to the queue
+   * @param {Array} array the array to add to
+   * @param {Object} el   the element to add
+   */
+  function addToQueue(array, el) {
+    if (!array) return;
+    if (!el) return;
+    if (array.indexOf(el) === -1) {
+      array.push(el);
+    }
+  }
+
 
   // RENDER
   /**
   * Render screen
   */
   $scope.render = function() {
+    $scope.renderWebid();
     $scope.renderTimeline();
+  };
+
+  /**
+  * Render the webid
+  * @param  {String} position The URI for the position
+  */
+  $scope.renderWebid = function (webid) {
+    var uri = webid || $scope.user;
+
+    if (!uri) return;
+    console.log(uri);
+
+    f.nowOrWhenFetched(uri.split('#')[0], undefined, function(ok, body) {
+      var name = g.statementsMatching($rdf.sym(uri), FOAF('name'));
+      if (name.length) {
+        $scope.name = name[0].object.value;
+      }
+      var friends = g.statementsMatching(undefined, FOAF('knows'));
+      $scope.friends = friends.length;
+
+      var timeline = g.any($rdf.sym(uri), ST('timeline'));
+
+      if (timeline) {
+        $scope.timeline = timeline.uri;
+      }
+
+    });
   };
 
   /**
@@ -408,6 +661,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   */
   $scope.renderTimeline = function () {
     var p = g.statementsMatching(null, null, SIOC('Post'));
+    $scope.initQueryString();
     $scope.posts = [];
     for (var i=0; i<p.length;i++) {
       var subject = p[i].subject;
@@ -449,11 +703,11 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   };
 
   /**
-  * Refresh the board
+  * Refresh
   */
   $scope.refresh = function() {
     $scope.notify('Refreshing!');
-    $scope.fetchAll();
+    fetchAll();
   };
 
   /**
@@ -515,7 +769,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     var yesterday = new Date();
     yesterday.setDate(date.getDate() - 1);
     $scope.date = yesterday.toISOString().substring(0,10);
-    $scope.fetchAll();
+    fetchAll();
   };
 
 
@@ -587,7 +841,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     console.log(uri);
 
     $scope.invalidate(uri);
-    $scope.fetchAll();
+    fetchAll();
     $scope.audio.play();
 
     Notification.requestPermission(function (permission) {
