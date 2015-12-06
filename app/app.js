@@ -68,6 +68,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.my = {};
     $scope.friends = [];
     $scope.keys = [];
+    $scope.cal = null;
 
 
     $scope.initRDF();
@@ -102,12 +103,12 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * Init Calendar
   */
   $scope.initCalendar = function() {
-    var cal = new CalHeatMap();
-    cal.init({
+    $scope.cal = new CalHeatMap();
+    $scope.cal.init({
       itemSelector: "#calendar",
       domain: "month",
       subDomain: "x_day",
-      data: "datas-years.json",
+      data: [],
       start: new Date(2015, 11, 2),
       cellSize: 15,
       cellRadius: 3,
@@ -663,6 +664,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     var p = g.statementsMatching(null, null, SIOC('Post'));
     $scope.initQueryString();
     $scope.posts = [];
+    $scope.data = {};
     for (var i=0; i<p.length;i++) {
       var subject = p[i].subject;
       var created = g.any(subject, DCT('created'));
@@ -671,9 +673,16 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       var author  = g.any(subject, MBLOG('author'));
       var img  = g.any(subject, FOAF('img'));
 
-      if ($scope.q && content && content.value && content.value.indexOf($scope.q) === -1) continue;
+      var stamp = Math.round(new Date(created).getTime() / 1000);
+      $scope.data[stamp] = 1;
 
-      if ($scope.f && content && content.value && content.value.indexOf($scope.f) !== -1) continue;
+      if ($scope.q && content && content.value && content.value.indexOf($scope.q) === -1) {
+        continue;
+      }
+
+      if ($scope.f && content && content.value && content.value.indexOf($scope.f) !== -1) {
+        continue;
+      }
 
       if (img) {
         img = img.uri;
@@ -690,6 +699,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       }
 
     }
+
+    $scope.cal.update($scope.data);
 
     $scope.posts = $scope.posts.sort(function(a, b) {
       createda = a[0];
