@@ -338,7 +338,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       addToQueue($scope.queue, keys[i].object.uri);
     }
 
-    var timelines = g.statementsMatching($rdf.sym($scope.user), ST('timeline'), undefined);
+    var timelines = g.statementsMatching(null, ST('timeline'), undefined);
     for (i=0; i<timelines.length; i++) {
       addToArray($scope.timelines, timelines[i].object.uri);
       addToArray($scope.timelines, timelines[i].object.uri + '*');
