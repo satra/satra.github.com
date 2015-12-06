@@ -638,6 +638,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   */
   $scope.renderWebid = function (webid) {
     var uri = webid || $scope.user;
+    $location.search('profile', uri);
 
     if (!uri) return;
     console.log(uri);
