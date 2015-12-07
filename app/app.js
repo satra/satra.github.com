@@ -279,6 +279,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       addToQueue($scope.queue, $scope.user);
     }
 
+    if ($scope.profile) {
+      addToQueue($scope.queue, $scope.profile);
+    }
+
     workspaces = g.statementsMatching($rdf.sym($scope.user), PIM('storage'), undefined);
     for (i=0; i<workspaces.length; i++) {
       addToArray($scope.storage, workspaces[i].object.uri);
@@ -637,7 +641,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * @param  {String} position The URI for the position
   */
   $scope.renderWebid = function (webid) {
-    var uri = webid || $scope.user;
+    var uri = webid || $scope.user || $scope.profile;
     $location.search('profile', uri);
 
     if (!uri) return;
