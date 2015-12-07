@@ -652,7 +652,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       if (name.length) {
         $scope.name = name[0].object.value;
       }
-      var friends = g.statementsMatching($rdf.sym($scope.user), FOAF('knows'));
+      var friends = g.statementsMatching($rdf.sym($scope.profile), FOAF('knows'));
       $scope.friends = friends.length;
 
       var timeline = g.any($rdf.sym(uri), ST('timeline'));
