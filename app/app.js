@@ -724,6 +724,9 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.invalidate($scope.timeline + $scope.date + '/*', function() {
       fetch($scope.timeline + $scope.date + '/*');
     });
+    $scope.invalidate($scope.timeline, function() {
+      fetch($scope.timeline);
+    });
   };
 
   /**
