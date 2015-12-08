@@ -701,7 +701,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         message = null;
       }
 
-      if ( created.value.substring(0,10) === $scope.date ) {
+      if ( created.value.substring(0,10) === $scope.date || $scope.date === 'all' ) {
         $scope.posts.push([created.value, creator.uri, message, subject.uri, img]);
       }
 
