@@ -36,9 +36,12 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   var SOLID = $rdf.Namespace("http://www.w3.org/ns/solid/app#");
   var ST    = $rdf.Namespace("http://www.w3.org/ns/solid/terms#");
   var TMP   = $rdf.Namespace("urn:tmp:");
+  var UI    = $rdf.Namespace("http://www.w3.org/ns/ui#");
 
 
   var f,g;
+
+  var defaultBackgroundImage = 'assets/bg_motyl.jpg';
 
   // INIT
   /**
@@ -69,6 +72,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.friends = [];
     $scope.keys = [];
     $scope.cal = null;
+    $scope.backgroundImage = defaultBackgroundImage;
 
 
     $scope.initRDF();
@@ -95,6 +99,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.posts = [];
     $scope.date = new Date().toISOString().substr(0,10);
     $scope.initCalendar();
+    // filter
     $scope.f = "#nutrition";
 
   };
@@ -660,6 +665,11 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
       if (timeline) {
         $scope.timeline = timeline.uri;
+      }
+
+      var backgroundImage = g.any($rdf.sym(uri), UI('backgroundImage'));
+      if (backgroundImage) {
+        $scope.backgroundImage = backgroundImage.uri;
       }
 
     });
