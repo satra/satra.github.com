@@ -712,8 +712,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         message = null;
       }
 
+      var name = g.any(creator, FOAF('name'));
+
       if ( created.value.substring(0,10) === $scope.date || $scope.date === 'all' ) {
-        $scope.posts.push([created.value, creator.uri, message, subject.uri, img]);
+        $scope.posts.push([created.value, creator.uri, message, subject.uri, img, name]);
       }
 
     }
