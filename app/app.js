@@ -159,10 +159,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * init RDF knowledge base
   */
   $scope.initRDF = function() {
-    var PROXY = "https://rww.io/proxy.php?uri={uri}";
-    var AUTH_PROXY = "https://rww.io/auth-proxy?uri=";
+    //var PROXY = "https://rww.io/proxy.php?uri={uri}";
+    //var AUTH_PROXY = "https://rww.io/auth-proxy?uri=";
     var TIMEOUT = 90000;
-    $rdf.Fetcher.crossSiteProxyTemplate=PROXY;
+    //$rdf.Fetcher.crossSiteProxyTemplate=PROXY;
 
     g = $rdf.graph();
     f = $rdf.fetcher(g, TIMEOUT);
@@ -446,6 +446,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         f.nowOrWhenFetched(why, undefined, function(ok, body) {
           cache(uri);
           console.log('fetched '+ uri +' from rdflib in : ' + (new Date() - $scope.fetched[uri]) );
+          console.log('status '+ uri +' '+ ok +' : ' + body);
           $scope.render();
           fetchAll();
         });
