@@ -86,7 +86,7 @@
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span ng-if="user">{{name}}</span> &nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-user"></i></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span ng-if="user">{{username}}</span> &nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-user"></i></a>
 									<ul class="dropdown-menu">
 										<li ng-if="!user"><a ng-click="TLSlogin()">Sign In</a></li>
 										<li ng-if="user"><a ng-click="logout()">Sign Out</a></li>
@@ -135,7 +135,7 @@
 
 										<div class="panel-heading">
 											<img ng-src="{{n[6]}}" height="40" width="40"></img>
-											<span class="name">{{n[5].value}}</span>
+											<a ng-click="setProfile(n[1])" class="name">{{n[5].value}}</a>
 											<span class="pull-right time"><i class="glyphicon glyphicon-chevron-down"></i></span>
 											<br><a class="time" href="{{n[3]}}" target="_blank" am-time-ago="n[0]"></a>
 										</div>

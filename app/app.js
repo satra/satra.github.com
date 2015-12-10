@@ -256,7 +256,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     console.log(user);
     $scope.loggedIn = true;
     $scope.user = user;
-    $scope.profile = user;
+    $scope.profile = $location.search().profile || user;
     localStorage.setItem('user', JSON.stringify(user));
   };
 
@@ -639,6 +639,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   */
   $scope.render = function() {
     $scope.renderWebid();
+    $scope.renderProfile();
     $scope.renderTimeline();
   };
 
@@ -647,7 +648,25 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * @param  {String} position The URI for the position
   */
   $scope.renderWebid = function (webid) {
-    var uri = webid || $scope.user || $scope.profile;
+    var uri = webid || $scope.user ;
+
+    if (!uri) return;
+    console.log(uri);
+
+    f.nowOrWhenFetched(uri.split('#')[0], undefined, function(ok, body) {
+      var name = g.statementsMatching($rdf.sym(uri), FOAF('name'));
+      if (name.length) {
+        $scope.username = name[0].object.value;
+      }
+    });
+  };
+
+  /**
+  * Render the profile
+  * @param  {String} position The URI for the position
+  */
+  $scope.renderProfile = function (webid) {
+    var uri = webid || $scope.profile || $scope.user ;
     $location.search('profile', uri);
 
     if (!uri) return;
@@ -770,6 +789,16 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.date = new Date().toISOString().substring(0,10);
     $location.search('date', $scope.date);
     $location.search('q', null);
+    $scope.render();
+  };
+
+  /**
+  * Profile
+  */
+  $scope.setProfile = function(uri) {
+    console.log('change profile to : ' + uri);
+    $scope.profile = uri;
+    $location.search('profile', uri);
     $scope.render();
   };
 
