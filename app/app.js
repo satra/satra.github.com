@@ -686,16 +686,18 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       }
 
       $scope.friends = [];
-      for (var i = 0; i < $scope.knows.length; i++) {
-        name = g.any($rdf.sym($scope.knows[i]), FOAF('name'));
+      var knows = g.statementsMatching($rdf.sym(uri), FOAF('knows'));
+      for (var i = 0; i < knows.length; i++) {
+        var subject = knows[i].object.uri;
+        name = g.any($rdf.sym(subject), FOAF('name'));
         if (name) {
           name = name.value;
         }
-        avatar = g.any($rdf.sym($scope.knows[i]), FOAF('img')) || g.any($rdf.sym($scope.knows[i]), FOAF('depiction'));
+        avatar = g.any($rdf.sym(subject), FOAF('img')) || g.any($rdf.sym(subject), FOAF('depiction'));
         if (avatar) {
           avatar = avatar.uri;
         }
-        var friend = {id: $scope.knows[i], name: name, avatar: avatar};
+        var friend = {id: subject, name: name, avatar: avatar};
         //console.log(friend);
         addToFriends($scope.friends, friend);
       }
@@ -709,6 +711,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       var backgroundImage = g.any($rdf.sym(uri), UI('backgroundImage'));
       if (backgroundImage) {
         $scope.backgroundImage = backgroundImage.uri;
+      } else {
+        $scope.backgroundImage = defaultBackgroundImage;        
       }
 
     });
