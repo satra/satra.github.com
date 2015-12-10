@@ -305,11 +305,11 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       //console.log(knows[i].object.uri);
       addToArray($scope.knows, knows[i].object.uri);
       addToQueue($scope.queue, knows[i].object.uri);
-      workspaces = g.statementsMatching($rdf.sym(knows[i].object.uri), PIM('storage'), undefined);
-      for (j=0; j<workspaces.length; j++) {
-        addToArray($scope.storage, workspaces[j].object.uri);
-        addToQueue($scope.queue, workspaces[j].object.uri);
-      }
+      //workspaces = g.statementsMatching($rdf.sym(knows[i].object.uri), PIM('storage'), undefined);
+      //for (j=0; j<workspaces.length; j++) {
+      //  addToArray($scope.storage, workspaces[j].object.uri);
+      //  addToQueue($scope.queue, workspaces[j].object.uri);
+      //}
     }
 
 
@@ -682,8 +682,21 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       if (name.length) {
         $scope.name = name[0].object.value;
       }
-      var friends = g.statementsMatching($rdf.sym($scope.profile), FOAF('knows'));
-      $scope.friends = friends.length;
+
+      $scope.friends = [];
+      for (var i = 0; i < $scope.knows.length; i++) {
+        name = g.any($rdf.sym($scope.knows[i]), FOAF('name'));
+        if (name) {
+          name = name.value;
+        }
+        avatar = g.any($rdf.sym($scope.knows[i]), FOAF('img')) || g.any($rdf.sym($scope.knows[i]), FOAF('depiction'));
+        if (avatar) {
+          avatar = avatar.uri;
+        }
+        var friend = {id: $scope.knows[i], name: name, avatar: avatar};
+        console.log(friend);
+        addToFriends($scope.friends, friend);
+      }
 
       var timeline = g.any($rdf.sym(uri), ST('timeline'));
 
@@ -800,7 +813,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.date = new Date().toISOString().substring(0,10);
     $location.search('date', $scope.date);
     $location.search('q', null);
-    $location.search('profile', null);
+    $location.search('profile', $scope.user);
     $scope.view = 'feed';
     $location.search('view', $scope.view);
     $scope.render();
@@ -956,6 +969,8 @@ App.filter('parseUrlFilter', ['$sce', function ($sce) {
     var urlPattern = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/gi;
     return function (text) {
         var target = '_blank';
-        return $sce.trustAsHtml(text.replace(urlPattern, '<a target="' + target + '" href="$&">$&</a>'));
+        if (text) {
+          return $sce.trustAsHtml(text.replace(urlPattern, '<a target="' + target + '" href="$&">$&</a>'));
+        }
     };
 }]);
