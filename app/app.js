@@ -202,7 +202,9 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     }
     if ($location.search().profile) {
       $scope.profile = $location.search().profile;
-      $scope.view = 'profile';
+    }
+    if ($location.search().view) {
+      $scope.view = $location.search().view;
     }
     $location.search('date', $scope.date);
     if ($location.search().profile) {
@@ -694,7 +696,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
           avatar = avatar.uri;
         }
         var friend = {id: $scope.knows[i], name: name, avatar: avatar};
-        console.log(friend);
+        //console.log(friend);
         addToFriends($scope.friends, friend);
       }
 
@@ -720,6 +722,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.initQueryString();
     $scope.posts = [];
     $scope.data = {};
+    console.log('view : ' + $scope.view);
     for (var i=0; i<p.length;i++) {
       var subject = p[i].subject;
       var created = g.any(subject, DCT('created'));
