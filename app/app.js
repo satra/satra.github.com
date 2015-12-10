@@ -73,7 +73,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.keys = [];
     $scope.cal = null;
     $scope.backgroundImage = defaultBackgroundImage;
-
+    $scope.view = 'feed';
+    $location.search('view', $scope.view);
 
     $scope.initRDF();
     $scope.initDexie();
@@ -199,6 +200,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     if ($location.search().f) {
       $scope.f = $location.search().f;
     }
+    if ($location.search().profile) {
+      $scope.profile = $location.search().profile;
+      $scope.view = 'profile';
+    }
     $location.search('date', $scope.date);
     if ($location.search().profile) {
       $scope.profile = $location.search().profile;
@@ -256,7 +261,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     console.log(user);
     $scope.loggedIn = true;
     $scope.user = user;
-    $scope.profile = $location.search().profile || user;
+    //$scope.profile = $location.search().profile || user;
     localStorage.setItem('user', JSON.stringify(user));
   };
 
@@ -667,7 +672,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   */
   $scope.renderProfile = function (webid) {
     var uri = webid || $scope.profile || $scope.user ;
-    $location.search('profile', uri);
+    //$location.search('profile', uri);
 
     if (!uri) return;
     console.log(uri);
@@ -739,6 +744,12 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         avatar = avatar.uri;
       }
 
+      if ($scope.view === 'profile') {
+        if (creator.uri !== $scope.profile) {
+          continue;
+        }
+      }
+
       if ( created.value.substring(0,10) === $scope.date || $scope.date === 'all' ) {
         $scope.posts.push([created.value, creator.uri, message, subject.uri, img, name, avatar]);
       }
@@ -789,6 +800,9 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.date = new Date().toISOString().substring(0,10);
     $location.search('date', $scope.date);
     $location.search('q', null);
+    $location.search('profile', null);
+    $scope.view = 'feed';
+    $location.search('view', $scope.view);
     $scope.render();
   };
 
@@ -799,6 +813,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     console.log('change profile to : ' + uri);
     $scope.profile = uri;
     $location.search('profile', uri);
+    $scope.view = 'profile';
+    $location.search('view', $scope.view);
     $scope.render();
   };
 
