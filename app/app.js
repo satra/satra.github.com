@@ -824,7 +824,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   $scope.home = function() {
     $scope.q = null;
     $scope.query = null;
-    $scope.date = new Date().toISOString().substring(0,10);
+    $scope.date = 'recent';
     $location.search('date', $scope.date);
     $location.search('q', null);
     $location.search('profile', $scope.user);
