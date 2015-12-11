@@ -741,7 +741,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       var stamp = Math.round(new Date(created).getTime() / 1000);
       $scope.data[stamp] = 1;
 
-      if ($scope.q && content && content.value && content.value.indexOf($scope.q) === -1) {
+      if ($scope.q && content.value.indexOf($scope.q) === -1) {
         continue;
       }
 
