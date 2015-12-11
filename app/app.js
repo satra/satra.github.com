@@ -688,6 +688,11 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         $scope.name = name[0].object.value;
       }
 
+      var avatar = g.any($rdf.sym(uri), FOAF('img')) || g.any($rdf.sym(uri), FOAF('depiction'));
+      if (avatar) {
+        $scope.profileAvatar = avatar.uri;
+      }
+
       $scope.friends = [];
       var knows = g.statementsMatching($rdf.sym(uri), FOAF('knows'));
       for (var i = 0; i < knows.length; i++) {

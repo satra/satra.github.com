@@ -172,7 +172,7 @@
 										<div class="panel-thumbnail"><img ng-src="{{backgroundImage}}" class="img-responsive"></div>
 										<div class="panel-body">
 											<span ng-if="profile">
-												<p class="lead"><a ng-href="{{profile}}">{{name}}</a> <a ng-click="refresh(profile)" href="#"><i class="glyphicon glyphicon-refresh"></i></a></p>
+												<p class="lead"> <img ng-show="profileAvatar" ng-src="{{profileAvatar}}" height="40" width="40"></img> <a ng-href="{{profile}}">{{name}}</a> <a ng-click="refresh(profile)" href="#"><i class="glyphicon glyphicon-refresh"></i></a></p>
 												<p><a target="_blank" href="https://linkeddata.github.io/profile-editor/#/friends/view?webid={{profile | escape}}">Friends</a>, <a  target="_blank" href="{{timeline}}">{{posts.length}} Posts</a></p>
 												<span ng-repeat="friend in friends">
 													<a ng-show="friend.avatar" ng-click="setProfile(friend.id)"><img title="{{friend.name}}" src="{{friend.avatar}}" width="28px" height="28px" /></a>
