@@ -74,7 +74,6 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.cal = null;
     $scope.backgroundImage = defaultBackgroundImage;
     $scope.view = 'feed';
-    $location.search('view', $scope.view);
     $scope.numRecent = 10;
 
 
