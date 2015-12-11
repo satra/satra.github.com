@@ -135,7 +135,6 @@
 
 									<div ng-repeat="n in posts" class="panel panel-default">
 
-
 										<div class="panel-heading">
 											<img ng-show="n[6]" ng-src="{{n[6]}}" height="40" width="40"></img>
 											<a ng-click="setProfile(n[1])" class="name">{{n[5].value}}</a>
@@ -173,7 +172,7 @@
 										<div class="panel-thumbnail"><img ng-src="{{backgroundImage}}" class="img-responsive"></div>
 										<div class="panel-body">
 											<span ng-if="profile">
-												<p class="lead"><a ng-href="{{profile}}">{{name}}</a></p>
+												<p class="lead"><a ng-href="{{profile}}">{{name}}</a> <a ng-click="refresh(profile)" href="#"><i class="glyphicon glyphicon-refresh"></i></a></p>
 												<p><a target="_blank" href="https://linkeddata.github.io/profile-editor/#/friends/view?webid={{profile | escape}}">Friends</a>, <a  target="_blank" href="{{timeline}}">{{posts.length}} Posts</a></p>
 												<span ng-repeat="friend in friends">
 													<a ng-show="friend.avatar" ng-click="setProfile(friend.id)"><img title="{{friend.name}}" src="{{friend.avatar}}" width="28px" height="28px" /></a>

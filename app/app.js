@@ -798,8 +798,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   /**
   * Refresh
   */
-  $scope.refresh = function() {
-    $scope.notify('Refreshing!');
+  $scope.refresh = function(uri) {
+    $scope.notify('Refreshing ' + (uri?uri:'') );
     var today = new Date().toISOString().substr(0,10);
     $scope.invalidate($scope.timeline + today + '/*', function() {
       fetch($scope.timeline + $scope.date + '/*');
@@ -807,6 +807,12 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.invalidate($scope.timeline, function() {
       fetch($scope.timeline);
     });
+    if (uri) {
+      uri = uri.split('#')[0];
+      $scope.invalidate(uri, function() {
+        fetch(uri);
+      });
+    }
   };
 
   /**
