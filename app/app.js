@@ -75,7 +75,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.backgroundImage = defaultBackgroundImage;
     $scope.view = 'feed';
     $location.search('view', $scope.view);
-    $scope.numRecent = 25;
+    $scope.numRecent = 10;
 
 
     $scope.initRDF();
@@ -878,7 +878,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * older sets date one day back
   */
   $scope.older = function() {
-    $scope.numRecent += 25;
+    $scope.numRecent += 10;
     $scope.render();
   };
 
