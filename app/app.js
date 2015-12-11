@@ -800,7 +800,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   */
   $scope.refresh = function() {
     $scope.notify('Refreshing!');
-    $scope.invalidate($scope.timeline + $scope.date + '/*', function() {
+    var today = new Date().toISOString().substr(0,10);
+    $scope.invalidate($scope.timeline + today + '/*', function() {
       fetch($scope.timeline + $scope.date + '/*');
     });
     $scope.invalidate($scope.timeline, function() {
