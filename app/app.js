@@ -837,6 +837,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * Profile
   */
   $scope.setProfile = function(uri) {
+    uri = uri || $scope.profile;
     console.log('change profile to : ' + uri);
     $scope.profile = uri;
     $location.search('profile', uri);
@@ -850,6 +851,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   */
   $scope.featured = function() {
     $scope.f = "#nutrition";
+    $scope.view = 'feed';
+    $location.search('view', $scope.view);
     $scope.render();
   };
 
