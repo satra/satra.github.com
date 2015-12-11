@@ -265,7 +265,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     console.log(user);
     $scope.loggedIn = true;
     $scope.user = user;
-    //$scope.profile = $location.search().profile || user;
+    $scope.profile = $location.search().profile || user;
+    $location.search('profile', $scope.profile);
     localStorage.setItem('user', JSON.stringify(user));
   };
 
