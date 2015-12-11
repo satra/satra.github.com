@@ -284,8 +284,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   //
   //
   /**
-   * Update the queue
-   */
+  * Update the queue
+  */
   function updateQueue() {
     var i, j;
     console.log('updating queue');
@@ -401,8 +401,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   //
   //
   /**
-   * Fetch all items in queue
-   */
+  * Fetch all items in queue
+  */
   function fetchAll() {
 
     updateQueue();
@@ -424,9 +424,9 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   }
 
   /**
-   * Fetch a single URI
-   * @param  {String} uri The URI to fetch
-   */
+  * Fetch a single URI
+  * @param  {String} uri The URI to fetch
+  */
   function fetch(uri) {
     $scope.fetched[uri] = new Date();
     console.log('fetching : ' + uri);
@@ -473,10 +473,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
 
   /**
-   * Invalidate a cached URI
-   * @param  {String}   uri The URI to invalidate
-   * @param  {Function} callback The callback
-   */
+  * Invalidate a cached URI
+  * @param  {String}   uri The URI to invalidate
+  * @param  {Function} callback The callback
+  */
   $scope.invalidate = function(uri, callback) {
     console.log('invalidate : ' + uri);
     uri = uri.split('#')[0];
@@ -585,10 +585,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   //
   //
   /**
-   * Add an element to an array once
-   * @param {Array} array the array to add to
-   * @param {Object} el   the element to add
-   */
+  * Add an element to an array once
+  * @param {Array} array the array to add to
+  * @param {Object} el   the element to add
+  */
   function addToArray(array, el) {
     if (!array) return;
     if (array.indexOf(el) === -1) {
@@ -597,42 +597,42 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   }
 
   /**
-   * Add an element to the firends array once
-   * @param {Array} array the array to add to
-   * @param {Object} el   the element to add
-   */
+  * Add an element to the firends array once
+  * @param {Array} array the array to add to
+  * @param {Object} el   the element to add
+  */
   function addToFriends(array, el) {
-		if (!array) return;
-		for (var i=0; i<array.length; i++) {
-			if (array[i].id === el.id) {
-				return;
-			}
-		}
-		array.push(el);
-	}
+    if (!array) return;
+    for (var i=0; i<array.length; i++) {
+      if (array[i].id === el.id) {
+        return;
+      }
+    }
+    array.push(el);
+  }
 
   /**
-   * Add an element to the apps array once
-   * @param {Array} array the array to add to
-   * @param {Object} el   the element to add
-   */
+  * Add an element to the apps array once
+  * @param {Array} array the array to add to
+  * @param {Object} el   the element to add
+  */
   function addToApps(array, el) {
-		if (!array) return;
-		for (var i=0; i<array.length; i++) {
-			if (array[i].id === el.id) {
+    if (!array) return;
+    for (var i=0; i<array.length; i++) {
+      if (array[i].id === el.id) {
         array[i] = el;
-				return;
-			}
-		}
-		array.push(el);
-	}
+        return;
+      }
+    }
+    array.push(el);
+  }
 
 
   /**
-   * Add an element to the queue
-   * @param {Array} array the array to add to
-   * @param {Object} el   the element to add
-   */
+  * Add an element to the queue
+  * @param {Array} array the array to add to
+  * @param {Object} el   the element to add
+  */
   function addToQueue(array, el) {
     if (!array) return;
     if (!el) return;
@@ -828,6 +828,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * Home
   */
   $scope.home = function() {
+    $scope.notify('Home');
     $scope.q = null;
     $scope.query = null;
     $scope.date = 'recent';
@@ -844,6 +845,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   */
   $scope.setProfile = function(uri) {
     uri = uri || $scope.profile;
+    $scope.notify('change profile to : ' + uri);
     console.log('change profile to : ' + uri);
     $scope.profile = uri;
     $location.search('profile', uri);
@@ -856,6 +858,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * Featured
   */
   $scope.featured = function() {
+    $scope.notify('Featured Stories');
     $scope.f = "#nutrition";
     $scope.view = 'feed';
     $location.search('view', $scope.view);
@@ -866,6 +869,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * Stories
   */
   $scope.stories = function() {
+    $scope.notify('All stories');
     $scope.f = null;
     $scope.render();
   };
@@ -1004,11 +1008,11 @@ App.filter('escape', function() {
 });
 
 App.filter('parseUrlFilter', ['$sce', function ($sce) {
-    var urlPattern = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/gi;
-    return function (text) {
-        var target = '_blank';
-        if (text) {
-          return $sce.trustAsHtml(text.replace(urlPattern, '<a target="' + target + '" href="$&">$&</a>'));
-        }
-    };
+  var urlPattern = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/gi;
+  return function (text) {
+    var target = '_blank';
+    if (text) {
+      return $sce.trustAsHtml(text.replace(urlPattern, '<a target="' + target + '" href="$&">$&</a>'));
+    }
+  };
 }]);
