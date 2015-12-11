@@ -75,6 +75,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.backgroundImage = defaultBackgroundImage;
     $scope.view = 'feed';
     $location.search('view', $scope.view);
+    $scope.numRecent = 25;
+
 
     $scope.initRDF();
     $scope.initDexie();
@@ -712,7 +714,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       if (backgroundImage) {
         $scope.backgroundImage = backgroundImage.uri;
       } else {
-        $scope.backgroundImage = defaultBackgroundImage;        
+        $scope.backgroundImage = defaultBackgroundImage;
       }
 
     });
@@ -770,7 +772,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         }
       }
 
-      if ( created.value.substring(0,10) === $scope.date || $scope.date === 'all' ) {
+      if ( created.value.substring(0,10) === $scope.date || $scope.date === 'all' || $scope.date === 'recent' ) {
         $scope.posts.push([created.value, creator.uri, message, subject.uri, img, name, avatar]);
       }
 
@@ -786,6 +788,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       b = new Date(createdb);
       return a>b ? -1 : a<b ? 1 : 0;
     });
+
+    if ($scope.date === 'recent') {
+      $scope.posts = $scope.posts.slice(0, $scope.numRecent);
+    }
 
   };
 
@@ -872,11 +878,26 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * older sets date one day back
   */
   $scope.older = function() {
-    date = new Date($scope.date);
-    var yesterday = new Date();
-    yesterday.setDate(date.getDate() - 1);
-    $scope.date = yesterday.toISOString().substring(0,10);
-    fetchAll();
+    $scope.numRecent += 25;
+    render();
+  };
+
+  /**
+  * all sets date to all
+  */
+  $scope.all = function() {
+    $scope.date = 'all';
+    $location.search('date', $scope.date);
+    render();
+  };
+
+  /**
+  * recent sets date to all
+  */
+  $scope.recent = function() {
+    $scope.date = 'recent';
+    $location.search('date', $scope.date);
+    render();
   };
 
 
