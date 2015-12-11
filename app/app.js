@@ -100,7 +100,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.loginTLSButtonText = "Login";
     $scope.audio = ngAudio.load('audio/button-3.mp3');
     $scope.posts = [];
-    $scope.date = new Date().toISOString().substr(0,10);
+    $scope.date = 'recent';
     $scope.initCalendar();
     // filter
     $scope.f = "#nutrition";
