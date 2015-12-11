@@ -879,7 +879,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   */
   $scope.older = function() {
     $scope.numRecent += 25;
-    render();
+    $scope.render();
   };
 
   /**
@@ -888,7 +888,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   $scope.all = function() {
     $scope.date = 'all';
     $location.search('date', $scope.date);
-    render();
+    $scope.render();
   };
 
   /**
@@ -897,7 +897,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   $scope.recent = function() {
     $scope.date = 'recent';
     $location.search('date', $scope.date);
-    render();
+    $scope.render();
   };
 
 
