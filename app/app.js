@@ -489,6 +489,34 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     });
   };
 
+  /**
+  * Patch timeline
+  */
+  $scope.patchTimeline = function() {
+
+    var message = "INSERT DATA { <" + $scope.user + ">  <http://www.w3.org/ns/solid/terms#timeline> <../Public/timeline/> . }";
+    console.log(message);
+
+    $http({
+      method: 'PATCH',
+      url: $scope.user,
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/sparql-update"
+      },
+      data: message,
+    }).
+    success(function(data, status, headers) {
+      $scope.notify('WebID patched');
+      $scope.refresh();
+    }).
+    error(function(data, status, headers) {
+      $scope.notify('could not patch timeline', 'error');
+    });
+
+  };
+
+
 
   /**
   * Save the post
@@ -507,6 +535,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     }
     if (!$scope.timeline) {
       $scope.notify('Please add timeline to your WebID', 'error');
+      $scope.patchTimeline();
       return;
     }
     console.log(post);
