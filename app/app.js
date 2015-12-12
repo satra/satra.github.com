@@ -318,13 +318,13 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     }
 
 
-    workspaces = g.statementsMatching(undefined, PIM('workspace'), undefined);
-    for (i=0; i<workspaces.length; i++) {
-      addToArray($scope.workspaces, workspaces[i].object.uri);
-      addToArray($scope.workspaces, workspaces[i].object.uri + '*');
-      addToQueue($scope.queue, workspaces[i].object.uri);
-      addToQueue($scope.queue, workspaces[i].object.uri + '*');
-    }
+    //workspaces = g.statementsMatching(undefined, PIM('workspace'), undefined);
+    //for (i=0; i<workspaces.length; i++) {
+    //  addToArray($scope.workspaces, workspaces[i].object.uri);
+    //  addToArray($scope.workspaces, workspaces[i].object.uri + '*');
+    //  addToQueue($scope.queue, workspaces[i].object.uri);
+    //  addToQueue($scope.queue, workspaces[i].object.uri + '*');
+    //}
 
     var preferences = g.statementsMatching($rdf.sym($scope.user), PIM('preferencesFile'), undefined);
     for (i=0; i<preferences.length; i++) {
@@ -370,8 +370,6 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       }
 
     }
-
-
 
     var seeAlso = g.statementsMatching($rdf.sym($scope.user), RDFS('seeAlso'), undefined);
     for (i=0; i<seeAlso.length; i++) {
