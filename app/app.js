@@ -166,7 +166,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * init RDF knowledge base
   */
   $scope.initRDF = function() {
-    var PROXY = "https://databox.me/,proxy?uri={uri}";
+    var PROXY = "https://data.fm/proxy?uri={uri}";
 
     //var AUTH_PROXY = "https://rww.io/auth-proxy?uri=";
     var TIMEOUT = 60000;
