@@ -769,6 +769,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       var creator = g.any(subject, DCT('creator'));
       var content = g.any(subject, SIOC('content'));
       var author  = g.any(subject, MBLOG('author'));
+      var likes   = g.statementsMatching(null, LIKE('likes'), subject);
       var img  = g.any(subject, FOAF('img'));
 
       var stamp = Math.round(new Date(created).getTime() / 1000);
@@ -806,8 +807,20 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         }
       }
 
+      var likesList = [];
+      var likesNames = [];
+      for (var j = 0; j < likes.length; j++) {
+        if (likes[j].subject && likes[j].subject.uri) {
+          likesList.push(likes[j].subject.uri);
+          var n = g.any(likes[j].subject, FOAF('name'));
+          if (n) {
+            likesNames.push(n.value);            
+          }
+        }
+      }
+
       if ( created.value.substring(0,10) === $scope.date || $scope.date === 'all' || $scope.date === 'recent' ) {
-        $scope.posts.push([created.value, creator.uri, message, subject.uri, img, name, avatar]);
+        $scope.posts.push([created.value, creator.uri, message, subject.uri, img, name, avatar, likesNames, likesList.length]);
       }
 
     }
@@ -916,6 +929,37 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     }).
     error(function(data, status, headers) {
       $scope.notify('could not save like', 'error');
+    });
+  };
+
+  /**
+  * Unlike
+  */
+  $scope.unlike = function(uri) {
+    if (!uri) return;
+    var doc = uri.split('#')[0];
+    if(!doc) return;
+
+    $scope.notify('unliking : ' + uri);
+
+    var message = "DELETE DATA { <" + $scope.user + ">  <http://ontologi.es/like#likes> <"+ uri +"> . }";
+    console.log(message);
+
+    $http({
+      method: 'PATCH',
+      url: doc,
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/sparql-update"
+      },
+      data: message,
+    }).
+    success(function(data, status, headers) {
+      $scope.notify('Unlike Saved');
+      $scope.refresh();
+    }).
+    error(function(data, status, headers) {
+      $scope.notify('could not save unlike', 'error');
     });
   };
 
