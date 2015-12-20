@@ -809,18 +809,22 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
       var likesList = [];
       var likesNames = [];
+      var iLike = false;
       for (var j = 0; j < likes.length; j++) {
         if (likes[j].subject && likes[j].subject.uri) {
           likesList.push(likes[j].subject.uri);
           var n = g.any(likes[j].subject, FOAF('name'));
           if (n) {
-            likesNames.push(n.value);            
+            likesNames.push(n.value);
+          }
+          if ($scope.user === likes[j].subject.uri) {
+            iLike = true;
           }
         }
       }
 
       if ( created.value.substring(0,10) === $scope.date || $scope.date === 'all' || $scope.date === 'recent' ) {
-        $scope.posts.push([created.value, creator.uri, message, subject.uri, img, name, avatar, likesNames, likesList.length]);
+        $scope.posts.push([created.value, creator.uri, message, subject.uri, img, name, avatar, likesNames, likesList.length, iLike]);
       }
 
     }
