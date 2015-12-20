@@ -889,6 +889,37 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   };
 
   /**
+  * Like
+  */
+  $scope.like = function(uri) {
+    if (!uri) return;
+    var doc = uri.split('#')[0];
+    if(!doc) return;
+
+    $scope.notify('liking : ' + uri);
+
+    var message = "INSERT DATA { <" + $scope.user + ">  <http://ontologi.es/like#likes> <"+ uri +"> . }";
+    console.log(message);
+
+    $http({
+      method: 'PATCH',
+      url: doc,
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/sparql-update"
+      },
+      data: message,
+    }).
+    success(function(data, status, headers) {
+      $scope.notify('Like Saved');
+      $scope.refresh();
+    }).
+    error(function(data, status, headers) {
+      $scope.notify('could not save like', 'error');
+    });
+  };
+
+  /**
   * Featured
   */
   $scope.featured = function() {
