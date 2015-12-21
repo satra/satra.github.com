@@ -76,6 +76,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.view = 'feed';
     $scope.defaultPosts = 15;
     $scope.numRecent = $scope.defaultPosts;
+    $scope.comment = {};
 
 
     $scope.initRDF();
@@ -572,9 +573,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * @param  {string} message     the message to send
   * @param  {string} application application that created it
   * @param  {string} img         img for that post
+  * @param  {string} reply       comment is a reply to
   * @return {string}             the message in turtle
   */
-  $scope.createPost = function(webid, message, application, img) {
+  $scope.createPost = function(webid, message, application, img, reply) {
     var turtle;
     turtle = '<#this> ';
     turtle += '    <http://purl.org/dc/terms/created> "'+ new Date().toISOString() +'"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;\n';
@@ -590,7 +592,12 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       turtle += '    <http://xmlns.com/foaf/0.1/img> <' + img + '> ;\n';
     }
 
+    if (reply) {
+      turtle += '    <http://rdfs.org/sioc/ns#reply_to> <' + reply + '> ;\n';
+    }
+
     turtle += '    <http://www.w3.org/ns/mblog#author> <'+ webid +'> .\n';
+
     return turtle;
   };
 
@@ -764,16 +771,22 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.data = {};
     console.log('view : ' + $scope.view);
     for (var i=0; i<p.length;i++) {
-      var subject = p[i].subject;
-      var created = g.any(subject, DCT('created'));
-      var creator = g.any(subject, DCT('creator'));
-      var content = g.any(subject, SIOC('content'));
-      var author  = g.any(subject, MBLOG('author'));
-      var likes   = g.statementsMatching(null, LIKE('likes'), subject);
-      var img  = g.any(subject, FOAF('img'));
+      var subject  = p[i].subject;
+      var created  = g.any(subject, DCT('created'));
+      var creator  = g.any(subject, DCT('creator'));
+      var content  = g.any(subject, SIOC('content'));
+      var author   = g.any(subject, MBLOG('author'));
+      var reply_to = g.any(subject, SIOC('reply_to'));
+      var likes    = g.statementsMatching(null, LIKE('likes'), subject);
+      var replies  = g.statementsMatching(null, SIOC('reply_to'), subject);
+      var img      = g.any(subject, FOAF('img'));
 
       var stamp = Math.round(new Date(created).getTime() / 1000);
       $scope.data[stamp] = 1;
+
+      if (reply_to) {
+        continue;
+      }
 
       if ($scope.q && content.value.indexOf($scope.q) === -1) {
         continue;
@@ -810,7 +823,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       var likesList = [];
       var likesNames = [];
       var iLike = false;
-      for (var j = 0; j < likes.length; j++) {
+      for (var j=0; j < likes.length; j++) {
         if (likes[j].subject && likes[j].subject.uri) {
           likesList.push(likes[j].subject.uri);
           var n = g.any(likes[j].subject, FOAF('name'));
@@ -823,8 +836,26 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         }
       }
 
+      var comments = [];
+      for (j=0; j < replies.length; j++) {
+        if (replies[j].subject && replies[j].subject.uri) {
+          var comment = {};
+          var sub = replies[j].subject;
+          comment.subject  = sub;
+          comment.created  = g.any(sub, DCT('created'));
+          comment.creator  = g.any(sub, DCT('creator'));
+          comment.content  = g.any(sub, SIOC('content'));
+          comment.author   = g.any(sub, MBLOG('author'));
+          comment.likes    = g.statementsMatching(null, LIKE('likes'), sub);
+          comment.img      = g.any(creator, FOAF('img'));
+          comment.name     = g.any(creator, FOAF('name'));
+          comments.push(comment);
+        }
+      }
+
+
       if ( created.value.substring(0,10) === $scope.date || $scope.date === 'all' || $scope.date === 'recent' ) {
-        $scope.posts.push([created.value, creator.uri, message, subject.uri, img, name, avatar, likesNames, likesList.length, iLike]);
+        $scope.posts.push([created.value, creator.uri, message, subject.uri, img, name, avatar, likesNames, likesList.length, iLike, comments]);
       }
 
     }
@@ -902,6 +933,46 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $location.search('profile', uri);
     $scope.view = 'profile';
     $location.search('view', $scope.view);
+    $scope.render();
+  };
+
+  /**
+  * Comment
+  */
+  $scope.addComment = function(comment, post) {
+    console.log(comment);
+    $scope.notify('comment on '+ post +' is : ' + comment);
+    if (!comment) return;
+
+    console.log(comment);
+
+
+    var message = $scope.createPost($scope.user, comment, null, $scope.img, post);
+    var today = new Date().toISOString().substr(0,10);
+    var uri = $scope.timeline + today + '/';
+    console.log(uri);
+    console.log(message);
+
+    $http({
+      method: 'POST',
+      url: uri,
+      withCredentials: true,
+      headers: {
+        "Content-Type": "text/turtle"
+      },
+      data: message,
+    }).
+    success(function(data, status, headers) {
+      $scope.notify('Comment saved');
+      $scope.post = null;
+      $scope.img = null;
+      $scope.refresh();
+    }).
+    error(function(data, status, headers) {
+      $scope.notify('could not save comment', 'error');
+    });
+
+
     $scope.render();
   };
 
