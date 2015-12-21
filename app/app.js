@@ -851,6 +851,14 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
           comment.name     = g.any(creator, FOAF('name'));
           comments.push(comment);
         }
+
+        comments = comments.sort(function(a, b) {
+          createda = a.created;
+          createdb = b.created;
+          a = new Date(createda);
+          b = new Date(createdb);
+          return a>b ? 1 : a<b ? -1 : 0;
+        });
       }
 
 
@@ -865,7 +873,6 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.posts = $scope.posts.sort(function(a, b) {
       createda = a[0];
       createdb = b[0];
-      //if ( !createda || !createdb ) return;
       a = new Date(createda);
       b = new Date(createdb);
       return a>b ? -1 : a<b ? 1 : 0;
