@@ -288,6 +288,23 @@ small.text-muted {
 #calendar .q6 {fill:#fea1eb; opacity: 1}
 #calendar .graph-rect:hover {fill: #fff; opacity: 1; stroke-width: 0;}
 
+.comment-block {
+  background-color: #F6F7F8;
+  display: inline-block;
+}
+
+.comment-name {
+  font-size: 12px;
+}
+
+.comment-text {
+  vertical-align: top;
+  margin-left: 38px;
+}
+
+.comment-img {
+  float: left;
+}
 
 /*
  * off canvas sidebar
