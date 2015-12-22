@@ -207,6 +207,9 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     if ($location.search().profile) {
       $scope.profile = $location.search().profile;
     }
+    if ($location.search().postid) {
+      $scope.postid = $location.search().postid;
+    }
     if ($location.search().view) {
       $scope.view = $location.search().view;
     }
@@ -784,6 +787,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       var stamp = Math.round(new Date(created).getTime() / 1000);
       $scope.data[stamp] = 1;
 
+      if ($scope.postid && $scope.postid !== subject.uri) continue;
+
       if (reply_to) {
         continue;
       }
@@ -910,6 +915,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   $scope.search = function() {
     $scope.q = $scope.query;
     $location.search('q', $scope.q);
+    $scope.postid = null;
+    $location.search('postid', $scope.postid);
     $scope.render();
   };
 
@@ -926,6 +933,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $location.search('profile', $scope.user);
     $scope.view = 'feed';
     $location.search('view', $scope.view);
+    $scope.postid = null;
+    $location.search('postid', $scope.postid);
     $scope.render();
   };
 
@@ -940,6 +949,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $location.search('profile', uri);
     $scope.view = 'profile';
     $location.search('view', $scope.view);
+    $scope.postid = null;
+    $location.search('postid', $scope.postid);
     $scope.render();
   };
 
@@ -1053,6 +1064,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.f = "#nutrition";
     $scope.view = 'feed';
     $location.search('view', $scope.view);
+    $scope.postid = null;
+    $location.search('postid', $scope.postid);
     $scope.render();
   };
 
@@ -1062,6 +1075,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   $scope.stories = function() {
     $scope.notify('All stories');
     $scope.f = null;
+    $scope.postid = null;
+    $location.search('postid', $scope.postid);
     $scope.render();
   };
 
@@ -1085,6 +1100,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   $scope.older = function() {
     $scope.numRecent += $scope.defaultPosts;
     $scope.render();
+    $scope.postid = null;
+    $location.search('postid', $scope.postid);
   };
 
   /**
@@ -1094,6 +1111,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.date = 'all';
     $location.search('date', $scope.date);
     $scope.render();
+    $scope.postid = null;
+    $location.search('postid', $scope.postid);
   };
 
   /**
@@ -1103,6 +1122,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.date = 'recent';
     $location.search('date', $scope.date);
     $scope.render();
+    $scope.postid = null;
+    $location.search('postid', $scope.postid);
   };
 
 
