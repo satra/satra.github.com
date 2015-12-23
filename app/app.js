@@ -857,14 +857,14 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
           comments.push(comment);
         }
 
-        comments = comments.sort(function(a, b) {
-          createda = a.created;
-          createdb = b.created;
-          a = new Date(createda);
-          b = new Date(createdb);
-          return a>b ? 1 : a<b ? -1 : 0;
-        });
       }
+      comments = comments.sort(function(a, b) {
+        createda = a.created;
+        createdb = b.created;
+        a = new Date(createda);
+        b = new Date(createdb);
+        return a>b ? 1 : a<b ? -1 : 0;
+      });
 
 
       if ( created.value.substring(0,10) === $scope.date || $scope.date === 'all' || $scope.date === 'recent' ) {
