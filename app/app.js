@@ -895,7 +895,11 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   $scope.refresh = function(uri) {
     $scope.notify('Refreshing ' + (uri?uri:'') );
     var today = new Date().toISOString().substr(0,10);
-    $scope.invalidate($scope.timeline + today + '/*', function() {
+    var refreshDate = today;
+    if ($scope.date && $scope.date !== 'all') {
+      refreshDate = $scope.date;
+    }
+    $scope.invalidate($scope.timeline + refreshDate + '/*', function() {
       fetch($scope.timeline + $scope.date + '/*');
     });
     $scope.invalidate($scope.timeline, function() {
