@@ -896,7 +896,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.notify('Refreshing ' + (uri?uri:'') );
     var today = new Date().toISOString().substr(0,10);
     var refreshDate = today;
-    if ($scope.date && $scope.date !== 'all') {
+    if ($scope.date && $scope.date !== 'all' && $scope.date !== 'recent') {
       refreshDate = $scope.date;
     }
     $scope.invalidate($scope.timeline + refreshDate + '/*', function() {
