@@ -306,6 +306,26 @@ small.text-muted {
   float: left;
 }
 
+.title-block {
+}
+
+.title-name {
+}
+
+.title-name {
+  vertical-align: top;
+  margin-left: 16px;
+}
+
+.title-time {
+  vertical-align: top;
+  margin-left: 16px;
+}
+
+.title-img {
+  float: left;
+}
+
 /*
  * off canvas sidebar
  * --------------------------------------------------
