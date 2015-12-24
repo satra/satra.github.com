@@ -113,7 +113,7 @@
 				<div class="col-sm-5">
 
 
-					<div ng-show="user" class="well">
+					<div ng-show="user && !postid" class="well">
 						<form class="form-horizontal" role="form">
 							<h4>What's New</h4>
 							<div class="form-group" style="padding:14px;">
@@ -130,8 +130,6 @@
 					<div ng-if="!user" class="well">
 						<a ng-click="TLSlogin()">Sign In</a> or <a target="_blank" href="https://solid.github.io/solid-idps/">Register</a>
 					</div>
-
-
 
 
 					<div ng-repeat="n in posts" class="panel panel-default">
@@ -189,7 +187,7 @@
 						</div>
 					</div>
 
-					<div><a ng-if="profile" ng-click="older()">Older</a></div>
+					<div><a ng-if="profile && !postid" ng-click="older()">Older</a></div>
 
 				</div>
 
