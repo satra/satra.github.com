@@ -153,8 +153,7 @@
 							<form class="comment-block">
 
 								<div ng-if="n[8]">
-									<span ng-repeat="l in n[7]" style="color: #5890FF" class="panel panel-default">{{l}} </span> like
-									<span ng-if="n[8] === 1">s</span> this<hr>
+									<span ng-repeat="l in n[7]" style="color: #5890FF" class="panel panel-default">{{l}} </span> like<span ng-if="n[8] === 1">s</span> this<hr>
 								</div>
 
 								<div ng-if="n[10]">
@@ -163,7 +162,7 @@
 											<img style="vertical-align: top" ng-show="c.img.uri" ng-src="{{c.img.uri}}" height="32" width="32"></img>
 										</div>
 										<div class="comment-text">
-											<a  class="name" >{{c.name.value}}</a>
+											<a class="name" >{{c.name.value}}</a>
   										<span>{{c.content.value}}</span><br>
   										<a class="time" href="{{c.subject.uri}}" target="_blank" am-time-ago="c.created.value"></a>
 									  </div>
