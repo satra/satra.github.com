@@ -959,6 +959,17 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   };
 
   /**
+  * Show Post
+  */
+  $scope.showPost = function(uri) {
+    $scope.notify('showing post : ' + uri);
+    console.log('showing post : ' + uri);
+    $scope.postid = uri;
+    $location.search('postid', uri);
+    $scope.render();
+  };
+
+  /**
   * Comment
   */
   $scope.addComment = function(comment, post) {
