@@ -77,6 +77,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.defaultPosts = 15;
     $scope.numRecent = $scope.defaultPosts;
     $scope.comment = {};
+    $scope.friendType = '';
 
 
     $scope.initRDF();
@@ -705,6 +706,21 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       var name = g.statementsMatching($rdf.sym(uri), FOAF('name'));
       if (name.length) {
         $scope.username = name[0].object.value;
+        if ($scope.user === $scope.profile) {
+          $scope.friendType = '';
+        } else {
+          var knows = g.anyStatementMatching($rdf.sym($scope.user), FOAF('knows'), $rdf.sym($scope.profile));
+          var isKnown = g.anyStatementMatching($rdf.sym($scope.profile), FOAF('knows'), $rdf.sym($scope.user));
+          if (knows && isKnown) {
+            $scope.friendType = 'Friends';
+          } else if (knows) {
+            $scope.friendType = 'Knows';
+          } else if (isKnown) {
+            $scope.friendType = 'Accept Friend';
+          } else {
+            $scope.friendType = 'Add Friend';
+          }
+        }
       }
     });
   };
@@ -1072,7 +1088,40 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   };
 
   /**
-  * Featured
+  * addFriend
+  */
+  $scope.addFriend = function() {
+    if (!$scope.user || !scope.profile || $scope.friendType) return;
+    var uri = $scope.user;
+    var doc = uri.split('#')[0];
+
+    $scope.notify('adding friend : ' + $scope.profle);
+
+    var message = "INSERT DATA { <" + $scope.user + ">  <http://xmlns.com/foaf/0.1/knows> <"+ $scope.profile +"> . }";
+    console.log(message);
+
+    $http({
+      method: 'PATCH',
+      url: doc,
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/sparql-update"
+      },
+      data: message,
+    }).
+    success(function(data, status, headers) {
+      $scope.notify('Friend added');
+      $scope.refresh();
+    }).
+    error(function(data, status, headers) {
+      $scope.notify('could not add friend', 'error');
+    });
+  };
+
+
+
+  /**
+  * Featuredrefresh
   */
   $scope.featured = function() {
     $scope.notify('Featured Stories');
