@@ -1095,7 +1095,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     var uri = $scope.user;
     var doc = uri.split('#')[0];
 
-    $scope.notify('adding friend : ' + $scope.profle);
+    $scope.notify('adding friend : ' + $scope.profile);
 
     var message = "INSERT DATA { <" + $scope.user + ">  <http://xmlns.com/foaf/0.1/knows> <"+ $scope.profile +"> . }";
     console.log(message);
