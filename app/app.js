@@ -1091,7 +1091,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * addFriend
   */
   $scope.addFriend = function() {
-    if (!$scope.user || !scope.profile || $scope.friendType) return;
+    if (!$scope.user || !$scope.profile || !$scope.friendType) return;
     var uri = $scope.user;
     var doc = uri.split('#')[0];
 
