@@ -868,8 +868,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
           comment.content  = g.any(sub, SIOC('content'));
           comment.author   = g.any(sub, MBLOG('author'));
           comment.likes    = g.statementsMatching(null, LIKE('likes'), sub);
-          comment.img      = g.any(creator, FOAF('img'));
-          comment.name     = g.any(creator, FOAF('name'));
+          comment.img      = g.any(comment.creator, FOAF('img'));
+          comment.name     = g.any(comment.creator, FOAF('name'));
           comments.push(comment);
         }
 
@@ -1028,7 +1028,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   /**
   * Like
   */
-  $scope.like = function(uri) {
+  $scope.like = function() {
+    var uri = $scope.user;
     if (!uri) return;
     var doc = uri.split('#')[0];
     if(!doc) return;
