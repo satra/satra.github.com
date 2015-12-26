@@ -1028,11 +1028,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   /**
   * Like
   */
-  $scope.like = function() {
-    var uri = $scope.user;
+  $scope.like = function(uri) {
     if (!uri) return;
     var doc = uri.split('#')[0];
-    if(!doc) return;
+    if (!doc) return;
 
     $scope.notify('liking : ' + uri);
 
