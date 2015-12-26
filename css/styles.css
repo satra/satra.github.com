@@ -213,6 +213,10 @@ h1,h2,h3 {
   color:#555555;
 }
 
+.panel-thumbnail {
+  margin: 10px;  
+}
+
 .col-sm-9.full {
     width: 100%;
 }
