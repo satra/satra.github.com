@@ -304,11 +304,8 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       addToQueue($scope.queue, $scope.profile);
     }
 
-    workspaces = g.statementsMatching($rdf.sym($scope.user), PIM('storage'), undefined);
-    for (i=0; i<workspaces.length; i++) {
-      addToArray($scope.storage, workspaces[i].object.uri);
-      addToQueue($scope.queue, workspaces[i].object.uri);
-    }
+
+
 
 
     var knows = g.statementsMatching($rdf.sym($scope.user), FOAF('knows'), undefined);
@@ -321,6 +318,28 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       //  addToArray($scope.storage, workspaces[j].object.uri);
       //  addToQueue($scope.queue, workspaces[j].object.uri);
       //}
+    }
+
+
+    var timelines = g.statementsMatching(null, ST('timeline'), undefined);
+    for (i=0; i<timelines.length; i++) {
+      addToArray($scope.timelines, timelines[i].object.uri);
+      addToArray($scope.timelines, timelines[i].object.uri + '*');
+      addToQueue($scope.queue, timelines[i].object.uri);
+      addToQueue($scope.queue, timelines[i].object.uri + '*');
+
+      var dates = g.statementsMatching($rdf.sym(timelines[i].object.uri), LDP('contains'), undefined);
+      for (j=dates.length-1; j>=0; j--) {
+        addToQueue($scope.queue, dates[j].object.uri + '*');
+      }
+
+    }
+
+
+    workspaces = g.statementsMatching($rdf.sym($scope.user), PIM('storage'), undefined);
+    for (i=0; i<workspaces.length; i++) {
+      addToArray($scope.storage, workspaces[i].object.uri);
+      addToQueue($scope.queue, workspaces[i].object.uri);
     }
 
 
@@ -363,19 +382,6 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       addToQueue($scope.queue, keys[i].object.uri);
     }
 
-    var timelines = g.statementsMatching(null, ST('timeline'), undefined);
-    for (i=0; i<timelines.length; i++) {
-      addToArray($scope.timelines, timelines[i].object.uri);
-      addToArray($scope.timelines, timelines[i].object.uri + '*');
-      addToQueue($scope.queue, timelines[i].object.uri);
-      addToQueue($scope.queue, timelines[i].object.uri + '*');
-
-      var dates = g.statementsMatching($rdf.sym(timelines[i].object.uri), LDP('contains'), undefined);
-      for (j=0; j<dates.length; j++) {
-        addToQueue($scope.queue, dates[j].object.uri + '*');
-      }
-
-    }
 
     var seeAlso = g.statementsMatching($rdf.sym($scope.user), RDFS('seeAlso'), undefined);
     for (i=0; i<seeAlso.length; i++) {
