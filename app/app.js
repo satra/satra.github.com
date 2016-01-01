@@ -390,6 +390,15 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       addToQueue($scope.queue, seeAlso[i].object.uri);
     }
 
+    seeAlso = g.statementsMatching($rdf.sym($scope.profile), RDFS('seeAlso'), undefined);
+    for (i=0; i<seeAlso.length; i++) {
+      //console.log('seeAlso found : ' + seeAlso[i].object.uri);
+      addToArray($scope.seeAlso, seeAlso[i].object.uri);
+      addToQueue($scope.queue, seeAlso[i].object.uri);
+    }
+
+
+
   }
 
 
