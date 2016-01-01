@@ -320,6 +320,11 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       //}
     }
 
+    knows = g.statementsMatching($rdf.sym($scope.profile), FOAF('knows'), undefined);
+    for (i=0; i<knows.length; i++) {
+      addToQueue($scope.queue, knows[i].object.uri);
+    }
+
 
     var timelines = g.statementsMatching(null, ST('timeline'), undefined);
     for (i=0; i<timelines.length; i++) {
