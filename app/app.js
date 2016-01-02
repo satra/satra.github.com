@@ -970,6 +970,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.date = 'recent';
     $location.search('date', $scope.date);
     $location.search('q', null);
+    $scope.profile = $scope.user;
     $location.search('profile', $scope.user);
     $scope.view = 'feed';
     $location.search('view', $scope.view);
