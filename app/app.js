@@ -304,20 +304,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       addToQueue($scope.queue, $scope.profile);
     }
 
-
-
-
-
     var knows = g.statementsMatching($rdf.sym($scope.user), FOAF('knows'), undefined);
     for (i=0; i<knows.length; i++) {
-      //console.log(knows[i].object.uri);
       addToArray($scope.knows, knows[i].object.uri);
       addToQueue($scope.queue, knows[i].object.uri);
-      //workspaces = g.statementsMatching($rdf.sym(knows[i].object.uri), PIM('storage'), undefined);
-      //for (j=0; j<workspaces.length; j++) {
-      //  addToArray($scope.storage, workspaces[j].object.uri);
-      //  addToQueue($scope.queue, workspaces[j].object.uri);
-      //}
     }
 
     knows = g.statementsMatching($rdf.sym($scope.profile), FOAF('knows'), undefined);
@@ -339,7 +329,6 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       }
 
     }
-
 
     workspaces = g.statementsMatching($rdf.sym($scope.user), PIM('storage'), undefined);
     for (i=0; i<workspaces.length; i++) {
@@ -373,8 +362,6 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       }
     }
 
-
-
     var wallets = g.statementsMatching($rdf.sym($scope.user), CURR('wallet'), undefined);
     for (i=0; i<wallets.length; i++) {
       addToArray($scope.wallet, wallets[i].object.uri);
@@ -390,19 +377,15 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
     var seeAlso = g.statementsMatching($rdf.sym($scope.user), RDFS('seeAlso'), undefined);
     for (i=0; i<seeAlso.length; i++) {
-      //console.log('seeAlso found : ' + seeAlso[i].object.uri);
       addToArray($scope.seeAlso, seeAlso[i].object.uri);
       addToQueue($scope.queue, seeAlso[i].object.uri);
     }
 
     seeAlso = g.statementsMatching($rdf.sym($scope.profile), RDFS('seeAlso'), undefined);
     for (i=0; i<seeAlso.length; i++) {
-      //console.log('seeAlso found : ' + seeAlso[i].object.uri);
       addToArray($scope.seeAlso, seeAlso[i].object.uri);
       addToQueue($scope.queue, seeAlso[i].object.uri);
     }
-
-
 
   }
 
