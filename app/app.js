@@ -546,7 +546,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       return;
     }
     console.log(post);
-    var message = $scope.createPost($scope.user, post, null, $scope.img);
+    var message = $scope.createPost($scope.user, post, null, $scope.img, null, $scope.timeline);
     var today = new Date().toISOString().substr(0,10);
     var uri = $scope.timeline + today + '/';
     console.log(uri);
@@ -581,9 +581,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
   * @param  {string} application application that created it
   * @param  {string} img         img for that post
   * @param  {string} reply       comment is a reply to
+  * @param  {string} timeline    timeline associated with post
   * @return {string}             the message in turtle
   */
-  $scope.createPost = function(webid, message, application, img, reply) {
+  $scope.createPost = function(webid, message, application, img, reply, timeline) {
     var turtle;
     turtle = '<#this> ';
     turtle += '    <http://purl.org/dc/terms/created> "'+ new Date().toISOString() +'"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;\n';
@@ -601,6 +602,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
     if (reply) {
       turtle += '    <http://rdfs.org/sioc/ns#reply_to> <' + reply + '> ;\n';
+    }
+
+    if (timeline) {
+      turtle += '    <http://www.w3.org/ns/solid/terms#timeline> <' + timeline + '> ;\n';
     }
 
     turtle += '    <http://www.w3.org/ns/mblog#author> <'+ webid +'> .\n';
