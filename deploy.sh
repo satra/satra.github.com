@@ -10,4 +10,7 @@ git push origin gh-pages
 
 git checkout master
 
+git push upstream master
+git push upstream gh-pages
+
 bower install
