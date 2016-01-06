@@ -119,7 +119,6 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       domain: "month",
       subDomain: "x_day",
       data: [],
-      start: new Date(2015, 11, 2),
       cellSize: 15,
       cellRadius: 3,
       cellPadding: 5,
