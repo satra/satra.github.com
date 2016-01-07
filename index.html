@@ -38,7 +38,7 @@
 						<li><hr></li>
 						<li><a target="_blank" href="http://webappmarket.org/">APPS</a></li>
 
-						<li ng-repeat="app in apps"><a target="_blank" ng-href="{{app.homepage}}">{{app.name}}</a></li>
+						<li class="app" ng-repeat="app in apps"><span><img ng-src="{{app.icon}}" height="16" width="16"><a target="_blank" ng-href="{{app.homepage}}">{{app.name}}</a></span><br></li>
 
 						<!--
 						<li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Likes</a></li>

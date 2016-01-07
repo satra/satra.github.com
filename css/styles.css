@@ -214,7 +214,7 @@ h1,h2,h3 {
 }
 
 .panel-thumbnail {
-  margin: 10px;  
+  margin: 10px;
 }
 
 .col-sm-9.full {
@@ -328,6 +328,10 @@ small.text-muted {
 
 .title-img {
   float: left;
+}
+
+.app {
+  margin: 4px;
 }
 
 /*
