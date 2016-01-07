@@ -353,9 +353,9 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
     var configurationFiles = g.statementsMatching(null, RDF('type'), PIM('ConfigurationFile'));
     for (i=0; i<configurationFiles.length; i++) {
-      addToArray($scope.configurationFiles, configurationFiles[i].subject.value );
-      addToQueue($scope.queue, configurationFiles[i].subject.value);
-      var configurations = g.statementsMatching($rdf.sym(configurationFiles[i].subject.value), SOLID('configuration'), undefined);
+      addToArray($scope.configurationFiles, configurationFiles[i].subject.uri );
+      addToQueue($scope.queue, configurationFiles[i].subject.uri);
+      var configurations = g.statementsMatching($rdf.sym(configurationFiles[i].subject.uri), SOLID('configuration'), undefined);
       for (j=0; j<configurations.length; j++) {
         addToArray($scope.configurations, configurations[j].object.uri );
         addToQueue($scope.queue, configurations[j].object.uri);
@@ -807,12 +807,12 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
       var icon = g.statementsMatching($rdf.sym($scope.configurations[i]), SOLID('icon'), undefined);
       if (icon.length) {
-        app.icon = icon[0].object.value;
+        app.icon = icon[0].object.uri;
       }
 
       var dataSource = g.statementsMatching($rdf.sym($scope.configurations[i]), SOLID('dataSource'), undefined);
       if (dataSource.length) {
-        app.dataSource = dataSource[0].object.value;
+        app.dataSource = dataSource[0].object.uri;
       }
 
       var description = g.statementsMatching($rdf.sym($scope.configurations[i]), SOLID('description'), undefined);
@@ -822,7 +822,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
 
       var homepage = g.statementsMatching($rdf.sym($scope.configurations[i]), SOLID('homepage'), undefined);
       if (homepage.length) {
-        app.homepage = homepage[0].object.value;
+        app.homepage = homepage[0].object.uri;
       }
 
       addToApps($scope.apps, app);
