@@ -78,6 +78,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.numRecent = $scope.defaultPosts;
     $scope.comment = {};
     $scope.friendType = '';
+    $scope.apps = [];
 
 
     $scope.initRDF();
@@ -697,6 +698,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     $scope.renderWebid();
     $scope.renderProfile();
     $scope.renderTimeline();
+    $scope.renderConfigurations();
   };
 
   /**
@@ -784,7 +786,47 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
         $scope.backgroundImage = defaultBackgroundImage;
       }
 
+
+
     });
+  };
+
+
+  /**
+   * Render configurations
+   */
+  $scope.renderConfigurations = function() {
+    for (var i=0; i<$scope.configurations.length; i++) {
+
+      var app = { 'id' : $scope.configurations[i] };
+
+      var name = g.statementsMatching($rdf.sym($scope.configurations[i]), SOLID('name'), undefined);
+      if (name.length) {
+        app.name = name[0].object.value;
+      }
+
+      var icon = g.statementsMatching($rdf.sym($scope.configurations[i]), SOLID('icon'), undefined);
+      if (icon.length) {
+        app.icon = icon[0].object.value;
+      }
+
+      var dataSource = g.statementsMatching($rdf.sym($scope.configurations[i]), SOLID('dataSource'), undefined);
+      if (dataSource.length) {
+        app.dataSource = dataSource[0].object.value;
+      }
+
+      var description = g.statementsMatching($rdf.sym($scope.configurations[i]), SOLID('description'), undefined);
+      if (description.length) {
+        app.description = description[0].object.value;
+      }
+
+      var homepage = g.statementsMatching($rdf.sym($scope.configurations[i]), SOLID('homepage'), undefined);
+      if (homepage.length) {
+        app.homepage = homepage[0].object.value;
+      }
+
+      addToApps($scope.apps, app);
+    }
   };
 
   /**
