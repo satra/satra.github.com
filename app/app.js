@@ -337,7 +337,7 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
     }
 
 
-    workspaces = g.statementsMatching($scope.user, PIM('workspace'), undefined);
+    workspaces = g.statementsMatching($rdf.sym($scope.user), PIM('workspace'), undefined);
     for (i=0; i<workspaces.length; i++) {
       addToArray($scope.workspaces, workspaces[i].object.uri);
       addToArray($scope.workspaces, workspaces[i].object.uri + '*');
