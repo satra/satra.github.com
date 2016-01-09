@@ -850,7 +850,10 @@ App.controller('Main', function($scope, $filter, $http, $location, $timeout, ngA
       var img      = g.any(subject, FOAF('img'));
 
       var stamp = Math.round(new Date(created).getTime() / 1000);
-      $scope.data[stamp] = 1;
+
+      if (creator && creator.uri && $scope.profile === creator.uri) {
+        $scope.data[stamp] = 1;
+      }
 
       if ($scope.postid && $scope.postid !== subject.uri) continue;
 
