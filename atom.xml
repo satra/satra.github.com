@@ -4,7 +4,7 @@
   <title><![CDATA[satrajit.ghosh]]></title>
   <link href="http://satra.cogitatum.org/atom.xml" rel="self"/>
   <link href="http://satra.cogitatum.org/"/>
-  <updated>2015-08-25T23:05:56-04:00</updated>
+  <updated>2016-01-18T18:00:38-08:00</updated>
   <id>http://satra.cogitatum.org/</id>
   <author>
     <name><![CDATA[Satrajit Ghosh]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Knowledge through provenance]]></title>
     <link href="http://satra.cogitatum.org/blog/2013/09/27/knowledge-through-provenance/"/>
-    <updated>2013-09-27T14:14:00-04:00</updated>
+    <updated>2013-09-27T14:14:00-07:00</updated>
     <id>http://satra.cogitatum.org/blog/2013/09/27/knowledge-through-provenance</id>
     <content type="html"><![CDATA[<p>At the recent Neuroinformatics congress in Stockholm, I gave a presentation on
 representing certain types of knowledge by capturing structured provenance info
@@ -42,7 +42,7 @@ in metadata stores. Video and slides are now available.</p>
   <entry>
     <title type="html"><![CDATA[Response to NIH NOT-HG-13-014]]></title>
     <link href="http://satra.cogitatum.org/blog/2013/09/27/response-to-nih-not-hg-13-014/"/>
-    <updated>2013-09-27T14:03:00-04:00</updated>
+    <updated>2013-09-27T14:03:00-07:00</updated>
     <id>http://satra.cogitatum.org/blog/2013/09/27/response-to-nih-not-hg-13-014</id>
     <content type="html"><![CDATA[<p>This is a response to the NIH request for information on data provenance and
 data wrangling. <a href="http://grants.nih.gov/grants/guide/notice-files/NOT-HG-13-014.html">NOT-HG-13-014</a>.</p>
@@ -278,7 +278,7 @@ provenance and data wrangling questions.</p>
   <entry>
     <title type="html"><![CDATA[Provenance and metadata]]></title>
     <link href="http://satra.cogitatum.org/blog/2013/02/20/provenance-and-metadata/"/>
-    <updated>2013-02-20T10:54:00-05:00</updated>
+    <updated>2013-02-20T10:54:00-08:00</updated>
     <id>http://satra.cogitatum.org/blog/2013/02/20/provenance-and-metadata</id>
     <content type="html"><![CDATA[<p>The standards for datasharing taskforce of the INCF was tasked with establishing
 data models and standards for sharing brain imaging and associated phenotypic,
@@ -379,7 +379,7 @@ community is to pitch in towards the curation, app building and testing efforts.
   <entry>
     <title type="html"><![CDATA[Help develop a winning strategy]]></title>
     <link href="http://satra.cogitatum.org/blog/2013/01/22/collaborativeproblemsolving/"/>
-    <updated>2013-01-22T14:16:00-05:00</updated>
+    <updated>2013-01-22T14:16:00-08:00</updated>
     <id>http://satra.cogitatum.org/blog/2013/01/22/collaborativeproblemsolving</id>
     <content type="html"><![CDATA[<p>A friend, Pablo Suarez, is running a competition to determine the best strategy
 for winning in game called <a href="http://www.climatecentre.org/site/paying-for-predictions">&#8220;Pay for predictions&#8221;</a>. Our goal is to openly
