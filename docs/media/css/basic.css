@@ -1,0 +1,81 @@
+body {
+  margin:2em auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+body > header > address {
+text-align:center;
+}
+address object,
+address image {
+vertical-align:middle;
+}
+
+h1 {
+  font-family: Serif; font-weight: normal; font-size: 4em;
+  text-align: center;
+  margin:0.75em 0;
+}
+h2, h3, h4 { font-family: Arial, Helvetica, sans-serif; }
+h2 { font-size: 1.4em; line-height:1; }
+h3 { font-size: 1.2em; line-height:0.8; }
+h4 { font-size: 1.2em; font-style: italic; }
+
+a { color: #000; }
+a:hover { color: #555; }
+
+nav ul,
+aside ul { list-style: none; padding: 0; }
+
+footer { margin-top:2em; }
+
+#do-new,
+#do-examples,
+#do-examples li {
+  display: inline-block;
+}
+#do-new {
+  border: 1px solid #000;
+  border-radius: 8px;
+  margin-right: 1.8em;
+}
+#do-new:hover {
+  border-color:#555;
+}
+#do-new a {
+  display: block;
+  padding: 0.6em 3.75em 0.6em 0.6em;
+  font-weight: bold;
+  font-size: 1.8em;
+  text-decoration: none;
+}
+#do-new a:before {
+  content: "+ ";
+}
+
+#do-examples {
+  position: relative;
+  top: 0.5em;
+  left: 0;
+}
+#do-examples li:after {
+  content:", ";
+}
+#do-examples li:last-child:after {
+  content:"";
+}
+#do-examples span {
+  display: block;
+  padding: 0;
+  margin: 0 0 0.6em 0;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px){
+  body {
+    width: 60%;
+    max-width: 1200px;
+  }
+}
