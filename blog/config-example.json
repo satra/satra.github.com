@@ -1,0 +1,11 @@
+{
+    "owners": [""],
+    "title": "Plume",
+    "tagline": "Light as a feather",
+    "picture": "img/logo.svg",
+    "fadeText": true,
+    "showSources": true,
+    "cacheUnit": "days",
+    "defaultPath": "posts",
+    "postsURL": ""
+}
