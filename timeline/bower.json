@@ -1,0 +1,33 @@
+{
+  "name": "Contacts",
+  "version": "0.1.0",
+  "homepage": "https://github.com/linkeddata/contacts",
+  "authors": [
+    "Melvin Carvalho <melvincarvalho@gmail.com>"
+  ],
+  "description": "Clipboard",
+  "license": "MIT",
+  "keywords": "webid, linked data, clipboard, SoLiD",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lumx": "~0.3.39",
+    "angular-ui": "~0.4.0",
+    "angular-audio": "~1.7.0",
+    "angular-moment": "~0.10.3",
+    "moment": "~2.10.6",
+    "notie": "*",
+    "cal-heatmap": "~3.5.3",
+    "dexie": "~1.2.0",
+    "swiper": "~3.2.7",
+    "vis": "~4.10.0",
+    "fullpage": "~2.7.6"
+  }
+}
