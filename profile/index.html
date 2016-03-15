@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="App" ng-cloak ng-controller="MainCtrl" lang="en">
+<head>
+  <title>Profile Editor</title>
+  <!-- Prevent template elements from rendering before CSS finishes loading -->
+  <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+      display: none !important;
+    }
+  </style>
+  <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css" media="screen,projection"/>
+  <link rel="stylesheet" href="bower_components/ngImgCrop/compile/minified/ng-img-crop.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <!-- favicon -->
+  <link rel="shortcut icon" type="img/png" href="images/favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+<body flow-prevent-drop class="blue-grey darken-2">
+  <div id="body">
+    <div class="navbar-fixed" ng-show="showMenu">
+      <div class="progress blue" ng-show="changeInProgress">
+        <div class="indeterminate"></div>
+      </div>
+      <nav>
+        <div class="blue-grey darken-4">
+          <div data-activates="left-menu" id="toggle-sidenav" class="left"><span aria-hidden="true" class="mdi-navigation-menu"></span></div>
+          <div class="brand-logo valign-wrapper">
+            <div ng-if="pageTitle" class="valign brand-text">
+              <h1>{{pageTitle}}
+              <small ng-show="profile.toLoad > 0">...{{profile.toLoad}} loading</small>
+              <small ng-show="pageTitleExtra">{{pageTitleExtra}}</small>
+              </h1>
+            </div>
+          </div>
+          <div ng-if="toLoc" class="action valign right">
+              <div class="valign-wrapper pointer pad-right-20" ng-if="toLoc == '/profile/view'" ng-click="switchTo()"><span aria-hidden="true" class="mdi-action-done valign right-10"></span>View</div>
+              <div class="valign-wrapper pointer pad-right-20" ng-if="authenticated == toWebID && toLoc == '/profile/edit'" ng-click="switchTo()"><span aria-hidden="true" class="mdi-editor-mode-edit right-10"></span>Edit</div>
+          </div>
+
+          <ul class="side-nav blue-grey darken-3" id="left-menu">
+            <li class="blue accent-2" ng-show="authenticated"><profile-card></profile-card></li>
+            <li>
+              <a href="#/profile/edit" class="white-text valign-wrapper align-left"><span aria-hidden="true" class="mdi-action-account-box prefix valign inline-block right-10"></span><span class="valign inline-block">Edit profile</span></a></li>
+            <li>
+              <a href="#/friends/view" class="valign-wrapper align-left white-text"><span aria-hidden="true" class="mdi-action-account-child prefix valign right-10"></span><span class="valign">People you know</span></a></li>
+            <li ng-show="authenticated">
+              <a href="#/share" class="valign-wrapper align-left white-text"><span aria-hidden="true" class="mdi-social-share prefix valign right-10"></span><span class="valign">Share my WebID</span></a></li>
+            <li ng-show="authenticated">
+              <a href="#" ng-click="logout()" class="valign-wrapper align-left white-text"><span aria-hidden="true" class="mdi-action-exit-to-app prefix valign right-10"></span><span class="valign">Logout</span></a></li>
+            <li ng-hide="authenticated">
+              <a href="#/login" class="valign-wrapper align-left white-text"><span aria-hidden="true" class="mdi-action-exit-to-app prefix valign right-10"></span><span class="valign">Login</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div ui-view="main" class="main"></div>
+    </div>
+  </div>
+
+	<footer class="footer">
+    <div class="container">
+      <div class="footer-inner center">
+        <p>
+          &copy; 2015
+          | <a href="https://github.com/linkeddata/profile-editor/issues" target="_blank" class="white-text"><span aria-hidden="true" class="mdi-action-info-outline"></span> Issue tracker</a>
+          | <a href="https://github.com/linkeddata/profile-editor" target="_blank" class="white-text">GitHub</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <div class="overlay" ng-show="overlay"></div>
+<!-- Bower deps -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+<script src="bower_components/ng-file-upload/angular-file-upload-shim.js"></script>
+<script src="bower_components/angularjs/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
+<script src="bower_components/qrcode-generator/js/qrcode.js"></script>
+<script src="bower_components/ngImgCrop/compile/minified/ng-img-crop.js"></script>
+<!-- Vendor specific deps -->
+<script src="app/vendor/rdflib.js/rdflib.js"></script>
+<script src="app/vendor/common.js"></script>
+<script src="app/vendor/qrcode.js"></script>
+<!-- App -->
+<script src="app/app.js"></script>
+<script src="app/profile/profile.js"></script>
+<script src="app/about/about.js"></script>
+<script src="app/login/login.js"></script>
+<script src="app/share/share.js"></script>
+<script src="app/friends/friends.js"></script>
+<script src="app/certificates/certificates.js"></script>
+
+<script>
+  $( document ).ready(function() {
+    $('.modal-trigger').leanModal({dismissible: true});
+    $('#toggle-sidenav').sideNav({closeOnClick: true});
+    NotifierjsConfig.defaultTimeOut = 2000;
+    });
+</script>
+</body>
+
+</html>

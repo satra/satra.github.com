@@ -1,0 +1,28 @@
+{
+  "name": "WebID-profile-editor",
+  "version": "0.0.3",
+  "homepage": "https://github.com/linkeddata/profile-editor",
+  "authors": [
+    "Andrei Sambra <andrei@w3.org>"
+  ],
+  "description": "Profile editor for WebID accounts",
+  "license": "MIT",
+  "keywords": "webid, polymer, angularjs, web-components",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.13",
+    "angularjs": "~1.4.0",
+    "materialize": "0.95.2",
+    "ng-file-upload": "~3.0.7",
+    "ngImgCrop": "~0.3.2",
+    "qrcode-generator": "git://github.com/monospaced/bower-qrcode-generator.git#0.0.1"
+  }
+}
