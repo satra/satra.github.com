@@ -1,6 +1,8 @@
 Personal Website
 ----------------
 
+[Click to go to Website](http://satra.cogitatum.org/www)
+
 Uses the following [Solid](https://github.com/solid/solid) components.
 
 ```
