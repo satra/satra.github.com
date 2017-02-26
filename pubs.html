@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="description" content="Website of Satrajit Ghosh">
+    <meta id='page-params'
+          theme='journal'
+          title=''
+          menu='Home,index.html,Publications,pubs.html'
+          active='2'>
+    <link rel='stylesheet' href='http://publicationslist.org/embed.css'>
+</head>
+
+<body>
+
+<div id='publistdiv' class='container'>Loading publications...</div>
+<script src='http://publicationslist.org/data/satra/publist.js'></script>
+
+<div id='selectops' style='display:none; clear:right; float:right; padding:1em;  border: 1px solid orange; font-size:8pt;'>
+
+        <div style='padding:1em; margin-top:2em'>
+        Export selected items to:
+   <a href='javascript:exportSelected("bibtex")'>bibtex</a> |
+        <a href='javascript:exportSelected("endnote")'>endnote</a> |
+        <a href='javascript:exportSelected("ris")'>Procite (RIS)</a> |
+        <a href='javascript:exportSelected("xml")'>Mods XML</a>
+        </div>
+</div>
+
+<textarea theme='journal' style="display:none;">
+<div id='tagslist' style='display:none;'></div>
+<div id='authorslist' style='display:none;'></div>
+</textarea>
+
+<script>
+var details = false;
+var details = {"firstname":"Satrajit","middlename":"S","lastname":"Ghosh",
+"email":"satra@mit.edu","website":"http:\/\/www.mit.edu\/~satra","address":"","biosketch":""}
+;
+var readonly = '1';
+var rootpath = 'http://publicationslist.org/';
+var ownpage = '1';
+var userid = 'satra';
+var mode = 'publish';
+var nothumbs = 0;
+var publistBrand = "PublicationsList.org";
+var localInstall = 0;
+var citationFormat = "default";
+var previewMode = '';
+<!--
+   function setStyle(str) {
+     document.getElementById("styleid").href = str;
+   }
+-->
+</script>
+
+<script src='http://publicationslist.org/schema.js?'></script>
+
+<script>
+var uptodate = '1';
+var recent = false;
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src='http://publicationslist.org/data/satra/BROWSER.js?1384435485'></script>
+<script src='http://publicationslist.org/data/satra/DOM.js?1384435485'></script>
+<script src='http://publicationslist.org/data/satra/pubutil.js?1434354606'></script>
+<script src='http://publicationslist.org/data/satra/pubinit.js?1384435485'></script>
+
+<script src="config/strapdown.min.js"></script>
+</body>
+</html>
