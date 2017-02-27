@@ -9,13 +9,26 @@
           title=''
           menu='Home,index.html,Publications,pubs.html'
           active='1'>
+    <style>
+    .floatcontainer {
+        display: flex;
+        overflow: auto;
+    }
+    .floatcontainer > div {
+        flex: 1;
+    }
+    </style>
 </head>
 
 <body>
 
-    <textarea theme='journal' style="display:none;">
+<textarea theme='journal' style="display:none;">
 
-<img src="assets/satra.png" width="250px">
+<div class="floatcontainer">
+<div class="col-4">
+<img src="assets/satra.png" width="170px">
+</div>
+<div style="position: relative; overflow: auto">
 
 #### Contact
 
@@ -24,6 +37,9 @@
 > Office:  46-4033F, 43 Vassar St, Cambridge, MA 02139
 
 > Tel:  +1.617.324.3544 | [Map](http://whereis.mit.edu/?go=46)
+</div>
+</div>
+<br />
 
 #### Who am I
 
